@@ -1,0 +1,1840 @@
+
+     [INICIO] Iniciando proceso RPA-ENDESA para TODOS LOS CUPS. 
+
+======================================== 
+
+	[2026-02-06 14:25:24] [LOGIN] Intento 1/5...
+		[2026-02-06 14:25:39] [LOGIN] Sesión establecida correctamente.
+		[2026-02-06 14:25:39] [COOCKIES]
+		[2026-02-06 14:25:39] Cookies aceptadas.
+
+ ========================================
+		[2026-02-06 14:25:40] PROCESANDO BÚSQUEDA GLOBAL: Todos los CUPS disponibles
+================================================================================
+		[2026-02-06 14:25:40] [BUSQUEDA]
+		[2026-02-06 14:25:44]     -> [INFO] Sin CUP específico. Buscando todos los CUPS disponibles.
+		[2026-02-06 14:25:46]     [OK] Filtros Aplicados con éxito , desde 01/10/2025 hasta 31/10/2025.
+		[2026-02-06 14:25:46] [EXTRACCIÓN]
+		[2026-02-06 14:25:52]     [INFO] Tabla detectada con 49 páginas.
+		 
+
+[PAGE 1 / 49] 
+		[2026-02-06 14:26:01]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 1] ========================================
+		[2026-02-06 14:26:01]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050640189
+		[2026-02-06 14:26:03]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0031102570563001SM0F_P25CON050640189_ENDESA.pdf
+		[2026-02-06 14:26:04]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0031102570563001SM0F_P25CON050640189_ENDESA.xml
+		[2026-02-06 14:26:04] [XML PROCESSING]
+		[2026-02-06 14:26:04]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050640189 (ES0031102570563001SM0F)
+		 
+	[ROW 2] ========================================
+		[2026-02-06 14:26:04]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642972
+		[2026-02-06 14:26:06]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0034111300275021NX0F_P25CON050642972_ENDESA.pdf
+		[2026-02-06 14:26:07]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202507_ES0034111300275021NX0F_P25CON050642972_ENDESA.xml
+		[2026-02-06 14:26:07] [XML PROCESSING]
+		[2026-02-06 14:26:07]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642972 (ES0034111300275021NX0F)
+		 
+	[ROW 3] ========================================
+		[2026-02-06 14:26:07]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642971
+		[2026-02-06 14:26:09]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202506_ES0034111300275021NX0F_P25CON050642971_ENDESA.pdf
+		[2026-02-06 14:26:11]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202506_ES0034111300275021NX0F_P25CON050642971_ENDESA.xml
+		[2026-02-06 14:26:11] [XML PROCESSING]
+		[2026-02-06 14:26:11]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642971 (ES0034111300275021NX0F)
+		 
+	[ROW 4] ========================================
+		[2026-02-06 14:26:11]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642975
+		[2026-02-06 14:26:14]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0034111300275021NX0F_P25CON050642975_ENDESA.pdf
+		[2026-02-06 14:26:16]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0034111300275021NX0F_P25CON050642975_ENDESA.xml
+		[2026-02-06 14:26:16] [XML PROCESSING]
+		[2026-02-06 14:26:16]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642975 (ES0034111300275021NX0F)
+		 
+	[ROW 5] ========================================
+		[2026-02-06 14:26:16]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642974
+		[2026-02-06 14:26:17]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0034111300275021NX0F_P25CON050642974_ENDESA.pdf
+		[2026-02-06 14:26:18]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0034111300275021NX0F_P25CON050642974_ENDESA.xml
+		[2026-02-06 14:26:18] [XML PROCESSING]
+		[2026-02-06 14:26:18]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642974 (ES0034111300275021NX0F)
+		 
+
+[PAGE 2 / 49] 
+		[2026-02-06 14:26:30]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 6] ========================================
+		[2026-02-06 14:26:30]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642973
+		[2026-02-06 14:26:32]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0034111300275021NX0F_P25CON050642973_ENDESA.pdf
+		[2026-02-06 14:26:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202507_ES0034111300275021NX0F_P25CON050642973_ENDESA.xml
+		[2026-02-06 14:26:33] [XML PROCESSING]
+		[2026-02-06 14:26:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642973 (ES0034111300275021NX0F)
+		 
+	[ROW 7] ========================================
+		[2026-02-06 14:26:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642969
+		[2026-02-06 14:26:35]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0031105622227001SQ0F_P25CON050642969_ENDESA.pdf
+		[2026-02-06 14:26:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0031105622227001SQ0F_P25CON050642969_ENDESA.xml
+		[2026-02-06 14:26:36] [XML PROCESSING]
+		[2026-02-06 14:26:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642969 (ES0031105622227001SQ0F)
+		 
+	[ROW 8] ========================================
+		[2026-02-06 14:26:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050642970
+		[2026-02-06 14:26:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105622227001SQ0F_P25CON050642970_ENDESA.pdf
+		[2026-02-06 14:26:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105622227001SQ0F_P25CON050642970_ENDESA.xml
+		[2026-02-06 14:26:39] [XML PROCESSING]
+		[2026-02-06 14:26:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050642970 (ES0031105622227001SQ0F)
+		 
+	[ROW 9] ========================================
+		[2026-02-06 14:26:40]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050640190
+		[2026-02-06 14:26:42]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102570563001SM0F_P25CON050640190_ENDESA.pdf
+		[2026-02-06 14:26:43]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102570563001SM0F_P25CON050640190_ENDESA.xml
+		[2026-02-06 14:26:43] [XML PROCESSING]
+		[2026-02-06 14:26:43]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050640190 (ES0031102570563001SM0F)
+		 
+	[ROW 10] ========================================
+		[2026-02-06 14:26:43]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050507702
+		[2026-02-06 14:26:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0031105622227001SQ0F_P25CON050507702_ENDESA.pdf
+		[2026-02-06 14:26:46]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202507_ES0031105622227001SQ0F_P25CON050507702_ENDESA.xml
+		[2026-02-06 14:26:46] [XML PROCESSING]
+		[2026-02-06 14:26:46]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050507702 (ES0031105622227001SQ0F)
+		 
+
+[PAGE 3 / 49] 
+		[2026-02-06 14:26:57]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 11] ========================================
+		[2026-02-06 14:26:57]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050525351
+		[2026-02-06 14:27:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0031102570563001SM0F_P25CON050525351_ENDESA.pdf
+		[2026-02-06 14:27:01]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202507_ES0031102570563001SM0F_P25CON050525351_ENDESA.xml
+		[2026-02-06 14:27:01] [XML PROCESSING]
+		[2026-02-06 14:27:01]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050525351 (ES0031102570563001SM0F)
+		 
+	[ROW 12] ========================================
+		[2026-02-06 14:27:01]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON050424846
+		[2026-02-06 14:27:03]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0031102250281019SS0F_P25CON050424846_ENDESA.pdf
+		[2026-02-06 14:27:04]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0031102250281019SS0F_P25CON050424846_ENDESA.xml
+		[2026-02-06 14:27:04] [XML PROCESSING]
+		[2026-02-06 14:27:04]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON050424846 (ES0031102250281019SS0F)
+		 
+	[ROW 13] ========================================
+		[2026-02-06 14:27:04]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049813963
+		[2026-02-06 14:27:06]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104501187034BJ0F_P25CON049813963_ENDESA.pdf
+		[2026-02-06 14:27:07]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104501187034BJ0F_P25CON049813963_ENDESA.xml
+		[2026-02-06 14:27:07] [XML PROCESSING]
+		[2026-02-06 14:27:07]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049813963 (ES0031104501187034BJ0F)
+		 
+	[ROW 14] ========================================
+		[2026-02-06 14:27:07]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245922
+		[2026-02-06 14:27:10]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0031104029752001EM0F_P25CON049245922_ENDESA.pdf
+		[2026-02-06 14:27:11]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0031104029752001EM0F_P25CON049245922_ENDESA.xml
+		[2026-02-06 14:27:11] [XML PROCESSING]
+		[2026-02-06 14:27:11]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245922 (ES0031104029752001EM0F)
+		 
+	[ROW 15] ========================================
+		[2026-02-06 14:27:11]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246128
+		[2026-02-06 14:27:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104215206001ZZ0F_P25CON049246128_ENDESA.pdf
+		[2026-02-06 14:27:13]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104215206001ZZ0F_P25CON049246128_ENDESA.xml
+		[2026-02-06 14:27:13] [XML PROCESSING]
+		[2026-02-06 14:27:13]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246128 (ES0031104215206001ZZ0F)
+		 
+
+[PAGE 4 / 49] 
+		[2026-02-06 14:27:24]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 16] ========================================
+		[2026-02-06 14:27:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245893
+		[2026-02-06 14:27:26]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104177151015RT0F_P25CON049245893_ENDESA.pdf
+		[2026-02-06 14:27:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104177151015RT0F_P25CON049245893_ENDESA.xml
+		[2026-02-06 14:27:28] [XML PROCESSING]
+		[2026-02-06 14:27:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245893 (ES0031104177151015RT0F)
+		 
+	[ROW 17] ========================================
+		[2026-02-06 14:27:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246116
+		[2026-02-06 14:27:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104217226001AQ0F_P25CON049246116_ENDESA.pdf
+		[2026-02-06 14:27:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104217226001AQ0F_P25CON049246116_ENDESA.xml
+		[2026-02-06 14:27:31] [XML PROCESSING]
+		[2026-02-06 14:27:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246116 (ES0031104217226001AQ0F)
+		 
+	[ROW 18] ========================================
+		[2026-02-06 14:27:32]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245870
+		[2026-02-06 14:27:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102442611002DL0F_P25CON049245870_ENDESA.pdf
+		[2026-02-06 14:27:34]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102442611002DL0F_P25CON049245870_ENDESA.xml
+		[2026-02-06 14:27:34] [XML PROCESSING]
+		[2026-02-06 14:27:34]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245870 (ES0031102442611002DL0F)
+		 
+	[ROW 19] ========================================
+		[2026-02-06 14:27:35]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049066867
+		[2026-02-06 14:27:36]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102802780011GE0F_P25CON049066867_ENDESA.pdf
+		[2026-02-06 14:27:46]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:27:46]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON049066867 (ES0031102802780011GE0F)
+		[2026-02-06 14:27:46] [PDF OCR]
+		[2026-02-06 14:28:16]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON049066867 (ES0031102802780011GE0F)
+		 
+	[ROW 20] ========================================
+		[2026-02-06 14:28:16]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246012
+		[2026-02-06 14:28:20]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105071750001XW0F_P25CON049246012_ENDESA.pdf
+		[2026-02-06 14:28:22]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105071750001XW0F_P25CON049246012_ENDESA.xml
+		[2026-02-06 14:28:22] [XML PROCESSING]
+		[2026-02-06 14:28:22]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246012 (ES0031105071750001XW0F)
+		 
+
+[PAGE 5 / 49] 
+		[2026-02-06 14:28:30]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 21] ========================================
+		[2026-02-06 14:28:30]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246047
+		[2026-02-06 14:28:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104215113001LA0F_P25CON049246047_ENDESA.pdf
+		[2026-02-06 14:28:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104215113001LA0F_P25CON049246047_ENDESA.xml
+		[2026-02-06 14:28:36] [XML PROCESSING]
+		[2026-02-06 14:28:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246047 (ES0031104215113001LA0F)
+		 
+	[ROW 22] ========================================
+		[2026-02-06 14:28:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246099
+		[2026-02-06 14:28:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104392812001VZ0F_P25CON049246099_ENDESA.pdf
+		[2026-02-06 14:28:41]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104392812001VZ0F_P25CON049246099_ENDESA.xml
+		[2026-02-06 14:28:41] [XML PROCESSING]
+		[2026-02-06 14:28:41]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246099 (ES0031104392812001VZ0F)
+		 
+	[ROW 23] ========================================
+		[2026-02-06 14:28:41]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246113
+		[2026-02-06 14:28:43]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104392789001YZ0F_P25CON049246113_ENDESA.pdf
+		[2026-02-06 14:28:46]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104392789001YZ0F_P25CON049246113_ENDESA.xml
+		[2026-02-06 14:28:46] [XML PROCESSING]
+		[2026-02-06 14:28:46]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246113 (ES0031104392789001YZ0F)
+		 
+	[ROW 24] ========================================
+		[2026-02-06 14:28:46]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245937
+		[2026-02-06 14:28:48]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104526939001EF0F_P25CON049245937_ENDESA.pdf
+		[2026-02-06 14:28:51]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104526939001EF0F_P25CON049245937_ENDESA.xml
+		[2026-02-06 14:28:51] [XML PROCESSING]
+		[2026-02-06 14:28:51]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245937 (ES0031104526939001EF0F)
+		 
+	[ROW 25] ========================================
+		[2026-02-06 14:28:51]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245835
+		[2026-02-06 14:28:53]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104897049006HS0F_P25CON049245835_ENDESA.pdf
+		[2026-02-06 14:28:55]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104897049006HS0F_P25CON049245835_ENDESA.xml
+		[2026-02-06 14:28:55] [XML PROCESSING]
+		[2026-02-06 14:28:55]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245835 (ES0031104897049006HS0F)
+		 
+
+[PAGE 6 / 49] 
+		[2026-02-06 14:29:06]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 26] ========================================
+		[2026-02-06 14:29:06]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245815
+		[2026-02-06 14:29:09]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104518738001AW0F_P25CON049245815_ENDESA.pdf
+		[2026-02-06 14:29:11]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104518738001AW0F_P25CON049245815_ENDESA.xml
+		[2026-02-06 14:29:11] [XML PROCESSING]
+		[2026-02-06 14:29:11]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245815 (ES0031104518738001AW0F)
+		 
+	[ROW 27] ========================================
+		[2026-02-06 14:29:11]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245861
+		[2026-02-06 14:29:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104077072001VN0F_P25CON049245861_ENDESA.pdf
+		[2026-02-06 14:29:15]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104077072001VN0F_P25CON049245861_ENDESA.xml
+		[2026-02-06 14:29:15] [XML PROCESSING]
+		[2026-02-06 14:29:15]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245861 (ES0031104077072001VN0F)
+		 
+	[ROW 28] ========================================
+		[2026-02-06 14:29:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245930
+		[2026-02-06 14:29:18]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102249931001TB0F_P25CON049245930_ENDESA.pdf
+		[2026-02-06 14:29:21]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102249931001TB0F_P25CON049245930_ENDESA.xml
+		[2026-02-06 14:29:21] [XML PROCESSING]
+		[2026-02-06 14:29:21]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245930 (ES0031102249931001TB0F)
+		 
+	[ROW 29] ========================================
+		[2026-02-06 14:29:21]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245849
+		[2026-02-06 14:29:23]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105427820001ZX0F_P25CON049245849_ENDESA.pdf
+		[2026-02-06 14:29:25]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105427820001ZX0F_P25CON049245849_ENDESA.xml
+		[2026-02-06 14:29:25] [XML PROCESSING]
+		[2026-02-06 14:29:25]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245849 (ES0031105427820001ZX0F)
+		 
+	[ROW 30] ========================================
+		[2026-02-06 14:29:25]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245948
+		[2026-02-06 14:29:28]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105177378001YL0F_P25CON049245948_ENDESA.pdf
+		[2026-02-06 14:29:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105177378001YL0F_P25CON049245948_ENDESA.xml
+		[2026-02-06 14:29:31] [XML PROCESSING]
+		[2026-02-06 14:29:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245948 (ES0031105177378001YL0F)
+		 
+
+[PAGE 7 / 49] 
+		[2026-02-06 14:29:42]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 31] ========================================
+		[2026-02-06 14:29:42]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245834
+		[2026-02-06 14:29:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104001630001YJ0F_P25CON049245834_ENDESA.pdf
+		[2026-02-06 14:29:47]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104001630001YJ0F_P25CON049245834_ENDESA.xml
+		[2026-02-06 14:29:47] [XML PROCESSING]
+		[2026-02-06 14:29:47]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245834 (ES0031104001630001YJ0F)
+		 
+	[ROW 32] ========================================
+		[2026-02-06 14:29:47]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245955
+		[2026-02-06 14:29:50]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105453112001JZ0F_P25CON049245955_ENDESA.pdf
+		[2026-02-06 14:29:51]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105453112001JZ0F_P25CON049245955_ENDESA.xml
+		[2026-02-06 14:29:51] [XML PROCESSING]
+		[2026-02-06 14:29:51]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245955 (ES0031105453112001JZ0F)
+		 
+	[ROW 33] ========================================
+		[2026-02-06 14:29:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245886
+		[2026-02-06 14:29:53]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104014607001XE0F_P25CON049245886_ENDESA.pdf
+		[2026-02-06 14:29:55]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104014607001XE0F_P25CON049245886_ENDESA.xml
+		[2026-02-06 14:29:55] [XML PROCESSING]
+		[2026-02-06 14:29:55]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245886 (ES0031104014607001XE0F)
+		 
+	[ROW 34] ========================================
+		[2026-02-06 14:29:55]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049246039
+		[2026-02-06 14:29:58]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104250774001KD0F_P25CON049246039_ENDESA.pdf
+		[2026-02-06 14:29:59]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104250774001KD0F_P25CON049246039_ENDESA.xml
+		[2026-02-06 14:29:59] [XML PROCESSING]
+		[2026-02-06 14:29:59]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049246039 (ES0031104250774001KD0F)
+		 
+	[ROW 35] ========================================
+		[2026-02-06 14:29:59]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245923
+		[2026-02-06 14:30:02]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104029752001EM0F_P25CON049245923_ENDESA.pdf
+		[2026-02-06 14:30:05]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104029752001EM0F_P25CON049245923_ENDESA.xml
+		[2026-02-06 14:30:05] [XML PROCESSING]
+		[2026-02-06 14:30:05]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245923 (ES0031104029752001EM0F)
+		 
+
+[PAGE 8 / 49] 
+		[2026-02-06 14:30:15]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 36] ========================================
+		[2026-02-06 14:30:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON049245880
+		[2026-02-06 14:30:17]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101479328001JM0F_P25CON049245880_ENDESA.pdf
+		[2026-02-06 14:30:21]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031101479328001JM0F_P25CON049245880_ENDESA.xml
+		[2026-02-06 14:30:21] [XML PROCESSING]
+		[2026-02-06 14:30:21]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON049245880 (ES0031101479328001JM0F)
+		 
+	[ROW 37] ========================================
+		[2026-02-06 14:30:21]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048706001
+		[2026-02-06 14:30:23]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104435466001AP0F_P25CON048706001_ENDESA.pdf
+		[2026-02-06 14:30:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104435466001AP0F_P25CON048706001_ENDESA.xml
+		[2026-02-06 14:30:28] [XML PROCESSING]
+		[2026-02-06 14:30:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048706001 (ES0031104435466001AP0F)
+		 
+	[ROW 38] ========================================
+		[2026-02-06 14:30:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705968
+		[2026-02-06 14:30:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102569994001RW0F_P25CON048705968_ENDESA.pdf
+		[2026-02-06 14:30:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102569994001RW0F_P25CON048705968_ENDESA.xml
+		[2026-02-06 14:30:31] [XML PROCESSING]
+		[2026-02-06 14:30:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705968 (ES0031102569994001RW0F)
+		 
+	[ROW 39] ========================================
+		[2026-02-06 14:30:31]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705923
+		[2026-02-06 14:30:34]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104005751001XB0F_P25CON048705923_ENDESA.pdf
+		[2026-02-06 14:30:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104005751001XB0F_P25CON048705923_ENDESA.xml
+		[2026-02-06 14:30:36] [XML PROCESSING]
+		[2026-02-06 14:30:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705923 (ES0031104005751001XB0F)
+		 
+	[ROW 40] ========================================
+		[2026-02-06 14:30:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705931
+		[2026-02-06 14:30:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104468113004QY0F_P25CON048705931_ENDESA.pdf
+		[2026-02-06 14:30:41]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104468113004QY0F_P25CON048705931_ENDESA.xml
+		[2026-02-06 14:30:41] [XML PROCESSING]
+		[2026-02-06 14:30:41]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705931 (ES0031104468113004QY0F)
+		 
+
+[PAGE 9 / 49] 
+		[2026-02-06 14:30:52]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 41] ========================================
+		[2026-02-06 14:30:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705915
+		[2026-02-06 14:30:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104382312001EC0F_P25CON048705915_ENDESA.pdf
+		[2026-02-06 14:30:58]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104382312001EC0F_P25CON048705915_ENDESA.xml
+		[2026-02-06 14:30:58] [XML PROCESSING]
+		[2026-02-06 14:30:58]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705915 (ES0031104382312001EC0F)
+		 
+	[ROW 42] ========================================
+		[2026-02-06 14:30:59]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048706013
+		[2026-02-06 14:31:01]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104271727001ZD0F_P25CON048706013_ENDESA.pdf
+		[2026-02-06 14:31:03]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104271727001ZD0F_P25CON048706013_ENDESA.xml
+		[2026-02-06 14:31:03] [XML PROCESSING]
+		[2026-02-06 14:31:03]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048706013 (ES0031104271727001ZD0F)
+		 
+	[ROW 43] ========================================
+		[2026-02-06 14:31:03]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705864
+		[2026-02-06 14:31:05]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104131289001PD0F_P25CON048705864_ENDESA.pdf
+		[2026-02-06 14:31:07]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104131289001PD0F_P25CON048705864_ENDESA.xml
+		[2026-02-06 14:31:07] [XML PROCESSING]
+		[2026-02-06 14:31:07]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705864 (ES0031104131289001PD0F)
+		 
+	[ROW 44] ========================================
+		[2026-02-06 14:31:07]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705729
+		[2026-02-06 14:31:12]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102239914001YV0F_P25CON048705729_ENDESA.pdf
+		[2026-02-06 14:31:14]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102239914001YV0F_P25CON048705729_ENDESA.xml
+		[2026-02-06 14:31:14] [XML PROCESSING]
+		[2026-02-06 14:31:14]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705729 (ES0031102239914001YV0F)
+		 
+	[ROW 45] ========================================
+		[2026-02-06 14:31:14]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705723
+		[2026-02-06 14:31:16]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101502108001ET0F_P25CON048705723_ENDESA.pdf
+		[2026-02-06 14:31:18]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031101502108001ET0F_P25CON048705723_ENDESA.xml
+		[2026-02-06 14:31:18] [XML PROCESSING]
+		[2026-02-06 14:31:18]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705723 (ES0031101502108001ET0F)
+		 
+
+[PAGE 10 / 49] 
+		[2026-02-06 14:31:40]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 46] ========================================
+		[2026-02-06 14:31:40]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048706031
+		[2026-02-06 14:31:42]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104926913001BM0F_P25CON048706031_ENDESA.pdf
+		[2026-02-06 14:31:44]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104926913001BM0F_P25CON048706031_ENDESA.xml
+		[2026-02-06 14:31:44] [XML PROCESSING]
+		[2026-02-06 14:31:44]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048706031 (ES0031104926913001BM0F)
+		 
+	[ROW 47] ========================================
+		[2026-02-06 14:31:44]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705844
+		[2026-02-06 14:31:48]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101458803001KK0F_P25CON048705844_ENDESA.pdf
+		[2026-02-06 14:31:50]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031101458803001KK0F_P25CON048705844_ENDESA.xml
+		[2026-02-06 14:31:50] [XML PROCESSING]
+		[2026-02-06 14:31:50]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705844 (ES0031101458803001KK0F)
+		 
+	[ROW 48] ========================================
+		[2026-02-06 14:31:50]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705876
+		[2026-02-06 14:31:53]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104350384001JE0F_P25CON048705876_ENDESA.pdf
+		[2026-02-06 14:31:56]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104350384001JE0F_P25CON048705876_ENDESA.xml
+		[2026-02-06 14:31:56] [XML PROCESSING]
+		[2026-02-06 14:31:56]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705876 (ES0031104350384001JE0F)
+		 
+	[ROW 49] ========================================
+		[2026-02-06 14:31:56]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705879
+		[2026-02-06 14:31:59]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104001632001RN0F_P25CON048705879_ENDESA.pdf
+		[2026-02-06 14:32:01]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104001632001RN0F_P25CON048705879_ENDESA.xml
+		[2026-02-06 14:32:01] [XML PROCESSING]
+		[2026-02-06 14:32:01]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705879 (ES0031104001632001RN0F)
+		 
+	[ROW 50] ========================================
+		[2026-02-06 14:32:01]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705861
+		[2026-02-06 14:32:03]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102256873001CJ0F_P25CON048705861_ENDESA.pdf
+		[2026-02-06 14:32:05]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102256873001CJ0F_P25CON048705861_ENDESA.xml
+		[2026-02-06 14:32:05] [XML PROCESSING]
+		[2026-02-06 14:32:05]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705861 (ES0031102256873001CJ0F)
+		 
+
+[PAGE 11 / 49] 
+		[2026-02-06 14:32:16]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 51] ========================================
+		[2026-02-06 14:32:16]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705742
+		[2026-02-06 14:32:19]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104001694001YG0F_P25CON048705742_ENDESA.pdf
+		[2026-02-06 14:32:21]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104001694001YG0F_P25CON048705742_ENDESA.xml
+		[2026-02-06 14:32:21] [XML PROCESSING]
+		[2026-02-06 14:32:21]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705742 (ES0031104001694001YG0F)
+		 
+	[ROW 52] ========================================
+		[2026-02-06 14:32:21]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705842
+		[2026-02-06 14:32:22]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104562502001HQ0F_P25CON048705842_ENDESA.pdf
+		[2026-02-06 14:32:24]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104562502001HQ0F_P25CON048705842_ENDESA.xml
+		[2026-02-06 14:32:24] [XML PROCESSING]
+		[2026-02-06 14:32:24]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705842 (ES0031104562502001HQ0F)
+		 
+	[ROW 53] ========================================
+		[2026-02-06 14:32:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705816
+		[2026-02-06 14:32:26]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104837859003XY0F_P25CON048705816_ENDESA.pdf
+		[2026-02-06 14:32:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104837859003XY0F_P25CON048705816_ENDESA.xml
+		[2026-02-06 14:32:28] [XML PROCESSING]
+		[2026-02-06 14:32:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705816 (ES0031104837859003XY0F)
+		 
+	[ROW 54] ========================================
+		[2026-02-06 14:32:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705912
+		[2026-02-06 14:32:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031103110297004HT0F_P25CON048705912_ENDESA.pdf
+		[2026-02-06 14:32:32]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031103110297004HT0F_P25CON048705912_ENDESA.xml
+		[2026-02-06 14:32:32] [XML PROCESSING]
+		[2026-02-06 14:32:32]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705912 (ES0031103110297004HT0F)
+		 
+	[ROW 55] ========================================
+		[2026-02-06 14:32:32]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048705774
+		[2026-02-06 14:32:34]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102250623001AX0F_P25CON048705774_ENDESA.pdf
+		[2026-02-06 14:32:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102250623001AX0F_P25CON048705774_ENDESA.xml
+		[2026-02-06 14:32:36] [XML PROCESSING]
+		[2026-02-06 14:32:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048705774 (ES0031102250623001AX0F)
+		 
+
+[PAGE 12 / 49] 
+		[2026-02-06 14:32:51]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 56] ========================================
+		[2026-02-06 14:32:51]     [OK] Datos estraidos correctamente de la fila de la tabla: P25COR001436855
+		[2026-02-06 14:33:06]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104221318001BV0F_P25COR001436855_ENDESA.pdf
+		[2026-02-06 14:33:16]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:33:16]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25COR001436855 (ES0031104221318001BV0F)
+		[2026-02-06 14:33:16] [PDF OCR]
+		[2026-02-06 14:33:47]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25COR001436855 (ES0031104221318001BV0F)
+		 
+	[ROW 57] ========================================
+		[2026-02-06 14:33:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25COR001436851
+		[2026-02-06 14:34:02]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104827453001PD0F_P25COR001436851_ENDESA.pdf
+		[2026-02-06 14:34:12]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:34:12]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25COR001436851 (ES0031104827453001PD0F)
+		[2026-02-06 14:34:12] [PDF OCR]
+		[2026-02-06 14:34:44]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25COR001436851 (ES0031104827453001PD0F)
+		 
+	[ROW 58] ========================================
+		[2026-02-06 14:34:44]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048590750
+		[2026-02-06 14:34:46]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102234146002QG0F_P25CON048590750_ENDESA.pdf
+		[2026-02-06 14:34:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102234146002QG0F_P25CON048590750_ENDESA.xml
+		[2026-02-06 14:34:48] [XML PROCESSING]
+		[2026-02-06 14:34:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048590750 (ES0031102234146002QG0F)
+		 
+	[ROW 59] ========================================
+		[2026-02-06 14:34:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25COR001427145
+		[2026-02-06 14:34:51]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202504_ES0031105114845002XH0F_P25COR001427145_ENDESA.pdf
+		[2026-02-06 14:34:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202504_ES0031105114845002XH0F_P25COR001427145_ENDESA.xml
+		[2026-02-06 14:34:52] [XML PROCESSING]
+		[2026-02-06 14:34:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25COR001427145 (ES0031105114845002XH0F)
+		 
+	[ROW 60] ========================================
+		[2026-02-06 14:34:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048395603
+		[2026-02-06 14:34:54]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105384016001FQ0F_P25CON048395603_ENDESA.pdf
+		[2026-02-06 14:34:56]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105384016001FQ0F_P25CON048395603_ENDESA.xml
+		[2026-02-06 14:34:56] [XML PROCESSING]
+		[2026-02-06 14:34:56]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048395603 (ES0031105384016001FQ0F)
+		 
+
+[PAGE 13 / 49] 
+		[2026-02-06 14:35:11]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 61] ========================================
+		[2026-02-06 14:35:11]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048395604
+		[2026-02-06 14:35:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105634386001NC0F_P25CON048395604_ENDESA.pdf
+		[2026-02-06 14:35:23]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:35:23]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON048395604 (ES0031105634386001NC0F)
+		[2026-02-06 14:35:23] [PDF OCR]
+		[2026-02-06 14:35:52]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON048395604 (ES0031105634386001NC0F)
+		 
+	[ROW 62] ========================================
+		[2026-02-06 14:35:53]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048395605
+		[2026-02-06 14:35:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105385841001MN0F_P25CON048395605_ENDESA.pdf
+		[2026-02-06 14:35:58]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105385841001MN0F_P25CON048395605_ENDESA.xml
+		[2026-02-06 14:35:58] [XML PROCESSING]
+		[2026-02-06 14:35:58]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048395605 (ES0031105385841001MN0F)
+		 
+	[ROW 63] ========================================
+		[2026-02-06 14:35:58]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON048271102
+		[2026-02-06 14:36:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0034111307766001GM0F_P25CON048271102_ENDESA.pdf
+		[2026-02-06 14:36:02]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0034111307766001GM0F_P25CON048271102_ENDESA.xml
+		[2026-02-06 14:36:02] [XML PROCESSING]
+		[2026-02-06 14:36:02]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON048271102 (ES0034111307766001GM0F)
+		 
+	[ROW 64] ========================================
+		[2026-02-06 14:36:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047961305
+		[2026-02-06 14:36:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102511094005CQ0F_P25CON047961305_ENDESA.pdf
+		[2026-02-06 14:36:06]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102511094005CQ0F_P25CON047961305_ENDESA.xml
+		[2026-02-06 14:36:06] [XML PROCESSING]
+		[2026-02-06 14:36:06]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047961305 (ES0031102511094005CQ0F)
+		 
+	[ROW 65] ========================================
+		[2026-02-06 14:36:06]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047995568
+		[2026-02-06 14:36:08]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0133000001012030YB0F_P25CON047995568_ENDESA.pdf
+		[2026-02-06 14:36:10]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0133000001012030YB0F_P25CON047995568_ENDESA.xml
+		[2026-02-06 14:36:10] [XML PROCESSING]
+		[2026-02-06 14:36:10]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047995568 (ES0133000001012030YB0F)
+		 
+
+[PAGE 14 / 49] 
+		[2026-02-06 14:36:30]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 66] ========================================
+		[2026-02-06 14:36:30]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047995569
+		[2026-02-06 14:36:32]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102520204001RB0F_P25CON047995569_ENDESA.pdf
+		[2026-02-06 14:36:34]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102520204001RB0F_P25CON047995569_ENDESA.xml
+		[2026-02-06 14:36:34] [XML PROCESSING]
+		[2026-02-06 14:36:34]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047995569 (ES0031102520204001RB0F)
+		 
+	[ROW 67] ========================================
+		[2026-02-06 14:36:34]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047998531
+		[2026-02-06 14:36:36]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102224938027FX0F_P25CON047998531_ENDESA.pdf
+		[2026-02-06 14:36:38]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102224938027FX0F_P25CON047998531_ENDESA.xml
+		[2026-02-06 14:36:38] [XML PROCESSING]
+		[2026-02-06 14:36:38]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047998531 (ES0031102224938027FX0F)
+		 
+	[ROW 68] ========================================
+		[2026-02-06 14:36:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047995567
+		[2026-02-06 14:36:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0133000003011577AF0F_P25CON047995567_ENDESA.pdf
+		[2026-02-06 14:36:43]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0133000003011577AF0F_P25CON047995567_ENDESA.xml
+		[2026-02-06 14:36:43] [XML PROCESSING]
+		[2026-02-06 14:36:43]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047995567 (ES0133000003011577AF0F)
+		 
+	[ROW 69] ========================================
+		[2026-02-06 14:36:43]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047939801
+		[2026-02-06 14:36:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102620218001XY0F_P25CON047939801_ENDESA.pdf
+		[2026-02-06 14:36:47]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102620218001XY0F_P25CON047939801_ENDESA.xml
+		[2026-02-06 14:36:47] [XML PROCESSING]
+		[2026-02-06 14:36:47]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047939801 (ES0031102620218001XY0F)
+		 
+	[ROW 70] ========================================
+		[2026-02-06 14:36:47]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047633715
+		[2026-02-06 14:36:49]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0143000000110211KZ0F_P25CON047633715_ENDESA.pdf
+		[2026-02-06 14:36:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0143000000110211KZ0F_P25CON047633715_ENDESA.xml
+		[2026-02-06 14:36:52] [XML PROCESSING]
+		[2026-02-06 14:36:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047633715 (ES0143000000110211KZ0F)
+		 
+
+[PAGE 15 / 49] 
+		[2026-02-06 14:37:02]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 71] ========================================
+		[2026-02-06 14:37:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047646529
+		[2026-02-06 14:37:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102677181001EX0F_P25CON047646529_ENDESA.pdf
+		[2026-02-06 14:37:07]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102677181001EX0F_P25CON047646529_ENDESA.xml
+		[2026-02-06 14:37:07] [XML PROCESSING]
+		[2026-02-06 14:37:07]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047646529 (ES0031102677181001EX0F)
+		 
+	[ROW 72] ========================================
+		[2026-02-06 14:37:07]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047646530
+		[2026-02-06 14:37:09]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104919239019CL0F_P25CON047646530_ENDESA.pdf
+		[2026-02-06 14:37:11]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104919239019CL0F_P25CON047646530_ENDESA.xml
+		[2026-02-06 14:37:11] [XML PROCESSING]
+		[2026-02-06 14:37:11]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047646530 (ES0031104919239019CL0F)
+		 
+	[ROW 73] ========================================
+		[2026-02-06 14:37:11]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047646531
+		[2026-02-06 14:37:14]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102270671001RZ0F_P25CON047646531_ENDESA.pdf
+		[2026-02-06 14:37:15]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102270671001RZ0F_P25CON047646531_ENDESA.xml
+		[2026-02-06 14:37:15] [XML PROCESSING]
+		[2026-02-06 14:37:15]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047646531 (ES0031102270671001RZ0F)
+		 
+	[ROW 74] ========================================
+		[2026-02-06 14:37:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047633714
+		[2026-02-06 14:37:18]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105624263001XX0F_P25CON047633714_ENDESA.pdf
+		[2026-02-06 14:37:20]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105624263001XX0F_P25CON047633714_ENDESA.xml
+		[2026-02-06 14:37:20] [XML PROCESSING]
+		[2026-02-06 14:37:20]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047633714 (ES0031105624263001XX0F)
+		 
+	[ROW 75] ========================================
+		[2026-02-06 14:37:20]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047633716
+		[2026-02-06 14:37:22]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105466523001GJ0F_P25CON047633716_ENDESA.pdf
+		[2026-02-06 14:37:24]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105466523001GJ0F_P25CON047633716_ENDESA.xml
+		[2026-02-06 14:37:24] [XML PROCESSING]
+		[2026-02-06 14:37:24]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047633716 (ES0031105466523001GJ0F)
+		 
+
+[PAGE 16 / 49] 
+		[2026-02-06 14:37:35]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 76] ========================================
+		[2026-02-06 14:37:35]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047246501
+		[2026-02-06 14:37:36]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105574785001YR0F_P25CON047246501_ENDESA.pdf
+		[2026-02-06 14:37:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105574785001YR0F_P25CON047246501_ENDESA.xml
+		[2026-02-06 14:37:39] [XML PROCESSING]
+		[2026-02-06 14:37:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047246501 (ES0031105574785001YR0F)
+		 
+	[ROW 77] ========================================
+		[2026-02-06 14:37:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047361527
+		[2026-02-06 14:37:42]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105505951001YX0F_P25CON047361527_ENDESA.pdf
+		[2026-02-06 14:37:44]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105505951001YX0F_P25CON047361527_ENDESA.xml
+		[2026-02-06 14:37:44] [XML PROCESSING]
+		[2026-02-06 14:37:44]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047361527 (ES0031105505951001YX0F)
+		 
+	[ROW 78] ========================================
+		[2026-02-06 14:37:45]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362153
+		[2026-02-06 14:37:46]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105669043001QE0F_P25CON047362153_ENDESA.pdf
+		[2026-02-06 14:37:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105669043001QE0F_P25CON047362153_ENDESA.xml
+		[2026-02-06 14:37:48] [XML PROCESSING]
+		[2026-02-06 14:37:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362153 (ES0031105669043001QE0F)
+		 
+	[ROW 79] ========================================
+		[2026-02-06 14:37:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362152
+		[2026-02-06 14:37:50]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102665615001RC0F_P25CON047362152_ENDESA.pdf
+		[2026-02-06 14:37:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102665615001RC0F_P25CON047362152_ENDESA.xml
+		[2026-02-06 14:37:52] [XML PROCESSING]
+		[2026-02-06 14:37:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362152 (ES0031102665615001RC0F)
+		 
+	[ROW 80] ========================================
+		[2026-02-06 14:37:53]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047249083
+		[2026-02-06 14:37:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102227315003SM0F_P25CON047249083_ENDESA.pdf
+		[2026-02-06 14:37:58]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102227315003SM0F_P25CON047249083_ENDESA.xml
+		[2026-02-06 14:37:58] [XML PROCESSING]
+		[2026-02-06 14:37:58]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047249083 (ES0031102227315003SM0F)
+		 
+
+[PAGE 17 / 49] 
+		[2026-02-06 14:38:19]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 81] ========================================
+		[2026-02-06 14:38:19]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362149
+		[2026-02-06 14:38:21]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105508733001ME0F_P25CON047362149_ENDESA.pdf
+		[2026-02-06 14:38:24]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105508733001ME0F_P25CON047362149_ENDESA.xml
+		[2026-02-06 14:38:24] [XML PROCESSING]
+		[2026-02-06 14:38:24]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362149 (ES0031105508733001ME0F)
+		 
+	[ROW 82] ========================================
+		[2026-02-06 14:38:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362150
+		[2026-02-06 14:38:27]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105443482001DE0F_P25CON047362150_ENDESA.pdf
+		[2026-02-06 14:38:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105443482001DE0F_P25CON047362150_ENDESA.xml
+		[2026-02-06 14:38:28] [XML PROCESSING]
+		[2026-02-06 14:38:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362150 (ES0031105443482001DE0F)
+		 
+	[ROW 83] ========================================
+		[2026-02-06 14:38:29]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047361529
+		[2026-02-06 14:38:31]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105367761001NJ0F_P25CON047361529_ENDESA.pdf
+		[2026-02-06 14:38:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105367761001NJ0F_P25CON047361529_ENDESA.xml
+		[2026-02-06 14:38:33] [XML PROCESSING]
+		[2026-02-06 14:38:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047361529 (ES0031105367761001NJ0F)
+		 
+	[ROW 84] ========================================
+		[2026-02-06 14:38:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362148
+		[2026-02-06 14:38:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104075868001VQ0F_P25CON047362148_ENDESA.pdf
+		[2026-02-06 14:38:40]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104075868001VQ0F_P25CON047362148_ENDESA.xml
+		[2026-02-06 14:38:40] [XML PROCESSING]
+		[2026-02-06 14:38:40]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362148 (ES0031104075868001VQ0F)
+		 
+	[ROW 85] ========================================
+		[2026-02-06 14:38:41]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362151
+		[2026-02-06 14:38:42]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104206570002BD0F_P25CON047362151_ENDESA.pdf
+		[2026-02-06 14:38:44]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104206570002BD0F_P25CON047362151_ENDESA.xml
+		[2026-02-06 14:38:44] [XML PROCESSING]
+		[2026-02-06 14:38:44]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362151 (ES0031104206570002BD0F)
+		 
+
+[PAGE 18 / 49] 
+		[2026-02-06 14:38:58]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 86] ========================================
+		[2026-02-06 14:38:58]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047341133
+		[2026-02-06 14:39:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104396651002LQ0F_P25CON047341133_ENDESA.pdf
+		[2026-02-06 14:39:02]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104396651002LQ0F_P25CON047341133_ENDESA.xml
+		[2026-02-06 14:39:02] [XML PROCESSING]
+		[2026-02-06 14:39:02]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047341133 (ES0031104396651002LQ0F)
+		 
+	[ROW 87] ========================================
+		[2026-02-06 14:39:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362147
+		[2026-02-06 14:39:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102256955006KT0F_P25CON047362147_ENDESA.pdf
+		[2026-02-06 14:39:06]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102256955006KT0F_P25CON047362147_ENDESA.xml
+		[2026-02-06 14:39:06] [XML PROCESSING]
+		[2026-02-06 14:39:06]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362147 (ES0031102256955006KT0F)
+		 
+	[ROW 88] ========================================
+		[2026-02-06 14:39:06]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047303326
+		[2026-02-06 14:39:08]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0321000006601102WC0F_P25CON047303326_ENDESA.pdf
+		[2026-02-06 14:39:10]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0321000006601102WC0F_P25CON047303326_ENDESA.xml
+		[2026-02-06 14:39:10] [XML PROCESSING]
+		[2026-02-06 14:39:10]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047303326 (ES0321000006601102WC0F)
+		 
+	[ROW 89] ========================================
+		[2026-02-06 14:39:10]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362144
+		[2026-02-06 14:39:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102285144002MN0F_P25CON047362144_ENDESA.pdf
+		[2026-02-06 14:39:14]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102285144002MN0F_P25CON047362144_ENDESA.xml
+		[2026-02-06 14:39:14] [XML PROCESSING]
+		[2026-02-06 14:39:14]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362144 (ES0031102285144002MN0F)
+		 
+	[ROW 90] ========================================
+		[2026-02-06 14:39:14]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047361526
+		[2026-02-06 14:39:16]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104606578001YN0F_P25CON047361526_ENDESA.pdf
+		[2026-02-06 14:39:18]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104606578001YN0F_P25CON047361526_ENDESA.xml
+		[2026-02-06 14:39:18] [XML PROCESSING]
+		[2026-02-06 14:39:18]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047361526 (ES0031104606578001YN0F)
+		 
+
+[PAGE 19 / 49] 
+		[2026-02-06 14:39:28]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 91] ========================================
+		[2026-02-06 14:39:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047303324
+		[2026-02-06 14:39:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105226725001LJ0F_P25CON047303324_ENDESA.pdf
+		[2026-02-06 14:39:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105226725001LJ0F_P25CON047303324_ENDESA.xml
+		[2026-02-06 14:39:33] [XML PROCESSING]
+		[2026-02-06 14:39:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047303324 (ES0031105226725001LJ0F)
+		 
+	[ROW 92] ========================================
+		[2026-02-06 14:39:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362145
+		[2026-02-06 14:39:36]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105444081001VX0F_P25CON047362145_ENDESA.pdf
+		[2026-02-06 14:39:40]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105444081001VX0F_P25CON047362145_ENDESA.xml
+		[2026-02-06 14:39:40] [XML PROCESSING]
+		[2026-02-06 14:39:40]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362145 (ES0031105444081001VX0F)
+		 
+	[ROW 93] ========================================
+		[2026-02-06 14:39:40]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047289628
+		[2026-02-06 14:39:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105568451001QV0F_P25CON047289628_ENDESA.pdf
+		[2026-02-06 14:39:51]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:39:51]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON047289628 (ES0031105568451001QV0F)
+		[2026-02-06 14:39:51] [PDF OCR]
+		[2026-02-06 14:40:24]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON047289628 (ES0031105568451001QV0F)
+		 
+	[ROW 94] ========================================
+		[2026-02-06 14:40:25]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047246504
+		[2026-02-06 14:40:27]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102858346005CV0F_P25CON047246504_ENDESA.pdf
+		[2026-02-06 14:40:29]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102858346005CV0F_P25CON047246504_ENDESA.xml
+		[2026-02-06 14:40:29] [XML PROCESSING]
+		[2026-02-06 14:40:29]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047246504 (ES0031102858346005CV0F)
+		 
+	[ROW 95] ========================================
+		[2026-02-06 14:40:29]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047362146
+		[2026-02-06 14:40:31]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105214941001LV0F_P25CON047362146_ENDESA.pdf
+		[2026-02-06 14:40:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105214941001LV0F_P25CON047362146_ENDESA.xml
+		[2026-02-06 14:40:33] [XML PROCESSING]
+		[2026-02-06 14:40:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047362146 (ES0031105214941001LV0F)
+		 
+
+[PAGE 20 / 49] 
+		[2026-02-06 14:40:48]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 96] ========================================
+		[2026-02-06 14:40:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047246502
+		[2026-02-06 14:40:50]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102244296003LJ0F_P25CON047246502_ENDESA.pdf
+		[2026-02-06 14:40:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102244296003LJ0F_P25CON047246502_ENDESA.xml
+		[2026-02-06 14:40:52] [XML PROCESSING]
+		[2026-02-06 14:40:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047246502 (ES0031102244296003LJ0F)
+		 
+	[ROW 97] ========================================
+		[2026-02-06 14:40:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047249082
+		[2026-02-06 14:40:54]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102253841011FK0F_P25CON047249082_ENDESA.pdf
+		[2026-02-06 14:40:55]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102253841011FK0F_P25CON047249082_ENDESA.xml
+		[2026-02-06 14:40:55] [XML PROCESSING]
+		[2026-02-06 14:40:55]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047249082 (ES0031102253841011FK0F)
+		 
+	[ROW 98] ========================================
+		[2026-02-06 14:40:55]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047361528
+		[2026-02-06 14:40:57]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102630799001FV0F_P25CON047361528_ENDESA.pdf
+		[2026-02-06 14:40:58]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102630799001FV0F_P25CON047361528_ENDESA.xml
+		[2026-02-06 14:40:58] [XML PROCESSING]
+		[2026-02-06 14:40:58]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047361528 (ES0031102630799001FV0F)
+		 
+	[ROW 99] ========================================
+		[2026-02-06 14:40:58]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047361530
+		[2026-02-06 14:41:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102567248012AY0F_P25CON047361530_ENDESA.pdf
+		[2026-02-06 14:41:01]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102567248012AY0F_P25CON047361530_ENDESA.xml
+		[2026-02-06 14:41:01] [XML PROCESSING]
+		[2026-02-06 14:41:01]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047361530 (ES0031102567248012AY0F)
+		 
+	[ROW 100] ========================================
+		[2026-02-06 14:41:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047303325
+		[2026-02-06 14:41:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102284630001JS0F_P25CON047303325_ENDESA.pdf
+		[2026-02-06 14:41:06]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102284630001JS0F_P25CON047303325_ENDESA.xml
+		[2026-02-06 14:41:06] [XML PROCESSING]
+		[2026-02-06 14:41:06]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047303325 (ES0031102284630001JS0F)
+		 
+
+[PAGE 21 / 49] 
+		[2026-02-06 14:41:28]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 101] ========================================
+		[2026-02-06 14:41:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047246503
+		[2026-02-06 14:41:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102226263046RE0F_P25CON047246503_ENDESA.pdf
+		[2026-02-06 14:41:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102226263046RE0F_P25CON047246503_ENDESA.xml
+		[2026-02-06 14:41:31] [XML PROCESSING]
+		[2026-02-06 14:41:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047246503 (ES0031102226263046RE0F)
+		 
+	[ROW 102] ========================================
+		[2026-02-06 14:41:31]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047014400
+		[2026-02-06 14:41:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102727495002BQ0F_P25CON047014400_ENDESA.pdf
+		[2026-02-06 14:41:35]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102727495002BQ0F_P25CON047014400_ENDESA.xml
+		[2026-02-06 14:41:35] [XML PROCESSING]
+		[2026-02-06 14:41:35]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047014400 (ES0031102727495002BQ0F)
+		 
+	[ROW 103] ========================================
+		[2026-02-06 14:41:35]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON047032663
+		[2026-02-06 14:41:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102238994003AL0F_P25CON047032663_ENDESA.pdf
+		[2026-02-06 14:41:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102238994003AL0F_P25CON047032663_ENDESA.xml
+		[2026-02-06 14:41:39] [XML PROCESSING]
+		[2026-02-06 14:41:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON047032663 (ES0031102238994003AL0F)
+		 
+	[ROW 104] ========================================
+		[2026-02-06 14:41:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801402
+		[2026-02-06 14:41:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102227047001TE0F_P25CON046801402_ENDESA.pdf
+		[2026-02-06 14:41:42]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102227047001TE0F_P25CON046801402_ENDESA.xml
+		[2026-02-06 14:41:42] [XML PROCESSING]
+		[2026-02-06 14:41:42]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801402 (ES0031102227047001TE0F)
+		 
+	[ROW 105] ========================================
+		[2026-02-06 14:41:42]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801412
+		[2026-02-06 14:41:47]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105369937001EY0F_P25CON046801412_ENDESA.pdf
+		[2026-02-06 14:41:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105369937001EY0F_P25CON046801412_ENDESA.xml
+		[2026-02-06 14:41:48] [XML PROCESSING]
+		[2026-02-06 14:41:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801412 (ES0031105369937001EY0F)
+		 
+
+[PAGE 22 / 49] 
+		[2026-02-06 14:41:59]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 106] ========================================
+		[2026-02-06 14:41:59]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801417
+		[2026-02-06 14:42:02]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105358006001WA0F_P25CON046801417_ENDESA.pdf
+		[2026-02-06 14:42:04]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105358006001WA0F_P25CON046801417_ENDESA.xml
+		[2026-02-06 14:42:04] [XML PROCESSING]
+		[2026-02-06 14:42:04]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801417 (ES0031105358006001WA0F)
+		 
+	[ROW 107] ========================================
+		[2026-02-06 14:42:04]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787658
+		[2026-02-06 14:42:07]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105416469001AQ0F_P25CON046787658_ENDESA.pdf
+		[2026-02-06 14:42:08]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105416469001AQ0F_P25CON046787658_ENDESA.xml
+		[2026-02-06 14:42:08] [XML PROCESSING]
+		[2026-02-06 14:42:08]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046787658 (ES0031105416469001AQ0F)
+		 
+	[ROW 108] ========================================
+		[2026-02-06 14:42:08]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801416
+		[2026-02-06 14:42:10]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105382555001BE0F_P25CON046801416_ENDESA.pdf
+		[2026-02-06 14:42:12]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105382555001BE0F_P25CON046801416_ENDESA.xml
+		[2026-02-06 14:42:12] [XML PROCESSING]
+		[2026-02-06 14:42:12]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801416 (ES0031105382555001BE0F)
+		 
+	[ROW 109] ========================================
+		[2026-02-06 14:42:12]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801404
+		[2026-02-06 14:42:15]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105444081001VX0F_P25CON046801404_ENDESA.pdf
+		[2026-02-06 14:42:17]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105444081001VX0F_P25CON046801404_ENDESA.xml
+		[2026-02-06 14:42:17] [XML PROCESSING]
+		[2026-02-06 14:42:17]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801404 (ES0031105444081001VX0F)
+		 
+	[ROW 110] ========================================
+		[2026-02-06 14:42:17]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787661
+		[2026-02-06 14:42:19]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102887937013NF0F_P25CON046787661_ENDESA.pdf
+		[2026-02-06 14:42:21]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102887937013NF0F_P25CON046787661_ENDESA.xml
+		[2026-02-06 14:42:21] [XML PROCESSING]
+		[2026-02-06 14:42:21]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046787661 (ES0031102887937013NF0F)
+		 
+
+[PAGE 23 / 49] 
+		[2026-02-06 14:42:29]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 111] ========================================
+		[2026-02-06 14:42:29]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905443
+		[2026-02-06 14:42:32]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102657067001YQ0F_P25CON046905443_ENDESA.pdf
+		[2026-02-06 14:42:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102657067001YQ0F_P25CON046905443_ENDESA.xml
+		[2026-02-06 14:42:33] [XML PROCESSING]
+		[2026-02-06 14:42:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905443 (ES0031102657067001YQ0F)
+		 
+	[ROW 112] ========================================
+		[2026-02-06 14:42:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801418
+		[2026-02-06 14:42:35]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102663032001YN0F_P25CON046801418_ENDESA.pdf
+		[2026-02-06 14:42:37]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102663032001YN0F_P25CON046801418_ENDESA.xml
+		[2026-02-06 14:42:37] [XML PROCESSING]
+		[2026-02-06 14:42:37]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801418 (ES0031102663032001YN0F)
+		 
+	[ROW 113] ========================================
+		[2026-02-06 14:42:37]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905441
+		[2026-02-06 14:42:40]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102696067026FE0F_P25CON046905441_ENDESA.pdf
+		[2026-02-06 14:42:41]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102696067026FE0F_P25CON046905441_ENDESA.xml
+		[2026-02-06 14:42:41] [XML PROCESSING]
+		[2026-02-06 14:42:41]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905441 (ES0031102696067026FE0F)
+		 
+	[ROW 114] ========================================
+		[2026-02-06 14:42:41]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860874
+		[2026-02-06 14:42:43]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102717555002FH0F_P25CON046860874_ENDESA.pdf
+		[2026-02-06 14:42:44]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102717555002FH0F_P25CON046860874_ENDESA.xml
+		[2026-02-06 14:42:44] [XML PROCESSING]
+		[2026-02-06 14:42:44]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860874 (ES0031102717555002FH0F)
+		 
+	[ROW 115] ========================================
+		[2026-02-06 14:42:44]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860879
+		[2026-02-06 14:42:46]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102718303001FB0F_P25CON046860879_ENDESA.pdf
+		[2026-02-06 14:42:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102718303001FB0F_P25CON046860879_ENDESA.xml
+		[2026-02-06 14:42:48] [XML PROCESSING]
+		[2026-02-06 14:42:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860879 (ES0031102718303001FB0F)
+		 
+
+[PAGE 24 / 49] 
+		[2026-02-06 14:42:57]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 116] ========================================
+		[2026-02-06 14:42:58]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905435
+		[2026-02-06 14:42:59]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102747598001DA0F_P25CON046905435_ENDESA.pdf
+		[2026-02-06 14:43:16]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102747598001DA0F_P25CON046905435_ENDESA.xml
+		[2026-02-06 14:43:16] [XML PROCESSING]
+		[2026-02-06 14:43:16]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905435 (ES0031102747598001DA0F)
+		 
+	[ROW 117] ========================================
+		[2026-02-06 14:43:16]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905440
+		[2026-02-06 14:43:18]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102763949001SG0F_P25CON046905440_ENDESA.pdf
+		[2026-02-06 14:43:20]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102763949001SG0F_P25CON046905440_ENDESA.xml
+		[2026-02-06 14:43:20] [XML PROCESSING]
+		[2026-02-06 14:43:20]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905440 (ES0031102763949001SG0F)
+		 
+	[ROW 118] ========================================
+		[2026-02-06 14:43:20]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905439
+		[2026-02-06 14:43:23]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104008205001DA0F_P25CON046905439_ENDESA.pdf
+		[2026-02-06 14:43:25]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104008205001DA0F_P25CON046905439_ENDESA.xml
+		[2026-02-06 14:43:25] [XML PROCESSING]
+		[2026-02-06 14:43:25]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905439 (ES0031104008205001DA0F)
+		 
+	[ROW 119] ========================================
+		[2026-02-06 14:43:25]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801407
+		[2026-02-06 14:43:27]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104032608001LA0F_P25CON046801407_ENDESA.pdf
+		[2026-02-06 14:43:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104032608001LA0F_P25CON046801407_ENDESA.xml
+		[2026-02-06 14:43:28] [XML PROCESSING]
+		[2026-02-06 14:43:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801407 (ES0031104032608001LA0F)
+		 
+	[ROW 120] ========================================
+		[2026-02-06 14:43:29]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801415
+		[2026-02-06 14:43:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102227793050FC0F_P25CON046801415_ENDESA.pdf
+		[2026-02-06 14:43:32]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102227793050FC0F_P25CON046801415_ENDESA.xml
+		[2026-02-06 14:43:32] [XML PROCESSING]
+		[2026-02-06 14:43:32]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801415 (ES0031102227793050FC0F)
+		 
+
+[PAGE 25 / 49] 
+		[2026-02-06 14:43:45]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 121] ========================================
+		[2026-02-06 14:43:45]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787657
+		[2026-02-06 14:43:47]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102229803044KK0F_P25CON046787657_ENDESA.pdf
+		[2026-02-06 14:43:49]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102229803044KK0F_P25CON046787657_ENDESA.xml
+		[2026-02-06 14:43:49] [XML PROCESSING]
+		[2026-02-06 14:43:49]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046787657 (ES0031102229803044KK0F)
+		 
+	[ROW 122] ========================================
+		[2026-02-06 14:43:49]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860876
+		[2026-02-06 14:43:51]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102231027012SK0F_P25CON046860876_ENDESA.pdf
+		[2026-02-06 14:43:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102231027012SK0F_P25CON046860876_ENDESA.xml
+		[2026-02-06 14:43:52] [XML PROCESSING]
+		[2026-02-06 14:43:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860876 (ES0031102231027012SK0F)
+		 
+	[ROW 123] ========================================
+		[2026-02-06 14:43:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860878
+		[2026-02-06 14:43:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102256503010BT0F_P25CON046860878_ENDESA.pdf
+		[2026-02-06 14:43:56]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102256503010BT0F_P25CON046860878_ENDESA.xml
+		[2026-02-06 14:43:56] [XML PROCESSING]
+		[2026-02-06 14:43:56]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860878 (ES0031102256503010BT0F)
+		 
+	[ROW 124] ========================================
+		[2026-02-06 14:43:56]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905442
+		[2026-02-06 14:43:58]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102268073002KA0F_P25CON046905442_ENDESA.pdf
+		[2026-02-06 14:44:00]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102268073002KA0F_P25CON046905442_ENDESA.xml
+		[2026-02-06 14:44:00] [XML PROCESSING]
+		[2026-02-06 14:44:00]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905442 (ES0031102268073002KA0F)
+		 
+	[ROW 125] ========================================
+		[2026-02-06 14:44:00]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801419
+		[2026-02-06 14:44:02]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102282842002ZJ0F_P25CON046801419_ENDESA.pdf
+		[2026-02-06 14:44:03]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102282842002ZJ0F_P25CON046801419_ENDESA.xml
+		[2026-02-06 14:44:03] [XML PROCESSING]
+		[2026-02-06 14:44:03]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801419 (ES0031102282842002ZJ0F)
+		 
+
+[PAGE 26 / 49] 
+		[2026-02-06 14:44:15]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 126] ========================================
+		[2026-02-06 14:44:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801334
+		[2026-02-06 14:44:17]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102668832001PX0F_P25CON046801334_ENDESA.pdf
+		[2026-02-06 14:44:19]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102668832001PX0F_P25CON046801334_ENDESA.xml
+		[2026-02-06 14:44:19] [XML PROCESSING]
+		[2026-02-06 14:44:19]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801334 (ES0031102668832001PX0F)
+		 
+	[ROW 127] ========================================
+		[2026-02-06 14:44:19]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046887779
+		[2026-02-06 14:44:21]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104045673001PZ0F_P25CON046887779_ENDESA.pdf
+		[2026-02-06 14:44:23]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104045673001PZ0F_P25CON046887779_ENDESA.xml
+		[2026-02-06 14:44:23] [XML PROCESSING]
+		[2026-02-06 14:44:23]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046887779 (ES0031104045673001PZ0F)
+		 
+	[ROW 128] ========================================
+		[2026-02-06 14:44:23]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801405
+		[2026-02-06 14:44:24]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102243323002NG0F_P25CON046801405_ENDESA.pdf
+		[2026-02-06 14:44:26]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102243323002NG0F_P25CON046801405_ENDESA.xml
+		[2026-02-06 14:44:26] [XML PROCESSING]
+		[2026-02-06 14:44:26]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801405 (ES0031102243323002NG0F)
+		 
+	[ROW 129] ========================================
+		[2026-02-06 14:44:26]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860877
+		[2026-02-06 14:44:28]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102276210001VQ0F_P25CON046860877_ENDESA.pdf
+		[2026-02-06 14:44:30]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102276210001VQ0F_P25CON046860877_ENDESA.xml
+		[2026-02-06 14:44:30] [XML PROCESSING]
+		[2026-02-06 14:44:30]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860877 (ES0031102276210001VQ0F)
+		 
+	[ROW 130] ========================================
+		[2026-02-06 14:44:31]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905436
+		[2026-02-06 14:44:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102278236001ZS0F_P25CON046905436_ENDESA.pdf
+		[2026-02-06 14:44:35]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102278236001ZS0F_P25CON046905436_ENDESA.xml
+		[2026-02-06 14:44:35] [XML PROCESSING]
+		[2026-02-06 14:44:35]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905436 (ES0031102278236001ZS0F)
+		 
+
+[PAGE 27 / 49] 
+		[2026-02-06 14:44:57]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 131] ========================================
+		[2026-02-06 14:44:57]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787663
+		[2026-02-06 14:44:59]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102115412010HQ0F_P25CON046787663_ENDESA.pdf
+		[2026-02-06 14:45:09]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:45:09]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON046787663 (ES0031102115412010HQ0F)
+		[2026-02-06 14:45:09] [PDF OCR]
+		[2026-02-06 14:45:34]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON046787663 (ES0031102115412010HQ0F)
+		 
+	[ROW 132] ========================================
+		[2026-02-06 14:45:34]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787660
+		[2026-02-06 14:45:36]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104440196001NN0F_P25CON046787660_ENDESA.pdf
+		[2026-02-06 14:45:40]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104440196001NN0F_P25CON046787660_ENDESA.xml
+		[2026-02-06 14:45:40] [XML PROCESSING]
+		[2026-02-06 14:45:40]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046787660 (ES0031104440196001NN0F)
+		 
+	[ROW 133] ========================================
+		[2026-02-06 14:45:40]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905438
+		[2026-02-06 14:45:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102639291001YA0F_P25CON046905438_ENDESA.pdf
+		[2026-02-06 14:45:44]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102639291001YA0F_P25CON046905438_ENDESA.xml
+		[2026-02-06 14:45:44] [XML PROCESSING]
+		[2026-02-06 14:45:44]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905438 (ES0031102639291001YA0F)
+		 
+	[ROW 134] ========================================
+		[2026-02-06 14:45:44]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801413
+		[2026-02-06 14:45:46]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102974110009XF0F_P25CON046801413_ENDESA.pdf
+		[2026-02-06 14:45:50]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102974110009XF0F_P25CON046801413_ENDESA.xml
+		[2026-02-06 14:45:50] [XML PROCESSING]
+		[2026-02-06 14:45:50]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801413 (ES0031102974110009XF0F)
+		 
+	[ROW 135] ========================================
+		[2026-02-06 14:45:50]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787664
+		[2026-02-06 14:45:51]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104113603001XC0F_P25CON046787664_ENDESA.pdf
+		[2026-02-06 14:46:01]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:46:01]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON046787664 (ES0031104113603001XC0F)
+		[2026-02-06 14:46:01] [PDF OCR]
+		[2026-02-06 14:46:30]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON046787664 (ES0031104113603001XC0F)
+		 
+
+[PAGE 28 / 49] 
+		[2026-02-06 14:46:45]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 136] ========================================
+		[2026-02-06 14:46:45]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046887778
+		[2026-02-06 14:46:47]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102228719076LC0F_P25CON046887778_ENDESA.pdf
+		[2026-02-06 14:46:51]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102228719076LC0F_P25CON046887778_ENDESA.xml
+		[2026-02-06 14:46:51] [XML PROCESSING]
+		[2026-02-06 14:46:51]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046887778 (ES0031102228719076LC0F)
+		 
+	[ROW 137] ========================================
+		[2026-02-06 14:46:51]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860875
+		[2026-02-06 14:46:53]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105202217001KP0F_P25CON046860875_ENDESA.pdf
+		[2026-02-06 14:46:55]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105202217001KP0F_P25CON046860875_ENDESA.xml
+		[2026-02-06 14:46:55] [XML PROCESSING]
+		[2026-02-06 14:46:55]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860875 (ES0031105202217001KP0F)
+		 
+	[ROW 138] ========================================
+		[2026-02-06 14:46:55]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046825809
+		[2026-02-06 14:46:57]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104501187035BZ0F_P25CON046825809_ENDESA.pdf
+		[2026-02-06 14:46:59]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104501187035BZ0F_P25CON046825809_ENDESA.xml
+		[2026-02-06 14:46:59] [XML PROCESSING]
+		[2026-02-06 14:46:59]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046825809 (ES0031104501187035BZ0F)
+		 
+	[ROW 139] ========================================
+		[2026-02-06 14:46:59]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046825808
+		[2026-02-06 14:47:01]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104501187033BN0F_P25CON046825808_ENDESA.pdf
+		[2026-02-06 14:47:04]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104501187033BN0F_P25CON046825808_ENDESA.xml
+		[2026-02-06 14:47:04] [XML PROCESSING]
+		[2026-02-06 14:47:04]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046825808 (ES0031104501187033BN0F)
+		 
+	[ROW 140] ========================================
+		[2026-02-06 14:47:05]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905437
+		[2026-02-06 14:47:06]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105157109002ZT0F_P25CON046905437_ENDESA.pdf
+		[2026-02-06 14:47:08]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105157109002ZT0F_P25CON046905437_ENDESA.xml
+		[2026-02-06 14:47:08] [XML PROCESSING]
+		[2026-02-06 14:47:08]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905437 (ES0031105157109002ZT0F)
+		 
+
+[PAGE 29 / 49] 
+		[2026-02-06 14:47:20]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 141] ========================================
+		[2026-02-06 14:47:20]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787659
+		[2026-02-06 14:47:22]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102273406002GQ0F_P25CON046787659_ENDESA.pdf
+		[2026-02-06 14:47:24]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102273406002GQ0F_P25CON046787659_ENDESA.xml
+		[2026-02-06 14:47:24] [XML PROCESSING]
+		[2026-02-06 14:47:24]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046787659 (ES0031102273406002GQ0F)
+		 
+	[ROW 142] ========================================
+		[2026-02-06 14:47:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046860880
+		[2026-02-06 14:47:26]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105244144001TD0F_P25CON046860880_ENDESA.pdf
+		[2026-02-06 14:47:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105244144001TD0F_P25CON046860880_ENDESA.xml
+		[2026-02-06 14:47:28] [XML PROCESSING]
+		[2026-02-06 14:47:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046860880 (ES0031105244144001TD0F)
+		 
+	[ROW 143] ========================================
+		[2026-02-06 14:47:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046905434
+		[2026-02-06 14:47:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105242653001BF0F_P25CON046905434_ENDESA.pdf
+		[2026-02-06 14:47:32]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105242653001BF0F_P25CON046905434_ENDESA.xml
+		[2026-02-06 14:47:32] [XML PROCESSING]
+		[2026-02-06 14:47:32]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046905434 (ES0031105242653001BF0F)
+		 
+	[ROW 144] ========================================
+		[2026-02-06 14:47:32]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801403
+		[2026-02-06 14:47:34]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105266745001TJ0F_P25CON046801403_ENDESA.pdf
+		[2026-02-06 14:47:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105266745001TJ0F_P25CON046801403_ENDESA.xml
+		[2026-02-06 14:47:36] [XML PROCESSING]
+		[2026-02-06 14:47:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801403 (ES0031105266745001TJ0F)
+		 
+	[ROW 145] ========================================
+		[2026-02-06 14:47:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046887780
+		[2026-02-06 14:47:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105202220001JH0F_P25CON046887780_ENDESA.pdf
+		[2026-02-06 14:47:40]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105202220001JH0F_P25CON046887780_ENDESA.xml
+		[2026-02-06 14:47:40] [XML PROCESSING]
+		[2026-02-06 14:47:40]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046887780 (ES0031105202220001JH0F)
+		 
+
+[PAGE 30 / 49] 
+		[2026-02-06 14:47:52]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 146] ========================================
+		[2026-02-06 14:47:52]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801410
+		[2026-02-06 14:47:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102070622001ZT0F_P25CON046801410_ENDESA.pdf
+		[2026-02-06 14:47:57]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102070622001ZT0F_P25CON046801410_ENDESA.xml
+		[2026-02-06 14:47:57] [XML PROCESSING]
+		[2026-02-06 14:47:57]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801410 (ES0031102070622001ZT0F)
+		 
+	[ROW 147] ========================================
+		[2026-02-06 14:47:57]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801408
+		[2026-02-06 14:48:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105534203001QY0F_P25CON046801408_ENDESA.pdf
+		[2026-02-06 14:48:02]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105534203001QY0F_P25CON046801408_ENDESA.xml
+		[2026-02-06 14:48:02] [XML PROCESSING]
+		[2026-02-06 14:48:02]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801408 (ES0031105534203001QY0F)
+		 
+	[ROW 148] ========================================
+		[2026-02-06 14:48:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801406
+		[2026-02-06 14:48:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105571899001SH0F_P25CON046801406_ENDESA.pdf
+		[2026-02-06 14:48:06]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105571899001SH0F_P25CON046801406_ENDESA.xml
+		[2026-02-06 14:48:06] [XML PROCESSING]
+		[2026-02-06 14:48:06]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801406 (ES0031105571899001SH0F)
+		 
+	[ROW 149] ========================================
+		[2026-02-06 14:48:06]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801411
+		[2026-02-06 14:48:10]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0294040000004141QT0F_P25CON046801411_ENDESA.pdf
+		[2026-02-06 14:48:12]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0294040000004141QT0F_P25CON046801411_ENDESA.xml
+		[2026-02-06 14:48:12] [XML PROCESSING]
+		[2026-02-06 14:48:12]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801411 (ES0294040000004141QT0F)
+		 
+	[ROW 150] ========================================
+		[2026-02-06 14:48:12]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801409
+		[2026-02-06 14:48:14]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105584640001VF0F_P25CON046801409_ENDESA.pdf
+		[2026-02-06 14:48:16]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105584640001VF0F_P25CON046801409_ENDESA.xml
+		[2026-02-06 14:48:16] [XML PROCESSING]
+		[2026-02-06 14:48:16]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801409 (ES0031105584640001VF0F)
+		 
+
+[PAGE 31 / 49] 
+		[2026-02-06 14:48:24]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 151] ========================================
+		[2026-02-06 14:48:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801420
+		[2026-02-06 14:48:26]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105648857001KH0F_P25CON046801420_ENDESA.pdf
+		[2026-02-06 14:48:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105648857001KH0F_P25CON046801420_ENDESA.xml
+		[2026-02-06 14:48:28] [XML PROCESSING]
+		[2026-02-06 14:48:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801420 (ES0031105648857001KH0F)
+		 
+	[ROW 152] ========================================
+		[2026-02-06 14:48:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046787662
+		[2026-02-06 14:48:31]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105638552001HF0F_P25CON046787662_ENDESA.pdf
+		[2026-02-06 14:48:41]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:48:41]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON046787662 (ES0031105638552001HF0F)
+		[2026-02-06 14:48:41] [PDF OCR]
+		[2026-02-06 14:49:09]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON046787662 (ES0031105638552001HF0F)
+		 
+	[ROW 153] ========================================
+		[2026-02-06 14:49:09]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801414
+		[2026-02-06 14:49:12]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105509060001DP0F_P25CON046801414_ENDESA.pdf
+		[2026-02-06 14:49:13]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105509060001DP0F_P25CON046801414_ENDESA.xml
+		[2026-02-06 14:49:14] [XML PROCESSING]
+		[2026-02-06 14:49:14]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801414 (ES0031105509060001DP0F)
+		 
+	[ROW 154] ========================================
+		[2026-02-06 14:49:14]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046801421
+		[2026-02-06 14:49:15]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202508_ES0031105669043001QE0F_P25CON046801421_ENDESA.pdf
+		[2026-02-06 14:49:16]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202508_ES0031105669043001QE0F_P25CON046801421_ENDESA.xml
+		[2026-02-06 14:49:16] [XML PROCESSING]
+		[2026-02-06 14:49:16]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046801421 (ES0031105669043001QE0F)
+		 
+	[ROW 155] ========================================
+		[2026-02-06 14:49:17]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541039
+		[2026-02-06 14:49:19]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0339001000088030JC0F_P25CON046541039_ENDESA.pdf
+		[2026-02-06 14:49:20]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0339001000088030JC0F_P25CON046541039_ENDESA.xml
+		[2026-02-06 14:49:20] [XML PROCESSING]
+		[2026-02-06 14:49:20]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046541039 (ES0339001000088030JC0F)
+		 
+
+[PAGE 32 / 49] 
+		[2026-02-06 14:49:28]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 156] ========================================
+		[2026-02-06 14:49:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046499478
+		[2026-02-06 14:49:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105044684001EB0F_P25CON046499478_ENDESA.pdf
+		[2026-02-06 14:49:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105044684001EB0F_P25CON046499478_ENDESA.xml
+		[2026-02-06 14:49:31] [XML PROCESSING]
+		[2026-02-06 14:49:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046499478 (ES0031105044684001EB0F)
+		 
+	[ROW 157] ========================================
+		[2026-02-06 14:49:32]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541044
+		[2026-02-06 14:49:35]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0021000022377693ER0F_P25CON046541044_ENDESA.pdf
+		[2026-02-06 14:49:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0021000022377693ER0F_P25CON046541044_ENDESA.xml
+		[2026-02-06 14:49:36] [XML PROCESSING]
+		[2026-02-06 14:49:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046541044 (ES0021000022377693ER0F)
+		 
+	[ROW 158] ========================================
+		[2026-02-06 14:49:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046577009
+		[2026-02-06 14:49:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104864120001AH0F_P25CON046577009_ENDESA.pdf
+		[2026-02-06 14:49:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104864120001AH0F_P25CON046577009_ENDESA.xml
+		[2026-02-06 14:49:39] [XML PROCESSING]
+		[2026-02-06 14:49:40]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046577009 (ES0031104864120001AH0F)
+		 
+	[ROW 159] ========================================
+		[2026-02-06 14:49:40]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046577010
+		[2026-02-06 14:49:42]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105096241001MG0F_P25CON046577010_ENDESA.pdf
+		[2026-02-06 14:49:43]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105096241001MG0F_P25CON046577010_ENDESA.xml
+		[2026-02-06 14:49:43] [XML PROCESSING]
+		[2026-02-06 14:49:43]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046577010 (ES0031105096241001MG0F)
+		 
+	[ROW 160] ========================================
+		[2026-02-06 14:49:43]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046577011
+		[2026-02-06 14:49:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105601723001VX0F_P25CON046577011_ENDESA.pdf
+		[2026-02-06 14:49:46]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105601723001VX0F_P25CON046577011_ENDESA.xml
+		[2026-02-06 14:49:46] [XML PROCESSING]
+		[2026-02-06 14:49:46]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046577011 (ES0031105601723001VX0F)
+		 
+
+[PAGE 33 / 49] 
+		[2026-02-06 14:49:56]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 161] ========================================
+		[2026-02-06 14:49:56]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541041
+		[2026-02-06 14:50:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101494428001EE0F_P25CON046541041_ENDESA.pdf
+		[2026-02-06 14:50:02]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031101494428001EE0F_P25CON046541041_ENDESA.xml
+		[2026-02-06 14:50:02] [XML PROCESSING]
+		[2026-02-06 14:50:02]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046541041 (ES0031101494428001EE0F)
+		 
+	[ROW 162] ========================================
+		[2026-02-06 14:50:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046448269
+		[2026-02-06 14:50:04]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105408355001HW0F_P25CON046448269_ENDESA.pdf
+		[2026-02-06 14:50:05]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105408355001HW0F_P25CON046448269_ENDESA.xml
+		[2026-02-06 14:50:05] [XML PROCESSING]
+		[2026-02-06 14:50:05]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046448269 (ES0031105408355001HW0F)
+		 
+	[ROW 163] ========================================
+		[2026-02-06 14:50:05]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541040
+		[2026-02-06 14:50:07]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101501368001WW0F_P25CON046541040_ENDESA.pdf
+		[2026-02-06 14:50:17]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:50:17]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON046541040 (ES0031101501368001WW0F)
+		[2026-02-06 14:50:17] [PDF OCR]
+		[2026-02-06 14:50:42]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON046541040 (ES0031101501368001WW0F)
+		 
+	[ROW 164] ========================================
+		[2026-02-06 14:50:43]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541042
+		[2026-02-06 14:50:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105176662001HD0F_P25CON046541042_ENDESA.pdf
+		[2026-02-06 14:50:47]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105176662001HD0F_P25CON046541042_ENDESA.xml
+		[2026-02-06 14:50:47] [XML PROCESSING]
+		[2026-02-06 14:50:47]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046541042 (ES0031105176662001HD0F)
+		 
+	[ROW 165] ========================================
+		[2026-02-06 14:50:47]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046541043
+		[2026-02-06 14:50:49]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105670726001GC0F_P25CON046541043_ENDESA.pdf
+		[2026-02-06 14:51:00]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:51:00]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON046541043 (ES0031105670726001GC0F)
+		[2026-02-06 14:51:00] [PDF OCR]
+		[2026-02-06 14:51:25]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON046541043 (ES0031105670726001GC0F)
+		 
+
+[PAGE 34 / 49] 
+		[2026-02-06 14:51:35]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 166] ========================================
+		[2026-02-06 14:51:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046211998
+		[2026-02-06 14:51:37]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0021000043445310FD0F_P25CON046211998_ENDESA.pdf
+		[2026-02-06 14:51:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0021000043445310FD0F_P25CON046211998_ENDESA.xml
+		[2026-02-06 14:51:39] [XML PROCESSING]
+		[2026-02-06 14:51:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046211998 (ES0021000043445310FD0F)
+		 
+	[ROW 167] ========================================
+		[2026-02-06 14:51:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046251549
+		[2026-02-06 14:51:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104137941001TH0F_P25CON046251549_ENDESA.pdf
+		[2026-02-06 14:51:42]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104137941001TH0F_P25CON046251549_ENDESA.xml
+		[2026-02-06 14:51:42] [XML PROCESSING]
+		[2026-02-06 14:51:42]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046251549 (ES0031104137941001TH0F)
+		 
+	[ROW 168] ========================================
+		[2026-02-06 14:51:42]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046251552
+		[2026-02-06 14:51:44]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104267149001NK0F_P25CON046251552_ENDESA.pdf
+		[2026-02-06 14:51:45]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104267149001NK0F_P25CON046251552_ENDESA.xml
+		[2026-02-06 14:51:45] [XML PROCESSING]
+		[2026-02-06 14:51:45]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046251552 (ES0031104267149001NK0F)
+		 
+	[ROW 169] ========================================
+		[2026-02-06 14:51:45]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046217790
+		[2026-02-06 14:51:48]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031101458955003YQ0F_P25CON046217790_ENDESA.pdf
+		[2026-02-06 14:51:49]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031101458955003YQ0F_P25CON046217790_ENDESA.xml
+		[2026-02-06 14:51:49] [XML PROCESSING]
+		[2026-02-06 14:51:49]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046217790 (ES0031101458955003YQ0F)
+		 
+	[ROW 170] ========================================
+		[2026-02-06 14:51:49]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046211996
+		[2026-02-06 14:51:52]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0021000012440875HB0F_P25CON046211996_ENDESA.pdf
+		[2026-02-06 14:51:53]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0021000012440875HB0F_P25CON046211996_ENDESA.xml
+		[2026-02-06 14:51:53] [XML PROCESSING]
+		[2026-02-06 14:51:53]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046211996 (ES0021000012440875HB0F)
+		 
+
+[PAGE 35 / 49] 
+		[2026-02-06 14:52:04]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 171] ========================================
+		[2026-02-06 14:52:05]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046217792
+		[2026-02-06 14:52:06]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104000278001BE0F_P25CON046217792_ENDESA.pdf
+		[2026-02-06 14:52:08]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104000278001BE0F_P25CON046217792_ENDESA.xml
+		[2026-02-06 14:52:08] [XML PROCESSING]
+		[2026-02-06 14:52:08]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046217792 (ES0031104000278001BE0F)
+		 
+	[ROW 172] ========================================
+		[2026-02-06 14:52:08]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046217794
+		[2026-02-06 14:52:11]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104827453001PD0F_P25CON046217794_ENDESA.pdf
+		[2026-02-06 14:52:12]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104827453001PD0F_P25CON046217794_ENDESA.xml
+		[2026-02-06 14:52:12] [XML PROCESSING]
+		[2026-02-06 14:52:12]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046217794 (ES0031104827453001PD0F)
+		 
+	[ROW 173] ========================================
+		[2026-02-06 14:52:12]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046251551
+		[2026-02-06 14:52:14]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104671434001DZ0F_P25CON046251551_ENDESA.pdf
+		[2026-02-06 14:52:15]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104671434001DZ0F_P25CON046251551_ENDESA.xml
+		[2026-02-06 14:52:15] [XML PROCESSING]
+		[2026-02-06 14:52:15]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046251551 (ES0031104671434001DZ0F)
+		 
+	[ROW 174] ========================================
+		[2026-02-06 14:52:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046217791
+		[2026-02-06 14:52:17]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104784411001NW0F_P25CON046217791_ENDESA.pdf
+		[2026-02-06 14:52:18]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104784411001NW0F_P25CON046217791_ENDESA.xml
+		[2026-02-06 14:52:18] [XML PROCESSING]
+		[2026-02-06 14:52:18]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046217791 (ES0031104784411001NW0F)
+		 
+	[ROW 175] ========================================
+		[2026-02-06 14:52:18]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046251550
+		[2026-02-06 14:52:20]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104221318001BV0F_P25CON046251550_ENDESA.pdf
+		[2026-02-06 14:52:21]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104221318001BV0F_P25CON046251550_ENDESA.xml
+		[2026-02-06 14:52:21] [XML PROCESSING]
+		[2026-02-06 14:52:22]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046251550 (ES0031104221318001BV0F)
+		 
+
+[PAGE 36 / 49] 
+		[2026-02-06 14:52:33]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 176] ========================================
+		[2026-02-06 14:52:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046211997
+		[2026-02-06 14:52:35]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104335888001EW0F_P25CON046211997_ENDESA.pdf
+		[2026-02-06 14:52:37]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104335888001EW0F_P25CON046211997_ENDESA.xml
+		[2026-02-06 14:52:37] [XML PROCESSING]
+		[2026-02-06 14:52:37]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046211997 (ES0031104335888001EW0F)
+		 
+	[ROW 177] ========================================
+		[2026-02-06 14:52:37]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046228069
+		[2026-02-06 14:52:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104860151001FJ0F_P25CON046228069_ENDESA.pdf
+		[2026-02-06 14:52:42]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104860151001FJ0F_P25CON046228069_ENDESA.xml
+		[2026-02-06 14:52:42] [XML PROCESSING]
+		[2026-02-06 14:52:42]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046228069 (ES0031104860151001FJ0F)
+		 
+	[ROW 178] ========================================
+		[2026-02-06 14:52:42]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046217793
+		[2026-02-06 14:52:44]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104396668001EH0F_P25CON046217793_ENDESA.pdf
+		[2026-02-06 14:52:46]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104396668001EH0F_P25CON046217793_ENDESA.xml
+		[2026-02-06 14:52:46] [XML PROCESSING]
+		[2026-02-06 14:52:46]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046217793 (ES0031104396668001EH0F)
+		 
+	[ROW 179] ========================================
+		[2026-02-06 14:52:46]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046005451
+		[2026-02-06 14:52:47]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105225010001CP0F_P25CON046005451_ENDESA.pdf
+		[2026-02-06 14:52:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105225010001CP0F_P25CON046005451_ENDESA.xml
+		[2026-02-06 14:52:48] [XML PROCESSING]
+		[2026-02-06 14:52:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046005451 (ES0031105225010001CP0F)
+		 
+	[ROW 180] ========================================
+		[2026-02-06 14:52:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045966797
+		[2026-02-06 14:52:51]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102240067001BK0F_P25CON045966797_ENDESA.pdf
+		[2026-02-06 14:52:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102240067001BK0F_P25CON045966797_ENDESA.xml
+		[2026-02-06 14:52:52] [XML PROCESSING]
+		[2026-02-06 14:52:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045966797 (ES0031102240067001BK0F)
+		 
+
+[PAGE 37 / 49] 
+		[2026-02-06 14:53:02]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 181] ========================================
+		[2026-02-06 14:53:02]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989954
+		[2026-02-06 14:53:05]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104411385001DP0F_P25CON045989954_ENDESA.pdf
+		[2026-02-06 14:53:15]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:53:15]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON045989954 (ES0031104411385001DP0F)
+		[2026-02-06 14:53:15] [PDF OCR]
+		[2026-02-06 14:53:47]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON045989954 (ES0031104411385001DP0F)
+		 
+	[ROW 182] ========================================
+		[2026-02-06 14:53:47]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989958
+		[2026-02-06 14:53:49]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105620645001AW0F_P25CON045989958_ENDESA.pdf
+		[2026-02-06 14:53:59]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:53:59]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON045989958 (ES0031105620645001AW0F)
+		[2026-02-06 14:53:59] [PDF OCR]
+		[2026-02-06 14:54:25]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON045989958 (ES0031105620645001AW0F)
+		 
+	[ROW 183] ========================================
+		[2026-02-06 14:54:26]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046005452
+		[2026-02-06 14:54:28]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104260716001CY0F_P25CON046005452_ENDESA.pdf
+		[2026-02-06 14:54:29]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104260716001CY0F_P25CON046005452_ENDESA.xml
+		[2026-02-06 14:54:29] [XML PROCESSING]
+		[2026-02-06 14:54:29]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046005452 (ES0031104260716001CY0F)
+		 
+	[ROW 184] ========================================
+		[2026-02-06 14:54:30]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989962
+		[2026-02-06 14:54:31]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102250345001ZB0F_P25CON045989962_ENDESA.pdf
+		[2026-02-06 14:54:32]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102250345001ZB0F_P25CON045989962_ENDESA.xml
+		[2026-02-06 14:54:32] [XML PROCESSING]
+		[2026-02-06 14:54:32]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989962 (ES0031102250345001ZB0F)
+		 
+	[ROW 185] ========================================
+		[2026-02-06 14:54:32]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046023101
+		[2026-02-06 14:54:34]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102228797007GG0F_P25CON046023101_ENDESA.pdf
+		[2026-02-06 14:54:36]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102228797007GG0F_P25CON046023101_ENDESA.xml
+		[2026-02-06 14:54:36] [XML PROCESSING]
+		[2026-02-06 14:54:36]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046023101 (ES0031102228797007GG0F)
+		 
+
+[PAGE 38 / 49] 
+		[2026-02-06 14:54:46]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 186] ========================================
+		[2026-02-06 14:54:46]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989964
+		[2026-02-06 14:54:48]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0031105669043001QE0F_P25CON045989964_ENDESA.pdf
+		[2026-02-06 14:54:49]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202507_ES0031105669043001QE0F_P25CON045989964_ENDESA.xml
+		[2026-02-06 14:54:49] [XML PROCESSING]
+		[2026-02-06 14:54:49]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989964 (ES0031105669043001QE0F)
+		 
+	[ROW 187] ========================================
+		[2026-02-06 14:54:49]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046029331
+		[2026-02-06 14:54:51]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104066548001ZF0F_P25CON046029331_ENDESA.pdf
+		[2026-02-06 14:54:53]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104066548001ZF0F_P25CON046029331_ENDESA.xml
+		[2026-02-06 14:54:53] [XML PROCESSING]
+		[2026-02-06 14:54:53]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046029331 (ES0031104066548001ZF0F)
+		 
+	[ROW 188] ========================================
+		[2026-02-06 14:54:53]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989965
+		[2026-02-06 14:54:56]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105663522001RB0F_P25CON045989965_ENDESA.pdf
+		[2026-02-06 14:54:57]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105663522001RB0F_P25CON045989965_ENDESA.xml
+		[2026-02-06 14:54:57] [XML PROCESSING]
+		[2026-02-06 14:54:57]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989965 (ES0031105663522001RB0F)
+		 
+	[ROW 189] ========================================
+		[2026-02-06 14:54:57]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989955
+		[2026-02-06 14:54:59]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102431213001WJ0F_P25CON045989955_ENDESA.pdf
+		[2026-02-06 14:55:00]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102431213001WJ0F_P25CON045989955_ENDESA.xml
+		[2026-02-06 14:55:00] [XML PROCESSING]
+		[2026-02-06 14:55:00]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989955 (ES0031102431213001WJ0F)
+		 
+	[ROW 190] ========================================
+		[2026-02-06 14:55:00]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046005449
+		[2026-02-06 14:55:02]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102766819001EH0F_P25CON046005449_ENDESA.pdf
+		[2026-02-06 14:55:04]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102766819001EH0F_P25CON046005449_ENDESA.xml
+		[2026-02-06 14:55:04] [XML PROCESSING]
+		[2026-02-06 14:55:04]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046005449 (ES0031102766819001EH0F)
+		 
+
+[PAGE 39 / 49] 
+		[2026-02-06 14:55:16]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 191] ========================================
+		[2026-02-06 14:55:16]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989959
+		[2026-02-06 14:55:18]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105384274066AK0F_P25CON045989959_ENDESA.pdf
+		[2026-02-06 14:55:20]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105384274066AK0F_P25CON045989959_ENDESA.xml
+		[2026-02-06 14:55:20] [XML PROCESSING]
+		[2026-02-06 14:55:20]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989959 (ES0031105384274066AK0F)
+		 
+	[ROW 192] ========================================
+		[2026-02-06 14:55:20]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046005448
+		[2026-02-06 14:55:22]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102696470001WZ0F_P25CON046005448_ENDESA.pdf
+		[2026-02-06 14:55:23]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102696470001WZ0F_P25CON046005448_ENDESA.xml
+		[2026-02-06 14:55:23] [XML PROCESSING]
+		[2026-02-06 14:55:23]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046005448 (ES0031102696470001WZ0F)
+		 
+	[ROW 193] ========================================
+		[2026-02-06 14:55:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989960
+		[2026-02-06 14:55:25]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102663676001SN0F_P25CON045989960_ENDESA.pdf
+		[2026-02-06 14:55:27]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102663676001SN0F_P25CON045989960_ENDESA.xml
+		[2026-02-06 14:55:27] [XML PROCESSING]
+		[2026-02-06 14:55:27]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989960 (ES0031102663676001SN0F)
+		 
+	[ROW 194] ========================================
+		[2026-02-06 14:55:27]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989961
+		[2026-02-06 14:55:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102663675001HR0F_P25CON045989961_ENDESA.pdf
+		[2026-02-06 14:55:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102663675001HR0F_P25CON045989961_ENDESA.xml
+		[2026-02-06 14:55:31] [XML PROCESSING]
+		[2026-02-06 14:55:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989961 (ES0031102663675001HR0F)
+		 
+	[ROW 195] ========================================
+		[2026-02-06 14:55:31]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989957
+		[2026-02-06 14:55:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105577607001LQ0F_P25CON045989957_ENDESA.pdf
+		[2026-02-06 14:55:34]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105577607001LQ0F_P25CON045989957_ENDESA.xml
+		[2026-02-06 14:55:34] [XML PROCESSING]
+		[2026-02-06 14:55:34]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989957 (ES0031105577607001LQ0F)
+		 
+
+[PAGE 40 / 49] 
+		[2026-02-06 14:55:44]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 196] ========================================
+		[2026-02-06 14:55:44]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989963
+		[2026-02-06 14:55:45]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105667082001VW0F_P25CON045989963_ENDESA.pdf
+		[2026-02-06 14:55:48]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105667082001VW0F_P25CON045989963_ENDESA.xml
+		[2026-02-06 14:55:48] [XML PROCESSING]
+		[2026-02-06 14:55:48]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989963 (ES0031105667082001VW0F)
+		 
+	[ROW 197] ========================================
+		[2026-02-06 14:55:48]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045970395
+		[2026-02-06 14:55:50]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102716924038JJ0F_P25CON045970395_ENDESA.pdf
+		[2026-02-06 14:56:00]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:56:00]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON045970395 (ES0031102716924038JJ0F)
+		[2026-02-06 14:56:00] [PDF OCR]
+		[2026-02-06 14:56:27]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON045970395 (ES0031102716924038JJ0F)
+		 
+	[ROW 198] ========================================
+		[2026-02-06 14:56:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045989956
+		[2026-02-06 14:56:29]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105503817001ML0F_P25CON045989956_ENDESA.pdf
+		[2026-02-06 14:56:31]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105503817001ML0F_P25CON045989956_ENDESA.xml
+		[2026-02-06 14:56:31] [XML PROCESSING]
+		[2026-02-06 14:56:31]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045989956 (ES0031105503817001ML0F)
+		 
+	[ROW 199] ========================================
+		[2026-02-06 14:56:31]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046029329
+		[2026-02-06 14:56:33]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031104398785001CY0F_P25CON046029329_ENDESA.pdf
+		[2026-02-06 14:56:35]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031104398785001CY0F_P25CON046029329_ENDESA.xml
+		[2026-02-06 14:56:35] [XML PROCESSING]
+		[2026-02-06 14:56:35]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046029329 (ES0031104398785001CY0F)
+		 
+	[ROW 200] ========================================
+		[2026-02-06 14:56:35]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046029330
+		[2026-02-06 14:56:37]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102134487001DA0F_P25CON046029330_ENDESA.pdf
+		[2026-02-06 14:56:38]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102134487001DA0F_P25CON046029330_ENDESA.xml
+		[2026-02-06 14:56:38] [XML PROCESSING]
+		[2026-02-06 14:56:38]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046029330 (ES0031102134487001DA0F)
+		 
+
+[PAGE 41 / 49] 
+		[2026-02-06 14:57:00]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 201] ========================================
+		[2026-02-06 14:57:00]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046005450
+		[2026-02-06 14:57:03]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031102580053097PW0F_P25CON046005450_ENDESA.pdf
+		[2026-02-06 14:57:05]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031102580053097PW0F_P25CON046005450_ENDESA.xml
+		[2026-02-06 14:57:05] [XML PROCESSING]
+		[2026-02-06 14:57:05]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046005450 (ES0031102580053097PW0F)
+		 
+	[ROW 202] ========================================
+		[2026-02-06 14:57:05]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON046010472
+		[2026-02-06 14:57:07]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202509_ES0031105366882001KG0F_P25CON046010472_ENDESA.pdf
+		[2026-02-06 14:57:09]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202509_ES0031105366882001KG0F_P25CON046010472_ENDESA.xml
+		[2026-02-06 14:57:09] [XML PROCESSING]
+		[2026-02-06 14:57:09]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON046010472 (ES0031105366882001KG0F)
+		 
+	[ROW 203] ========================================
+		[2026-02-06 14:57:09]     [OK] Datos estraidos correctamente de la fila de la tabla: P25COR001342447
+		[2026-02-06 14:57:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202506_ES0031105443482001DE0F_P25COR001342447_ENDESA.pdf
+		[2026-02-06 14:57:15]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202506_ES0031105443482001DE0F_P25COR001342447_ENDESA.xml
+		[2026-02-06 14:57:15] [XML PROCESSING]
+		[2026-02-06 14:57:15]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25COR001342447 (ES0031105443482001DE0F)
+		 
+	[ROW 204] ========================================
+		[2026-02-06 14:57:15]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008663
+		[2026-02-06 14:57:17]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104250774001KD0F_P25MCR000008663_ENDESA.pdf
+		[2026-02-06 14:57:18]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104250774001KD0F_P25MCR000008663_ENDESA.xml
+		[2026-02-06 14:57:18] [XML PROCESSING]
+		[2026-02-06 14:57:18]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008663 (ES0031104250774001KD0F)
+		 
+	[ROW 205] ========================================
+		[2026-02-06 14:57:19]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008708
+		[2026-02-06 14:57:22]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031105408355001HW0F_P25MCR000008708_ENDESA.pdf
+		[2026-02-06 14:57:23]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031105408355001HW0F_P25MCR000008708_ENDESA.xml
+		[2026-02-06 14:57:23] [XML PROCESSING]
+		[2026-02-06 14:57:23]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008708 (ES0031105408355001HW0F)
+		 
+
+[PAGE 42 / 49] 
+		[2026-02-06 14:57:36]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 206] ========================================
+		[2026-02-06 14:57:36]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008620
+		[2026-02-06 14:57:39]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031102250623001AX0F_P25MCR000008620_ENDESA.pdf
+		[2026-02-06 14:57:41]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031102250623001AX0F_P25MCR000008620_ENDESA.xml
+		[2026-02-06 14:57:41] [XML PROCESSING]
+		[2026-02-06 14:57:41]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008620 (ES0031102250623001AX0F)
+		 
+	[ROW 207] ========================================
+		[2026-02-06 14:57:41]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008694
+		[2026-02-06 14:57:44]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031105044684001EB0F_P25MCR000008694_ENDESA.pdf
+		[2026-02-06 14:57:46]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031105044684001EB0F_P25MCR000008694_ENDESA.xml
+		[2026-02-06 14:57:46] [XML PROCESSING]
+		[2026-02-06 14:57:46]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008694 (ES0031105044684001EB0F)
+		 
+	[ROW 208] ========================================
+		[2026-02-06 14:57:46]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008659
+		[2026-02-06 14:57:48]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104221318001BV0F_P25MCR000008659_ENDESA.pdf
+		[2026-02-06 14:57:52]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104221318001BV0F_P25MCR000008659_ENDESA.xml
+		[2026-02-06 14:57:52] [XML PROCESSING]
+		[2026-02-06 14:57:52]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008659 (ES0031104221318001BV0F)
+		 
+	[ROW 209] ========================================
+		[2026-02-06 14:57:53]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008640
+		[2026-02-06 14:57:55]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104029752001EM0F_P25MCR000008640_ENDESA.pdf
+		[2026-02-06 14:57:57]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104029752001EM0F_P25MCR000008640_ENDESA.xml
+		[2026-02-06 14:57:57] [XML PROCESSING]
+		[2026-02-06 14:57:57]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008640 (ES0031104029752001EM0F)
+		 
+	[ROW 210] ========================================
+		[2026-02-06 14:57:57]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008681
+		[2026-02-06 14:58:00]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104671434001DZ0F_P25MCR000008681_ENDESA.pdf
+		[2026-02-06 14:58:03]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104671434001DZ0F_P25MCR000008681_ENDESA.xml
+		[2026-02-06 14:58:03] [XML PROCESSING]
+		[2026-02-06 14:58:03]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008681 (ES0031104671434001DZ0F)
+		 
+
+[PAGE 43 / 49] 
+		[2026-02-06 14:58:17]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 211] ========================================
+		[2026-02-06 14:58:17]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008664
+		[2026-02-06 14:58:19]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104267149001NK0F_P25MCR000008664_ENDESA.pdf
+		[2026-02-06 14:58:23]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104267149001NK0F_P25MCR000008664_ENDESA.xml
+		[2026-02-06 14:58:23] [XML PROCESSING]
+		[2026-02-06 14:58:23]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008664 (ES0031104267149001NK0F)
+		 
+	[ROW 212] ========================================
+		[2026-02-06 14:58:23]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008642
+		[2026-02-06 14:58:25]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031101458955003YQ0F_P25MCR000008642_ENDESA.pdf
+		[2026-02-06 14:58:28]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031101458955003YQ0F_P25MCR000008642_ENDESA.xml
+		[2026-02-06 14:58:28] [XML PROCESSING]
+		[2026-02-06 14:58:28]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008642 (ES0031101458955003YQ0F)
+		 
+	[ROW 213] ========================================
+		[2026-02-06 14:58:28]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008622
+		[2026-02-06 14:58:31]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031102256873001CJ0F_P25MCR000008622_ENDESA.pdf
+		[2026-02-06 14:58:33]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031102256873001CJ0F_P25MCR000008622_ENDESA.xml
+		[2026-02-06 14:58:33] [XML PROCESSING]
+		[2026-02-06 14:58:33]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008622 (ES0031102256873001CJ0F)
+		 
+	[ROW 214] ========================================
+		[2026-02-06 14:58:33]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008696
+		[2026-02-06 14:58:35]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031105096241001MG0F_P25MCR000008696_ENDESA.pdf
+		[2026-02-06 14:58:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031105096241001MG0F_P25MCR000008696_ENDESA.xml
+		[2026-02-06 14:58:39] [XML PROCESSING]
+		[2026-02-06 14:58:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008696 (ES0031105096241001MG0F)
+		 
+	[ROW 215] ========================================
+		[2026-02-06 14:58:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008636
+		[2026-02-06 14:58:49]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104005751001XB0F_P25MCR000008636_ENDESA.pdf
+		[2026-02-06 14:58:51]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104005751001XB0F_P25MCR000008636_ENDESA.xml
+		[2026-02-06 14:58:51] [XML PROCESSING]
+		[2026-02-06 14:58:51]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008636 (ES0031104005751001XB0F)
+		 
+
+[PAGE 44 / 49] 
+		[2026-02-06 14:59:13]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 216] ========================================
+		[2026-02-06 14:59:14]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008637
+		[2026-02-06 14:59:30]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031101458803001KK0F_P25MCR000008637_ENDESA.pdf
+		[2026-02-06 14:59:40]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 14:59:40]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25MCR000008637 (ES0031101458803001KK0F)
+		[2026-02-06 14:59:40] [PDF OCR]
+		[2026-02-06 15:00:07]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25MCR000008637 (ES0031101458803001KK0F)
+		 
+	[ROW 217] ========================================
+		[2026-02-06 15:00:08]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008657
+		[2026-02-06 15:00:11]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104177151015RT0F_P25MCR000008657_ENDESA.pdf
+		[2026-02-06 15:00:13]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104177151015RT0F_P25MCR000008657_ENDESA.xml
+		[2026-02-06 15:00:13] [XML PROCESSING]
+		[2026-02-06 15:00:13]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008657 (ES0031104177151015RT0F)
+		 
+	[ROW 218] ========================================
+		[2026-02-06 15:00:13]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008654
+		[2026-02-06 15:00:16]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104137941001TH0F_P25MCR000008654_ENDESA.pdf
+		[2026-02-06 15:00:17]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104137941001TH0F_P25MCR000008654_ENDESA.xml
+		[2026-02-06 15:00:17] [XML PROCESSING]
+		[2026-02-06 15:00:17]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008654 (ES0031104137941001TH0F)
+		 
+	[ROW 219] ========================================
+		[2026-02-06 15:00:17]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008698
+		[2026-02-06 15:00:21]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031105176662001HD0F_P25MCR000008698_ENDESA.pdf
+		[2026-02-06 15:00:23]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031105176662001HD0F_P25MCR000008698_ENDESA.xml
+		[2026-02-06 15:00:23] [XML PROCESSING]
+		[2026-02-06 15:00:23]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008698 (ES0031105176662001HD0F)
+		 
+	[ROW 220] ========================================
+		[2026-02-06 15:00:23]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008683
+		[2026-02-06 15:00:26]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104784411001NW0F_P25MCR000008683_ENDESA.pdf
+		[2026-02-06 15:00:27]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104784411001NW0F_P25MCR000008683_ENDESA.xml
+		[2026-02-06 15:00:27] [XML PROCESSING]
+		[2026-02-06 15:00:27]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008683 (ES0031104784411001NW0F)
+		 
+
+[PAGE 45 / 49] 
+		[2026-02-06 15:00:49]     -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.
+		 
+	[ROW 221] ========================================
+		[2026-02-06 15:00:49]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008712
+		[2026-02-06 15:00:54]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031105453112001JZ0F_P25MCR000008712_ENDESA.pdf
+		[2026-02-06 15:00:55]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031105453112001JZ0F_P25MCR000008712_ENDESA.xml
+		[2026-02-06 15:00:55] [XML PROCESSING]
+		[2026-02-06 15:00:55]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008712 (ES0031105453112001JZ0F)
+		 
+	[ROW 222] ========================================
+		[2026-02-06 15:00:55]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008635
+		[2026-02-06 15:00:57]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031101458803001KK0F_P25MCR000008635_ENDESA.pdf
+		[2026-02-06 15:00:58]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031101458803001KK0F_P25MCR000008635_ENDESA.xml
+		[2026-02-06 15:00:58] [XML PROCESSING]
+		[2026-02-06 15:00:58]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008635 (ES0031101458803001KK0F)
+		 
+	[ROW 223] ========================================
+		[2026-02-06 15:00:58]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008686
+		[2026-02-06 15:01:03]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104864120001AH0F_P25MCR000008686_ENDESA.pdf
+		[2026-02-06 15:01:05]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104864120001AH0F_P25MCR000008686_ENDESA.xml
+		[2026-02-06 15:01:05] [XML PROCESSING]
+		[2026-02-06 15:01:05]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008686 (ES0031104864120001AH0F)
+		 
+	[ROW 224] ========================================
+		[2026-02-06 15:01:05]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008685
+		[2026-02-06 15:01:08]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104860151001FJ0F_P25MCR000008685_ENDESA.pdf
+		[2026-02-06 15:01:10]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104860151001FJ0F_P25MCR000008685_ENDESA.xml
+		[2026-02-06 15:01:10] [XML PROCESSING]
+		[2026-02-06 15:01:10]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008685 (ES0031104860151001FJ0F)
+		 
+	[ROW 225] ========================================
+		[2026-02-06 15:01:10]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008632
+		[2026-02-06 15:01:13]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104001694001YG0F_P25MCR000008632_ENDESA.pdf
+		[2026-02-06 15:01:14]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104001694001YG0F_P25MCR000008632_ENDESA.xml
+		[2026-02-06 15:01:14] [XML PROCESSING]
+		[2026-02-06 15:01:14]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008632 (ES0031104001694001YG0F)
+		 
+
+[PAGE 46 / 49] 
+		[2026-02-06 15:01:24]     ->[OK] Tabla cargada correctamente
+		 
+	[ROW 226] ========================================
+		[2026-02-06 15:01:24]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008649
+		[2026-02-06 15:01:28]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031101502108001ET0F_P25MCR000008649_ENDESA.pdf
+		[2026-02-06 15:01:30]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031101502108001ET0F_P25MCR000008649_ENDESA.xml
+		[2026-02-06 15:01:30] [XML PROCESSING]
+		[2026-02-06 15:01:30]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008649 (ES0031101502108001ET0F)
+		 
+	[ROW 227] ========================================
+		[2026-02-06 15:01:30]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045745248
+		[2026-02-06 15:01:32]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202502_ES0031105648857001KH0F_P25CON045745248_ENDESA.pdf
+		[2026-02-06 15:01:34]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202502_ES0031105648857001KH0F_P25CON045745248_ENDESA.xml
+		[2026-02-06 15:01:34] [XML PROCESSING]
+		[2026-02-06 15:01:34]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045745248 (ES0031105648857001KH0F)
+		 
+	[ROW 228] ========================================
+		[2026-02-06 15:01:34]     [OK] Datos estraidos correctamente de la fila de la tabla: P25MCR000008628
+		[2026-02-06 15:01:38]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202411_ES0031104001632001RN0F_P25MCR000008628_ENDESA.pdf
+		[2026-02-06 15:01:39]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202411_ES0031104001632001RN0F_P25MCR000008628_ENDESA.xml
+		[2026-02-06 15:01:39] [XML PROCESSING]
+		[2026-02-06 15:01:39]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25MCR000008628 (ES0031104001632001RN0F)
+		 
+	[ROW 229] ========================================
+		[2026-02-06 15:01:39]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045745252
+		[2026-02-06 15:01:41]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202506_ES0031105648857001KH0F_P25CON045745252_ENDESA.pdf
+		[2026-02-06 15:01:43]    -> [OK] [DESCARGA XML] Guardado en: temp_downloads\cliente\xml\202506_ES0031105648857001KH0F_P25CON045745252_ENDESA.xml
+		[2026-02-06 15:01:43] [XML PROCESSING]
+		[2026-02-06 15:01:43]     -> [OK] [XML PARSED] Datos extraídos del XML para factura P25CON045745252 (ES0031105648857001KH0F)
+		 
+	[ROW 230] ========================================
+		[2026-02-06 15:01:43]     [OK] Datos estraidos correctamente de la fila de la tabla: P25CON045745253
+		[2026-02-06 15:01:47]    -> [OK] [DESCARGA PDF] Guardado en: temp_downloads\cliente\pdf\202507_ES0031105648857001KH0F_P25CON045745253_ENDESA.pdf
+		[2026-02-06 15:02:17]    -> [ADVERTENCIA XML] Timeout (30s) al hacer clic o iniciar la descarga. Omitiendo.
+		[2026-02-06 15:02:17]     -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura P25CON045745253 (ES0031105648857001KH0F)
+		[2026-02-06 15:02:17] [PDF OCR]
+		[2026-02-06 15:02:54]     -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura P25CON045745253 (ES0031105648857001KH0F)
+		[2026-02-06 15:03:05]     -->[ERROR] Timeout al pulsar siguiente en página 46.
+		 ================================================================================
+		[2026-02-06 15:03:05] [OK] Búsqueda global finalizada: 230 facturas extraídas.
+================================================================================
+
+
+ ================================================================================
+		[2026-02-06 15:03:05] [OK][FIN] Proceso RPA completado.
+		Total facturas extraídas: 230
+================================================================================
+		[2026-02-06 15:03:05] [SISTEMA] Navegador cerrado y recursos liberados.
+
+
