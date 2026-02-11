@@ -41,7 +41,7 @@ DOWNLOAD_FOLDERS = {
 
     # F Prompts y modelos para OCR
 PROMPT_ENDESA_PATH = "prompts/prompt_endesa.txt"
-PROMPT_ENEL_PATH = "prompts/prompt_distribucion.txt"
+PROMPT_ENEL_PATH = "prompts/prompt_enel.txt"
 MODEL = "gpt-4o"
 
     # F. Numero Máximo de Intentos de Inicio de Sesión

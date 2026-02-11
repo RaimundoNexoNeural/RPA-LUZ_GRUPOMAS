@@ -55,7 +55,7 @@ async def _extraer_texto_de_td(td: Locator) -> str:
     
 
 # AUX.3 Espera que cargue la página de la tabla de resultados
-async def _wait_for_data_load(page: Page, timeout: int = 60000) -> bool:
+async def _wait_for_data_load(page: Page, timeout: int = 90000) -> bool:
     '''
     Espera a que los datos dinámicos de la primera fila de la tabla de resultados estén cargados y estables.
     Parametros:
@@ -91,7 +91,7 @@ async def _wait_for_data_load(page: Page, timeout: int = 60000) -> bool:
     
     # D. En caso de Timeout, devolvemos False e informamos
     except TimeoutError:
-        escribir_log("    -->[ERROR] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.")
+        escribir_log("    -->[!] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.")
         return False
 
 
@@ -277,9 +277,8 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             # C.2.2 Si no se ha podido procesar el PDF se registra el error
             if not exito_pdf:
                 escribir_log(f"    -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
-                factura.error_RPA = True
-                factura.msg_error_RPA += "ERROR_PARSEO: El archivo PDF no contenía datos válidos o estaba incompleto."
-        
+                
+                
         # C.3. Si no se ha descargado ni el XML ni el PDF, se registra el error y se devuelve la factura solo con los datos básico de la tabla.
         if not xml_path and not pdf_path:
             factura.error_RPA = True

@@ -135,7 +135,7 @@ class FacturaEnel(BaseModel):
     cup: str 
     numero_factura: Optional[str] = "N/A"
     contrato: Optional[str] = "N/A"
-    direccion_suministro: Optional[str] = None
+    direccion_suministro: Optional[str] = "N/A"
         # Fechas
     fecha_emision: Optional[str] = "N/A"
     fecha_inicio_periodo: Optional[str] = "N/A"

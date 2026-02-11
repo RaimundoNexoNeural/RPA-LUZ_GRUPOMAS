@@ -214,10 +214,11 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
             raise Exception("No se pudieron obtener los roles disponibles para el usuario.")
         
         # C. PROCESAMIENTO DE FACTURAS POR ROL
-
-        for rol in roles:
-            escribir_log(f"{'='*80}", pretexto="\n", mostrar_tiempo=False)
-            escribir_log(f"PROCESANDO ROL {rol.upper()}: Todos los CUPS disponibles\n{'='*80}")
+        escribir_log(f"{'='*80}", pretexto="\n", mostrar_tiempo=False)
+        escribir_log(f"PROCESANDO BUSQUEDA GLOBAL: Todos los roles disponibles\n{'='*80}")
+        for irol, rol in enumerate(roles):
+            
+            escribir_log(f"\n\n[ROL {irol+1} / {len(roles)}]  ({rol.upper()})\n\t\t{'='*40}",mostrar_tiempo=False)
             
             try:
                 # C.1. Seleccionar el rol actual para cargar las facturas asociadas a ese rol
@@ -225,22 +226,25 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
                 
                 # C.2. Rellenar los filtros de fecha 
                 escribir_log(f"[BUSQUEDA]")
-                await _aplicar_filtros_fechas(page, fecha_desde, fecha_hasta)
-                
+                exito_busqueda = await _aplicar_filtros_fechas(page, fecha_desde, fecha_hasta)
+                if not exito_busqueda:
+                    continue
+
+                #input(f"DEBUG: Filtros aplicados para el rol '{rol}'. Presiona Enter para continuar con la extracción de facturas para este rol...")
                 # C.3. Extraer los datos de la tabla de resultados para el rol actual, y añadirlos a la lista total de facturas.
                 escribir_log(f"[EXTRACCIÓN]")
-                facturas_rol, contador = await _extraer_tabla_facturas_enel(page)
+                facturas_rol = await _extraer_tabla_facturas_enel(page, len(facturas_totales))
                 
                 # C.4. Si se han extraído facturas para el rol actual, se añaden a la lista total y se registra el éxito en el log.
                 if facturas_rol and len(facturas_rol) > 0:
                     facturas_totales.extend(facturas_rol)
-                    escribir_log(f"{'='*80}", mostrar_tiempo=False)
-                    escribir_log(f"[ROL OK] Búsqueda para rol {rol}: {contador} facturas extraídas.\n{'='*80}")
+                    escribir_log(f"\n{'='*40}", mostrar_tiempo=False)
+                    escribir_log(f"\t[OK] Búsqueda para rol {rol}: {len(facturas_rol)} facturas extraídas.\n{'='*40}", mostrar_tiempo=False)
 
                 # C.5. Si no se han encontrado facturas para el rol actual, se registra esta situación en el log.
                 else:
-                    escribir_log(f"{'='*80}", mostrar_tiempo=False)
-                    escribir_log(f"[ROL INFO] No se encontraron facturas para el rol {rol} en el rango {fecha_desde} - {fecha_hasta}.\n{'='*80}")
+                    escribir_log(f"    [INFO] No hay facturas para el rol '{rol}' en el rango {fecha_desde} - {fecha_hasta}.\n\t\t{'='*40}")
+                    continue
 
             # C.B.5. Si ocurre cualquier error durante el proceso de búsqueda o extracción, se captura la excepción, se registra el error en el log con detalles del mismo, se añade un registro de error a la lista total de facturas indicando que el error ocurrió en la búsqueda global, y se continúa con el proceso de cierre del navegador y finalización del proceso sin detenerlo completamente.
             except Exception as e:
@@ -250,7 +254,7 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
                                                 msg_error_RPA=f"ERROR en rol {rol}: {error_detalle[:1000]}")
                 facturas_totales.append(registro_error)
                 
-                escribir_log(f"[ERROR] Fallo al procesar el rol {rol}. Detalles del error: \n\t\t{error_detalle}\n{'='*80}")
+                escribir_log(f"[ERROR] Fallo al procesar el rol {rol}. Detalles del error: \n\t\t{error_detalle}\n\t\t{'='*40}")
                 continue
         
         # D. Finalización del proceso, registro de resultados y cierre de navegador
@@ -272,4 +276,4 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
 
 
 if __name__ == "__main__":
-    asyncio.run(ejecutar_robot_enel("01/10/2025","31/10/2025"))
+    asyncio.run(ejecutar_robot_endesa("01/10/2025","31/10/2025"))

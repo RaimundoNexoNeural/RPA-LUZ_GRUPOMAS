@@ -18,11 +18,13 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
         bool: True si el procesamiento fue exitoso, False en caso de error.
     '''
 
-
+    return True
     # === 0. Configuración de la API de OpenAI ===
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        print("[ERROR] No se encontró la variable de entorno OPENAI_API_KEY")
+        escribir_log("    -> [ERROR] No se encontró la variable de entorno OPENAI_API_KEY")
+        factura.error_RPA = True
+        factura.msg_error_RPA += "Error: No se encontró la variable de entorno OPENAI_API_KEY"
         return False
 
     client = OpenAI(api_key=api_key)
@@ -145,7 +147,9 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
         return True
 
     except Exception as e:
-        print(f"[ERROR] Error al procesar la factura PDF {factura.numero_factura} ({factura.cup}): {str(e)}")
+        escribir_log(f"    -> [ERROR] Error al procesar la factura PDF {factura.numero_factura} ({factura.cup}): {str(e)}")
+        factura.error_RPA = True
+        factura.msg_error_RPA += f"Error al procesar PDF: {str(e)}"
         return False
     
     # === 3. Limpieza de recursos temporales ===

@@ -64,7 +64,7 @@ async def _descargar_archivo_fila(page: Page, row_locator: Locator, factura: Fac
 
     # B. Definimos la ruta donde se descargará el archivo
     target_folder = DOWNLOAD_FOLDERS["PDF_ENEL"]
-    fecha = datetime.strptime(factura.fecha_fin_periodo, "%d/%m/%Y")
+    fecha = datetime.strptime(factura.fecha_emision, "%d/%m/%Y")
     mes = fecha.strftime("%m")
     anio = fecha.strftime("%Y")
 
@@ -74,8 +74,8 @@ async def _descargar_archivo_fila(page: Page, row_locator: Locator, factura: Fac
     # C. Proceso de descarga
     try:
         # C.1. Pulsamos el boton
-        async with page.expect_download(timeout=5000) as download_info:
-            await button_locator.click(timeout=5000)
+        async with page.expect_download(timeout=20000) as download_info:
+            await button_locator.click(timeout=20000)
         # C.2. Leemos los valores del archivo descargado en el navegador
         download = await download_info.value
         # C.3. Guardamos localmente el archivo
@@ -157,8 +157,7 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             if not exito_pdf:
                 escribir_log(f"    -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
                 factura.error_RPA = True
-                factura.msg_error_RPA += "ERROR_PARSEO: El archivo PDF no contenía datos válidos o estaba incompleto."
-        
+                
     # E. Insertar datos en CSV
         csv_path = os.path.join(DOWNLOAD_FOLDERS["CSV_ENEL"],"facturas_enel.csv")
         if csv_path:
@@ -194,9 +193,11 @@ async def _extraer_pagina_actual_enel(page: Page, contador: int) -> list[Factura
         if row_count == 0:
             return facturas
     
+        escribir_log(f"    [INFO] Tabla detectada con {row_count} filas")
+
     # B. Bucle para recorer cada una de las filas
         for i in range(row_count):
-            escribir_log(f"\n\t[ROW {(i+1)+contador}] {'='*40}",mostrar_tiempo=False)
+            escribir_log(f"\n\t[ROW {(i+contador+1)}] {'='*40}",mostrar_tiempo=False)
             row = rows.nth(i)
             
             # B.1 Procesado y extraccion de la fila iterada
@@ -216,7 +217,7 @@ async def _extraer_pagina_actual_enel(page: Page, contador: int) -> list[Factura
 
 
 # DATA 3. Bucle de lectura para todas las páginas de la tabla de resultados
-async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0, contador_paginas: int = 1) -> tuple[list[FacturaEnel], int]:
+async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0) -> list[FacturaEnel]:
     '''
     Realiza un bucle que recorre cada una de las páginas de la tabla de resultado llamando a la función que procesa dicha página.
     Parametros:
@@ -234,8 +235,6 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0, c
         await page.wait_for_selector('table[lwc-392cvb27u8q]', timeout=60000)
     
     # B. Lectura de la página actual 
-        escribir_log(f"\n\n[PAGE {contador_paginas}] ",mostrar_tiempo=False)
-
         facturas_pagina = await _extraer_pagina_actual_enel(page, contador_facturas)
         todas_facturas.extend(facturas_pagina)
         contador_facturas += len(facturas_pagina)
@@ -245,23 +244,22 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0, c
     
     # D, Si no hay botón o está deshabilitado, devolvemos los resultados actuales
         if await next_button.count() == 0 or await next_button.is_disabled():
-            return todas_facturas, contador_facturas
+            return todas_facturas 
     
     # E. Si el botón "Siguiente" está habilitado, pulsamos y esperamos a que se cargue la siguiente página para continuar el proceso de extracción de datos
         try:
             await next_button.click(timeout=10000)
             await page.wait_for_load_state("networkidle")
             await page.wait_for_timeout(2000) 
-            contador_paginas += 1
         except TimeoutError:
             escribir_log("    -->[ERROR] Tiempo excedido esperando la siguiente página de resultados.")
-            return todas_facturas, contador_facturas
+            return todas_facturas
             
         
     # F. Llamada recursiva para procesar la siguiente página, y acumulación de resultados
-        facturas_siguientes, contador_final = await _extraer_tabla_facturas_enel(page, contador_facturas, contador_paginas)
+        facturas_siguientes = await _extraer_tabla_facturas_enel(page, contador_facturas)
         todas_facturas.extend(facturas_siguientes)
-        return todas_facturas, contador_final
+        return todas_facturas
         
     
     except TimeoutError:
@@ -269,7 +267,7 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0, c
 
     except Exception as e:
         escribir_log(f"    -->[ERROR] Fallo inesperado en la navegación de tabla: {str(e)}")
-        return todas_facturas, contador_facturas
+        return todas_facturas 
 
 
 
@@ -374,19 +372,25 @@ async def _seleccionar_rol_especifico(page: Page, nombre_rol: str) -> bool:
     try:
     # A. Hacemos click en el desplegable de cambio de rol para mostrar las opciones disponibles
         await page.locator('button[title="Cambio de rol"]').click()
-    
+        #input(f"DEBUG: Se ha hecho click en el desplegable de roles para seleccionar el rol '{nombre_rol}'. Presiona Enter para continuar con la selección del rol...")
+
     # B. Esperamos a que los elementos del menú sean visibles
         await page.wait_for_selector(f'a[role="menuitem"][title="{nombre_rol}"]', timeout=15000)
         opcion = page.locator(f'a[role="menuitem"][title="{nombre_rol}"]')
         await opcion.wait_for(state="visible")
+        #input(f"DEBUG: La opción de rol '{nombre_rol}' es visible. Presiona Enter para continuar con la selección del rol...")
         
     # C. Seleccionamos el rol especificado
         clases = await opcion.get_attribute("class")
+        #input(f"DEBUG: Clases del elemento de opción de rol '{nombre_rol}': {clases}. Presiona Enter para continuar con la selección del rol...")
         if "wp-roleSelected" in (clases or ""):
             await page.locator('button[title="Cambio de rol"]').click()
+            #input(f"DEBUG: El rol '{nombre_rol}' ya estaba seleccionado, se ha cerrado el desplegable. Presiona Enter para continuar con el proceso...")
         else:
             await opcion.click()
+            #input(f"DEBUG: Se ha hecho click en la opción de rol '{nombre_rol}' para seleccionarlo. Presiona Enter para continuar y esperar a que se cargue el rol seleccionado...")
             await page.wait_for_load_state("networkidle")
+
     
         return True
     
@@ -427,6 +431,7 @@ async def _aplicar_filtros_fechas(page: Page, f_desde, f_hasta) -> bool:
         
     # D. Aplica los filtros y espera a que se carguen los resultados
         await page.locator('button:has-text("Aplicar")').last.click()
+        #input(f"DEBUG: Se han aplicado los filtros de fecha desde '{f_desde}' hasta '{f_hasta}'. Presiona Enter para esperar a que se carguen los resultados y verificar si se han cargado correctamente o si no hay resultados para el periodo seleccionado...")
         
 
     # E. Esperamos a que se cargue la tabla de resultados, verificando que se ha cargado correctamente o que no hay resultados para el periodo seleccionado
@@ -436,7 +441,7 @@ async def _aplicar_filtros_fechas(page: Page, f_desde, f_hasta) -> bool:
         
         # E.1. Esperamos a que se muestre alguno de los dos indicadores (tabla de resultados o mensaje de sin resultados)
         try:
-            await page.locator(f"{selector_exito}, {selector_vacio}").first.wait_for(state="visible", timeout=30000)
+            await page.locator(f"{selector_exito}, {selector_vacio}").first.wait_for(state="visible", timeout=90000)
         except TimeoutError:
             escribir_log("    --> [ERROR] La página no respondió tras aplicar filtros.")
             return False
@@ -449,9 +454,10 @@ async def _aplicar_filtros_fechas(page: Page, f_desde, f_hasta) -> bool:
         
         # E.3. Si se muestra el mensaje de "No se encuentran resultados", lo confirmamos y devolvemos False (aunque la página haya respondido, no hay datos que extraer)
         if await page.locator(selector_vacio).count() > 0:
-            escribir_log("    -> [INFO] Sin resultados para este periodo.")
-            return False
+            escribir_log("    [OK] Tabla cargada con éxito.")
+            return True
 
+        escribir_log("    [ERROR] La página respondió pero no se pudo confirmar la carga de la tabla de resultados ni el mensaje de 'No se encuentran resultados'.")
         return False
     
     except TimeoutError:

@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Carpeta raíz de descargas temporales (Configurada en config.py como temp_downloads)
+# Se ignoran las subcarpetas específicas solicitadas
+temp_downloads/endesa/pdf/
+temp_downloads/endesa/xml/
+temp_downloads/enel/pdf/

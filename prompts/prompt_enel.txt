@@ -22,6 +22,9 @@ Eres un asistente especializado en análisis de documentos financieros y factura
     * **Fechas:** Extrae las fechas en formato ISO (DD-MM-YYYY) si es posible, o mantén el formato original del documento.
     * **Energía Precio Indexado:** Busca en el detalle de la factura las líneas que mencionan "Energía precio indexado" para cada periodo.
 
+5.  **Direcciones y otros campos de texto:** * Extrae los valores completos, sin incluir bajo ningún concepto saltos de linea.
+    * Elimina los saltos de lineas si los hubiera, sustiyuyendolos por espacios simples y dejando todo el campo de texto en una única linea de texto. 
+
 ## LOCALIZACIÓN DE DATOS (Basado en el modelo):
 - **CUPS:** Se encuentra en la sección "Datos del Punto de Suministro".
 - **Fechas:** El período de facturación está en la cabecera (ej. "01/12/2025 a 31/12/2025").
