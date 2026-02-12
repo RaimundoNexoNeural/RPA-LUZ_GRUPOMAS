@@ -18,7 +18,7 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
         bool: True si el procesamiento fue exitoso, False en caso de error.
     '''
 
-    return True
+    
     # === 0. Configuración de la API de OpenAI ===
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:

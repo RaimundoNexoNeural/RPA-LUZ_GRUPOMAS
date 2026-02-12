@@ -73,8 +73,7 @@ async def ejecutar_robot_endesa( fecha_desde: str, fecha_hasta:str, lista_cups: 
             # C.A.1 Iteramos sobre cada CUP de la lista, realizando el proceso completo de búsqueda y extracción para cada uno
             for index, cup_actual in enumerate(lista_cups, start=1):
 
-                escribir_log(f"{'='*80}", pretexto="\n", mostrar_tiempo=False)
-                escribir_log(f"PROCESANDO [{index}/{len(lista_cups)}]: CUP {cup_actual}\n{'='*80}")
+                escribir_log(f"{'='*80}\nPROCESANDO [{index}/{len(lista_cups)}]: CUP {cup_actual}\n{'='*80}",pretexto="\n",mostrar_tiempo=False)
                 
                 try:
                     # C.A.1.1. Rellenar el filtro de búsqueda con el CUP actual y las fechas, y ejecutar la búsqueda
@@ -276,4 +275,13 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
 
 
 if __name__ == "__main__":
-    asyncio.run(ejecutar_robot_endesa("01/10/2025","31/10/2025"))
+    #asyncio.run(ejecutar_robot_endesa("01/10/2025","31/10/2025"))
+    # Definimos los CUPS específicos para la prueba
+    cups_prueba = ["ES0034111300275021NX0F", "ES0031102570563001SM0F"] #
+    
+    # Ejecutamos el robot solo para este rango y estos CUPS
+    asyncio.run(ejecutar_robot_endesa(
+        fecha_desde="01/10/2025", 
+        fecha_hasta="31/10/2025", 
+        lista_cups=cups_prueba
+    ))

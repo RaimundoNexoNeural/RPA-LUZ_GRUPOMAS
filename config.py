@@ -47,3 +47,12 @@ MODEL = "gpt-4o"
     # F. Numero Máximo de Intentos de Inicio de Sesión
 MAX_LOGIN_ATTEMPTS = 5
 
+    # G. Configuración de Google Services
+ID_SHEET_ENDESA = '1S86D8puK1IQEDyamEVAeprr4jSyprPMb9__saIzSmJk'
+ID_FOLDER_ENDESA_PDF = '1SKEEQhMOeoMOozcGB2rUaHru0po1MtiA'
+
+ID_SHEET_ENEL = '1fTHymm8Sfn-Pa_YwEQPHec45cJoG0z0zC33tfqhmV9E'
+ID_FOLDER_ENEL_PDF = '1lSbFfyqCSDieCzZ3Bv7iTEk56uPExxj_'
+
+SERVICE_ACCOUNT_FILE = 'credentials.json'
+SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/spreadsheets']

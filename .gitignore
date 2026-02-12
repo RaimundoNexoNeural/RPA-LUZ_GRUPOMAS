@@ -8,3 +8,5 @@ __pycache__/
 temp_downloads/endesa/pdf/
 temp_downloads/endesa/xml/
 temp_downloads/enel/pdf/
+
+credentials.json

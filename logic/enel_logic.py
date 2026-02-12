@@ -8,7 +8,7 @@ from logs import escribir_log
 from config import DOWNLOAD_FOLDERS, URL_FACTURAS_ENEL
 from parsers.pdf_parser_enel import procesar_pdf_local_enel
 from parsers.exportar_datos import insertar_factura_en_csv
-
+from google_services import registrar_factura_google_enel
 
 # === FUNCIONES AUXILIARES PARA CARGA Y PROCESADO DE DATOS DE ENDESA CLIENTE  === #
 
@@ -157,16 +157,27 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             if not exito_pdf:
                 escribir_log(f"    -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
                 factura.error_RPA = True
+                factura.msg_error_RPA += " ERROR_PARSEO: El archivo PDF no contenía datos válidos o estaba incompleto."
                 
     # E. Insertar datos en CSV
         csv_path = os.path.join(DOWNLOAD_FOLDERS["CSV_ENEL"],"facturas_enel.csv")
         if csv_path:
             insertar_factura_en_csv(factura, csv_path)
         
-    # F. Devolvemos la factura con los datos extraidos y procesados.
+    # F. Registrar datos en Google Sheets y subir PDF a Google Drive
+        escribir_log(f"[GOOGLE SHEETS/DRIVE]")
+        try:
+            registrar_factura_google_enel(factura, pdf_path)
+            escribir_log(f"    -> [OK] [GOOGLE] Registro y subida completados para factura {factura.numero_factura}")
+        except Exception as e_google:
+            factura.error_RPA = True
+            factura.msg_error_RPA += f" ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive. Detalles: {str(e_google)}"
+            escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
+
+    # G. Devolvemos la factura con los datos extraidos y procesados.
         return factura
     
-    # G. Si no se ha podido procesar nada de la fila se informa y se devuelve None
+    # H. Si no se ha podido procesar nada de la fila se informa y se devuelve None
     except Exception as e:
         escribir_log(f"    -->[ERROR] Fallo al extraer datos de la fila de la tabla: {str(e)}")
         return None
