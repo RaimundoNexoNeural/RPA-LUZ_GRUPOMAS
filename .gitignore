@@ -1,12 +1,30 @@
-# Byte-compiled / optimized / DLL files
+# === Python & Sistema ===
 __pycache__/
 *.py[cod]
 *$py.class
+.DS_Store
+Thumbs.db
 
-# Carpeta raíz de descargas temporales (Configurada en config.py como temp_downloads)
-# Se ignoran las subcarpetas específicas solicitadas
-temp_downloads/endesa/pdf/
-temp_downloads/endesa/xml/
-temp_downloads/enel/pdf/
-
+# === Seguridad y Secretos (CRÍTICO) ===
+# No subir nunca las credenciales ni la configuración local
 credentials.json
+.env
+
+# === Entornos Virtuales ===
+venv/
+env/
+.venv/
+
+# === Datos Temporales y Resultados ===
+# Ignoramos toda la raíz de descargas (PDF, XML, CSV)
+temp_downloads/
+
+# Ignoramos la carpeta de resultados de la API (JSONs de tareas)
+results/
+
+# Ignoramos los logs locales
+logs/*.txt
+
+# === IDEs y Editores ===
+.vscode/
+.idea/
