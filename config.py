@@ -15,6 +15,11 @@ PASSWORD_ENEL = os.getenv("ENEL_PASS")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # === 2. GOOGLE SERVICES (Desde .env) ===
+# IDs de Google Drive/Sheets. Los dos IDs de carpeta apuntan a las
+# carpetas raíz de PDFs de cada proveedor dentro de la carpeta principal
+# del proyecto. El robot creará automáticamente subcarpetas AAAAMM para
+# cada mes en el que se suben facturas, por lo que no hace falta
+# pre‑crear ninguna carpeta adicional en Drive.
 ID_SHEET_ENDESA = os.getenv("ID_SHEET_ENDESA")
 ID_FOLDER_ENDESA_PDF = os.getenv("ID_FOLDER_ENDESA_PDF")
 

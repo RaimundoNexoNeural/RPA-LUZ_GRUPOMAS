@@ -224,9 +224,52 @@ class GoogleServiceManager:
         self._colorear_fila_datos(sheet_id, fila_index, datos)
         self._aplicar_formato_datos(sheet_id, fila_index)
 
+    def _get_or_create_folder(self, parent_id: str, folder_name: str) -> str:
+        """Ensure a folder named ``folder_name`` exists under ``parent_id``.
+
+        Returns the Drive file ID of the existing or newly created folder.
+        """
+        # look for existing folder with same name under parent
+        query = (
+            f"name = '{folder_name}' and '{parent_id}' in parents "
+            "and mimeType = 'application/vnd.google-apps.folder' "
+            "and trashed = false"
+        )
+        res = self.drive.files().list(
+            q=query, spaces='drive', supportsAllDrives=True, includeItemsFromAllDrives=True
+        ).execute()
+        files = res.get('files', [])
+        if files:
+            return files[0]['id']
+        # not found -> create folder
+        meta = {
+            'name': folder_name,
+            'mimeType': 'application/vnd.google-apps.folder',
+            'parents': [parent_id]
+        }
+        created = self.drive.files().create(body=meta, supportsAllDrives=True).execute()
+        return created.get('id')
+
     def subir_pdf(self, folder_id, ruta_local):
-        if not ruta_local or not os.path.exists(ruta_local): return
+        # If input path invalid do nothing
+        if not ruta_local or not os.path.exists(ruta_local):
+            return
+
         nombre = os.path.basename(ruta_local)
+
+        # Determine monthly subfolder from filename prefix AAAAMM
+        mes_folder = None
+        m = re.match(r"^(\d{6})", nombre)
+        if m:
+            mes_folder = m.group(1)
+
+        if mes_folder:
+            try:
+                folder_id = self._get_or_create_folder(folder_id, mes_folder)
+            except Exception:
+                # if something goes wrong when creating subfolder, fall back to parent
+                pass
+
         query = f"name = '{nombre}' and '{folder_id}' in parents and trashed = false"
         res = self.drive.files().list(q=query, spaces='drive', supportsAllDrives=True, includeItemsFromAllDrives=True).execute()
         media = MediaFileUpload(ruta_local, mimetype='application/pdf', resumable=True)
