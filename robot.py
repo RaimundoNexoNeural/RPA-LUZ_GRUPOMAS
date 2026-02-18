@@ -11,6 +11,8 @@ from navegador import NavegadorAsync
 from modelos_datos import FacturaEndesa, FacturaEnel
     # Logs
 from logs import escribir_log
+    # utilidades CSV/registro
+from parsers.exportar_datos import cargar_registro_procesados
     # Logics
 from logic.endesa_logic import _iniciar_sesion_endesa, _aceptar_cookies_endesa, _realizar_busqueda_facturas_endesa, _extraer_tabla_facturas_endesa
 from logic.enel_logic import _iniciar_sesion_enel, _obtener_todos_los_roles, _seleccionar_rol_especifico, _aplicar_filtros_fechas, _extraer_tabla_facturas_enel
@@ -28,6 +30,12 @@ async def ejecutar_robot_endesa( fecha_desde: str, fecha_hasta:str, lista_cups: 
     total_cups_log = len(lista_cups) if lista_cups else "TODOS LOS"
 
     try:
+        # precargar fichero de procesados para ahorrar lecturas posteriores
+        cargar_registro_procesados('endesa')
+        from config import REPROCESADO
+        if REPROCESADO:
+            escribir_log("[CONFIG] REPROCESADO=True -> se ignorarán marcas anteriores.")
+
         # A. Inicio del proceso y Login
 
         escribir_log(f"    [INICIO] Iniciando proceso RPA-ENDESA para {total_cups_log} CUPS. \n\n{'='*40} ",pretexto="\n",mostrar_tiempo=False)
@@ -90,14 +98,11 @@ async def ejecutar_robot_endesa( fecha_desde: str, fecha_hasta:str, lista_cups: 
                         escribir_log(f"{'='*80}", mostrar_tiempo=False)
                         escribir_log(f"[OK] {len(facturas_cup)} facturas procesadas con éxito para {cup_actual}.\n{'='*80}")
                     
-                    # C.A.1.4. Si no se han encontrado facturas para el CUP actual, se registra esta situación en el log y se añade un registro vacío a la lista total de facturas para mantener la trazabilidad.
+                    # C.A.1.4. Si no se han encontrado facturas para el CUP actual, se registra esta situación en el log 
                     else:
                         escribir_log(f"{'='*80}", mostrar_tiempo=False)
-                        escribir_log(f"[INFO] No se encontraron facturas registradas para {cup_actual} en este rango.\n{'='*80}")
-                        registro_vacio = FacturaEndesa(cup=cup_actual, 
-                                                       error_RPA=False,  
-                                                       msg_error_RPA=f"Sin facturas emitidas en el periodo ({fecha_desde} - {fecha_hasta})")
-                        facturas_totales.append(registro_vacio)
+                        escribir_log(f"[INFO] No se encontraron nuevas facturas registradas para {cup_actual} en este rango.\n{'='*80}")
+                        
 
                 # C.A.2. Si ocurre cualquier error durante el proceso de búsqueda o extracción para el CUP actual, se captura la excepción, se registra el error en el log con detalles del mismo, se añade un registro de error a la lista total de facturas para ese CUP, y se continúa con el siguiente CUP de la lista sin detener el proceso completo.
                 except Exception as e:
@@ -138,7 +143,7 @@ async def ejecutar_robot_endesa( fecha_desde: str, fecha_hasta:str, lista_cups: 
                 # C.B.4. Si no se han encontrado facturas en la búsqueda global, se registra esta situación en el log.
                 else:
                     escribir_log(f"{'='*80}", mostrar_tiempo=False)
-                    escribir_log(f"[INFO] No se encontraron facturas en el rango {fecha_desde} - {fecha_hasta}.\n{'='*80}")
+                    escribir_log(f"[INFO] No se encontraron nuevas facturas en el rango {fecha_desde} - {fecha_hasta}.\n{'='*80}")
 
             # C.B.5. Si ocurre cualquier error durante el proceso de búsqueda o extracción en el modo global, se captura la excepción, se registra el error en el log con detalles del mismo, se añade un registro de error a la lista total de facturas indicando que el error ocurrió en la búsqueda global, y se continúa con el proceso de cierre del navegador y finalización del proceso sin detenerlo completamente.
             except Exception as e:
@@ -173,6 +178,11 @@ async def ejecutar_robot_enel(fecha_desde: str, fecha_hasta: str) -> list[Factur
     login_successful = False
     
     try:
+        # precargar fichero de procesados para ahorrar lecturas posteriores
+        cargar_registro_procesados('enel')
+        from config import REPROCESADO
+        if REPROCESADO:
+            escribir_log("[CONFIG] REPROCESADO=True -> se ignorarán marcas anteriores.")
         # A. Inicio del proceso y Login
 
         escribir_log(f"    [INICIO] Iniciando proceso RPA-ENEL. \n\n{'='*40} ",pretexto="\n",mostrar_tiempo=False)
@@ -285,3 +295,7 @@ if __name__ == "__main__":
         fecha_hasta="31/10/2025", 
         lista_cups=cups_prueba
     ))
+    # asyncio.run(ejecutar_robot_enel(
+    #     fecha_desde="01/10/2025",
+    #     fecha_hasta="31/10/2025"
+    # ))

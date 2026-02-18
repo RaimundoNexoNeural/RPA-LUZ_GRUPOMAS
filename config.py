@@ -46,6 +46,12 @@ HEADLESS_MODE = os.getenv("HEADLESS_MODE", "True").lower() == "true"
 # === 5. ESTRUCTURA DE ARCHIVOS Y RUTAS ===
 TEMP_DOWNLOAD_ROOT = "temp_downloads"
 
+# === 6. CONFIGURACIÓN GENERAL DEL SISTEMA ===
+# Si REPROCESADO = True se ignorarán las marcas en el fichero de procesados
+# y todas las facturas se volverán a procesar. Se puede cambiar via .env o
+# directamente en el código antes del despliegue si se quiere "limpiar".
+REPROCESADO = os.getenv("REPROCESADO", "False").lower() == "true"
+
 DOWNLOAD_FOLDERS = {
     "CSV_ENDESA": os.path.join(TEMP_DOWNLOAD_ROOT, "endesa", "csv"),
     "CSV_ENEL": os.path.join(TEMP_DOWNLOAD_ROOT, "enel", "csv"),
@@ -57,6 +63,17 @@ DOWNLOAD_FOLDERS = {
 PROMPT_ENDESA_PATH = "prompts/prompt_endesa.txt"
 PROMPT_ENEL_PATH = "prompts/prompt_enel.txt"
 
+# === 6. RUTAS DE REGISTROS ===
+# dentro de temp_downloads crearemos registros/endesa y registros/enel
+REGISTRO_ROOT = os.path.join(TEMP_DOWNLOAD_ROOT, "registros")
+REGISTRO_FOLDERS = {
+    "endesa": os.path.join(REGISTRO_ROOT, "endesa"),
+    "enel": os.path.join(REGISTRO_ROOT, "enel"),
+}
+
 # Asegurar que las carpetas existan al importar la configuración
 for folder in DOWNLOAD_FOLDERS.values():
+    os.makedirs(folder, exist_ok=True)
+# también creamos las carpetas de registros
+for folder in REGISTRO_FOLDERS.values():
     os.makedirs(folder, exist_ok=True)

@@ -4,10 +4,10 @@ from datetime import datetime
 from playwright.async_api import Page, TimeoutError, Locator
 from modelos_datos import FacturaEndesa
 from logs import escribir_log
-from config import DOWNLOAD_FOLDERS, URL_LOGIN_ENDESA, URL_FACTURAS_ENDESA, GRUPO_EMPRESARIAL, TABLE_LIMIT
+from config import DOWNLOAD_FOLDERS, URL_LOGIN_ENDESA, URL_FACTURAS_ENDESA, GRUPO_EMPRESARIAL, TABLE_LIMIT, REPROCESADO
 from parsers.xml_parser_endesa import procesar_xml_local_endesa
 from parsers.pdf_parser_endesa import procesar_pdf_local_endesa
-from parsers.exportar_datos import insertar_factura_en_csv
+from parsers.exportar_datos import insertar_factura_en_csv, es_factura_procesada, registrar_factura_procesada
 from google_services import registrar_factura_google_endesa
 
 
@@ -245,6 +245,15 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
     
         escribir_log(f"    [OK] Datos estraidos correctamente de la fila de la tabla: {factura.numero_factura}")
 
+        # comprobar registro de procesadas antes de continuar
+        if factura.cup and factura.numero_factura:
+            fecha_procesado = es_factura_procesada("endesa", factura.cup, factura.numero_factura)
+            if fecha_procesado:
+                escribir_log(
+                    f"    [SKIP] Factura {factura.numero_factura} ({factura.cup})" \
+                    f" procesada el {fecha_procesado}."
+                )
+                return None
 
     # B. Descarga de archivos PDF y XML
         pdf_path = await _descargar_archivo(page, row, factura, 'PDF')
@@ -302,8 +311,16 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             factura.msg_error_RPA += " ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive."
             escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
 
-        
-        # F. Devolvemos la factura con los datos extraidos y procesados.
+        # F. si todo ha ido bien sin errores RPA añadimos el registro de procesada
+        if not factura.error_RPA and factura.cup and factura.numero_factura:
+            try:
+                registrar_factura_procesada("endesa", factura.cup, factura.numero_factura)
+                escribir_log(f"[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
+            except Exception:
+                # no crítico si falla el registro
+                pass
+
+        # G. Devolvemos la factura con los datos extraidos y procesados.
         return factura
     
         # G. Si no se ha podido procesar nada de la fila se informa y se devuelve None

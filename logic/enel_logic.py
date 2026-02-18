@@ -5,9 +5,9 @@ import asyncio
 from playwright.async_api import Page, TimeoutError, Locator
 from modelos_datos import FacturaEnel
 from logs import escribir_log
-from config import DOWNLOAD_FOLDERS, URL_FACTURAS_ENEL
+from config import DOWNLOAD_FOLDERS, URL_FACTURAS_ENEL, REPROCESADO
 from parsers.pdf_parser_enel import procesar_pdf_local_enel
-from parsers.exportar_datos import insertar_factura_en_csv
+from parsers.exportar_datos import insertar_factura_en_csv, es_factura_procesada, registrar_factura_procesada
 from google_services import registrar_factura_google_enel
 
 # === FUNCIONES AUXILIARES PARA CARGA Y PROCESADO DE DATOS DE ENDESA CLIENTE  === #
@@ -138,6 +138,16 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
         
         escribir_log(f"    [OK] Datos extraídos correctamente de la fila de la tabla: {factura.numero_factura}")
 
+        # comprobamos si ya existe en registro de procesadas
+        if factura.cup and factura.numero_factura:
+            fecha_procesado = es_factura_procesada("enel", factura.cup, factura.numero_factura)
+            if fecha_procesado:
+                escribir_log(
+                    f"    [SKIP] Factura {factura.numero_factura} ({factura.cup})" \
+                    f" procesada el {fecha_procesado}."
+                )
+                return None
+
     # B. Validación de importe positivo (Requisito de negocio)
             
         if factura.importe_total < 0:
@@ -174,7 +184,15 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             factura.msg_error_RPA += f" ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive. Detalles: {str(e_google)}"
             escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
 
-    # G. Devolvemos la factura con los datos extraidos y procesados.
+    # G. Tras un procesamiento sin errores, añadimos al registro de procesadas
+        if not factura.error_RPA and factura.cup and factura.numero_factura:
+            try:
+                registrar_factura_procesada("enel", factura.cup, factura.numero_factura)
+                escribir_log(f"[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
+            except Exception:
+                pass
+
+    # H. Devolvemos la factura con los datos extraidos y procesados.
         return factura
     
     # H. Si no se ha podido procesar nada de la fila se informa y se devuelve None
