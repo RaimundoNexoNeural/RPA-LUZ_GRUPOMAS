@@ -22,10 +22,22 @@ playwright install chromium
 playwright install-deps chromium
 
 # 5. Crear estructura de carpetas necesaria
-mkdir -p logs results temp_downloads prompts
-# carpetas para registro de facturas procesadas
+# Algunas carpetas no se rastrean en git (están en .gitignore) y deben existir
+mkdir -p logs static prompts
+
+# directorios de descarga para cada portal
+mkdir -p temp_downloads/endesa/csv
+mkdir -p temp_downloads/endesa/pdf
+mkdir -p temp_downloads/endesa/xml
+mkdir -p temp_downloads/enel/csv
+mkdir -p temp_downloads/enel/pdf
+
+# carpetas para registro de facturas procesadas y enviadas
 mkdir -p temp_downloads/registros/endesa
 mkdir -p temp_downloads/registros/enel
+
+# asegurar que temp_downloads raíz existe (por si lo borró alguien)
+mkdir -p temp_downloads
 
 echo "=== Instalación completada con éxito ==="
 echo "Recuerda configurar tu archivo .env antes de lanzar la API o los Robots."
