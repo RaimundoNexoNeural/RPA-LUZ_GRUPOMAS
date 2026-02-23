@@ -1,5 +1,6 @@
 import csv
 import os
+from logic.logs_logic import log, mail_handler
 
 # === 1. REGISTRO DE FACTURAS PROCESADAS === 
     
@@ -22,6 +23,7 @@ def _get_path_procesados(distribuidora: str) -> str:
     
     # B. Validación de la existencia de la distribuidora en configuración
     if key not in REGISTRO_FOLDERS_PROCESADAS:
+        log.error(f"Se intentó acceder a una distribuidora desconocida: {distribuidora}")
         raise ValueError(f"Distribuidora desconocida: {distribuidora}")
     
     # C. Construcción de la ruta del archivo de registro
@@ -40,6 +42,7 @@ def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
     # A. Verificación de existencia en caché para evitar E/S innecesaria
     key = distribuidora.lower()
     if key in _registros_cache_procesadas:
+        log.debug(f"Cargando registros procesados de '{key}' desde caché")
         return _registros_cache_procesadas[key]
 
     # B. Inicialización y carga desde el archivo físico si no está en caché
@@ -47,6 +50,7 @@ def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
     registros: dict[tuple[str,str], str] = {}
     
     if os.path.isfile(path):
+        log.debug(f"Leyendo archivo de registros procesados: {path}")
         try:
             # B.1. Lectura del CSV y mapeo de datos identificativos
             with open(path, newline='', encoding='utf-8') as f:
@@ -57,8 +61,11 @@ def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
                     fecha = row.get('fecha_hora', '').strip()
                     if cup and numero:
                         registros[(cup, numero)] = fecha
-        except Exception:
+        except Exception as e:
+            log.error(f"Error leyendo archivo de registros {path}: {e}")
             pass
+    else:
+        log.debug(f"No existe archivo de registros previo para '{key}' en {path}")
 
     # C. Actualización de caché y retorno
     _registros_cache_procesadas[key] = registros
@@ -83,7 +90,10 @@ def es_factura_procesada(distribuidora: str, cup: str, numero: str) -> str | Non
     
     # B. Consulta del registro cargado
     registros = cargar_registro_procesados(distribuidora)
-    return registros.get((cup, numero))
+    res = registros.get((cup, numero))
+    if res:
+        log.debug(f"Factura {numero} ya consta como procesada el {res}")
+    return res
 
 
 # PROC.4 Registro persistente de factura procesada
@@ -107,6 +117,7 @@ def registrar_factura_procesada(distribuidora: str, cup: str, numero: str) -> No
     if (cup, numero) in registros:
         # B.1. Si se requiere reprocesamiento, se actualiza el timestamp físico
         if REPROCESADO:
+            log.debug(f"Actualizando marca de tiempo por reprocesado: {numero}")
             _actualizar_registro_procesados(key, cup, numero, fecha_hora)
             registros[(cup, numero)] = fecha_hora
         return
@@ -115,13 +126,15 @@ def registrar_factura_procesada(distribuidora: str, cup: str, numero: str) -> No
     path = _get_path_procesados(key)
     file_exists = os.path.isfile(path)
     try:
+        log.debug(f"Registrando nueva factura procesada en CSV: {numero}")
         with open(path, 'a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f, delimiter=';')
             # C.1. Inserción de cabecera si el archivo es de nueva creación
             if not file_exists:
                 writer.writerow(['CUP', 'numero_factura', 'fecha_hora'])
             writer.writerow([cup, numero, fecha_hora])
-    except Exception:
+    except Exception as e:
+        log.error(f"Error al escribir en el registro de procesados {path}: {e}")
         pass
     
     # D. Actualización de la caché en memoria
@@ -156,6 +169,7 @@ def _actualizar_registro_procesados(distribuidora_key: str, cup: str, numero: st
                 registros_modificados.append(row)
         
         # C. Reescritura del archivo físico con los datos actualizados
+        log.debug(f"Reescribiendo archivo de registros para actualizar fila: {numero}")
         with open(path, 'w', newline='', encoding='utf-8') as f:
             if registros_modificados:
                 writer = csv.DictWriter(f, fieldnames=['CUP', 'numero_factura', 'fecha_hora'], delimiter=';')
@@ -165,7 +179,8 @@ def _actualizar_registro_procesados(distribuidora_key: str, cup: str, numero: st
         # D. Invalidación de caché para asegurar consistencia en futuras lecturas
         if distribuidora_key in _registros_cache_procesadas:
             del _registros_cache_procesadas[distribuidora_key]
-    except Exception:
+    except Exception as e:
+        log.error(f"Fallo crítico actualizando registro físico {path}: {e}")
         pass
 
 
@@ -187,6 +202,7 @@ def _get_path_enviadas(distribuidora: str) -> str:
     from config import REGISTRO_FOLDERS_ENVIADAS
     key = distribuidora.lower()
     if key not in REGISTRO_FOLDERS_ENVIADAS:
+        log.error(f"Ruta de envíos no configurada para: {distribuidora}")
         raise ValueError(f"Distribuidora desconocida: {distribuidora}")
     return os.path.join(REGISTRO_FOLDERS_ENVIADAS[key], f"enviadas_{key}.csv")
 
@@ -203,6 +219,7 @@ def cargar_registro_enviadas(distribuidora: str) -> dict[tuple[str,str], str]:
     # A. Gestión de caché para optimización
     key = distribuidora.lower()
     if key in _registros_cache_enviadas:
+        log.debug(f"Cargando historial de envíos '{key}' desde caché")
         return _registros_cache_enviadas[key]
 
     # B. Carga desde archivo físico
@@ -210,6 +227,7 @@ def cargar_registro_enviadas(distribuidora: str) -> dict[tuple[str,str], str]:
     registros: dict[tuple[str,str], str] = {}
     
     if os.path.isfile(path):
+        log.debug(f"Leyendo historial de envíos: {path}")
         try:
             with open(path, newline='', encoding='utf-8') as f:
                 reader = csv.DictReader(f, delimiter=';')
@@ -219,7 +237,8 @@ def cargar_registro_enviadas(distribuidora: str) -> dict[tuple[str,str], str]:
                     fecha = row.get('fecha_hora', '').strip()
                     if cup and numero:
                         registros[(cup, numero)] = fecha
-        except Exception:
+        except Exception as e:
+            log.error(f"Error al leer historial de envíos {path}: {e}")
             pass
 
     # C. Persistencia en caché y retorno
@@ -239,7 +258,10 @@ def es_factura_enviada(distribuidora: str, cup: str, numero: str) -> str | None:
         - str | None: Timestamp de envío si existe; None en caso contrario
     """
     registros = cargar_registro_enviadas(distribuidora)
-    return registros.get((cup, numero))
+    res = registros.get((cup, numero))
+    if res:
+        log.debug(f"Factura {numero} ya fue enviada el {res}")
+    return res
 
 
 # MAIL.4 Registro de envío satisfactorio
@@ -265,12 +287,14 @@ def registrar_factura_enviada(distribuidora: str, cup: str, numero: str) -> None
     path = _get_path_enviadas(key)
     file_exists = os.path.isfile(path)
     try:
+        log.debug(f"Registrando envío de factura en CSV: {numero}")
         with open(path, 'a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f, delimiter=';')
             if not file_exists:
                 writer.writerow(['CUP', 'numero_factura', 'fecha_hora'])
             writer.writerow([cup, numero, fecha_hora])
-    except Exception:
+    except Exception as e:
+        log.error(f"Fallo al escribir registro de envío en {path}: {e}")
         pass
     
     # C. Actualización de caché
@@ -283,10 +307,12 @@ def registrar_factura_enviada(distribuidora: str, cup: str, numero: str) -> None
 # CLEAN.1 Vaciado de cachés internas (uso interno)
 def _vaciar_cache_procesadas():
     """Borra la memoria caché de facturas procesadas (usado tras eliminación física)."""
+    log.debug("Memoria caché de facturas procesadas vaciada.")
     _registros_cache_procesadas.clear()
 
 def _vaciar_cache_enviadas():
     """Borra la memoria caché de facturas enviadas (usado tras eliminación física)."""
+    log.debug("Memoria caché de facturas enviadas vaciada.")
     _registros_cache_enviadas.clear()
 
 
@@ -308,9 +334,11 @@ def borrar_registros_procesados(distribuidora: str | None = None) -> int:
             continue
         if os.path.isfile(path):
             try:
+                log.debug(f"Eliminando archivo de registro físico: {path}")
                 os.remove(path)
                 cont += 1
-            except Exception:
+            except Exception as e:
+                log.error(f"No se pudo eliminar el archivo {path}: {e}")
                 pass
     # invalidar caches
     _vaciar_cache_procesadas()
@@ -333,9 +361,11 @@ def borrar_registros_enviadas(distribuidora: str | None = None) -> int:
             continue
         if os.path.isfile(path):
             try:
+                log.debug(f"Eliminando archivo de registro de envíos: {path}")
                 os.remove(path)
                 cont += 1
-            except Exception:
+            except Exception as e:
+                log.error(f"No se pudo eliminar el archivo de envíos {path}: {e}")
                 pass
     # invalidar caches
     _vaciar_cache_enviadas()
@@ -363,6 +393,7 @@ def insertar_factura_en_csv(factura, filepath: str):
         file_exists = os.path.isfile(filepath)
 
         # C. Escritura de fila en modo 'append'
+        log.debug(f"Escribiendo datos de factura {factura.numero_factura} en CSV maestro: {filepath}")
         with open(filepath, mode='a', newline='', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
             
@@ -372,6 +403,7 @@ def insertar_factura_en_csv(factura, filepath: str):
             writer.writerow(datos_fila)
             
     except Exception as e:
+        log.error(f"Error crítico al insertar línea en CSV maestro {filepath}: {e}")
         print(f"Error al insertar línea en CSV: {e}")
     """
     Inserta una única factura como una nueva fila en el CSV.
@@ -394,4 +426,4 @@ def insertar_factura_en_csv(factura, filepath: str):
             writer.writerow(datos_fila)
             
     except Exception as e:
-        print(f"Error al insertar línea en CSV: {e}")
+        log.error(f"Error al insertar línea en CSV: {e}")

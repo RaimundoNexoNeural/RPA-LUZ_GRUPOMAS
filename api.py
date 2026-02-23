@@ -12,8 +12,9 @@ from logic.clear_logic import (
     limpiar_registros_procesados,
     limpiar_registros_enviadas,
 )
+from logic.logs_logic import log, mail_handler
 from robot import ejecutar_robot_endesa, ejecutar_robot_enel
-from modelos_datos import FacturaEndesa, FacturaEnel
+from utils.modelos_datos import FacturaEndesa, FacturaEnel
 
 # === 0. CONFIGURACIÓN DEL ENTORNO DE EJECUCIÓN === 
 
@@ -59,6 +60,7 @@ def root():
     Retorna
         - HTMLResponse: Página de bienvenida con estilos integrados.
     '''
+    log.debug("Acceso a la ruta raíz (/) de la API")
     # A. Definición de la estructura HTML y estilos CSS
     html = (
         "<html><head><title>API RPA GRUPO MAS</title>"
@@ -121,19 +123,23 @@ def clear_files(
     Retorna
         - dict: Resumen de elementos eliminados por categoría.
     '''
+    log.info(f"[API] Solicitud de limpieza recibida. Parámetros: portal={portal}, tipo={tipo}, fecha={fecha}")
     # A. Limpieza de archivos temporales de descarga
     eliminados = limpiar_archivos_temporales(portal, tipo, fecha)
     resultado: dict = {"status": "success", "archivos_eliminados": eliminados}
 
     # B. Gestión de purga de logs (Truncado)
     if limpiar_logs:
+        log.warning(f"[API] Truncando archivos de log. Nivel objetivo: {nivel_log or 'TODOS'}")
         resultado["logs"] = truncar_log(nivel_log)
 
     # C. Limpieza de registros históricos (CSVs de control)
     if limpiar_procesados:
+        log.warning(f"[API] Eliminando registros CSV de facturas procesadas para {portal or 'ambos portales'}")
         resultado["registros_procesados_eliminados"] = limpiar_registros_procesados(portal)
     
     if limpiar_enviadas:
+        log.warning(f"[API] Eliminando registros CSV de facturas enviadas para {portal or 'ambos portales'}")
         resultado["registros_enviadas_eliminados"] = limpiar_registros_enviadas(portal)
 
     return resultado
@@ -157,11 +163,13 @@ async def run_endesa(
     Retorna
         - list[FacturaEndesa]: Datos extraídos y procesados.
     '''
+    log.info(f"[API] Lanzando Robot Endesa Clientes. Periodo: {fecha_desde} - {fecha_hasta}. CUPS: {len(cups) if cups else 'Global'}")
     try:
         # A. Invocación de la lógica de negocio del robot
         return await ejecutar_robot_endesa(fecha_desde, fecha_hasta, cups)
     except Exception as e:
         # B. Gestión de errores críticos
+        log.error(f"[API] Error ejecutando Robot Endesa: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Error en Robot Endesa: {str(e)}")
 
 
@@ -174,10 +182,12 @@ async def run_enel(
     '''
     Lanza el proceso de extracción para el portal de distribución de Enel.
     '''
+    log.info(f"[API] Lanzando Robot Enel Distribución. Periodo: {fecha_desde} - {fecha_hasta}")
     try:
         # A. Ejecución asíncrona del robot de distribución
         return await ejecutar_robot_enel(fecha_desde, fecha_hasta)
     except Exception as e:
+        log.error(f"[API] Error ejecutando Robot Enel: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Error en Robot Enel: {str(e)}")
 
 
@@ -191,6 +201,7 @@ async def run_all(
     '''
     Ejecuta ambos robots secuencialmente y unifica los resultados.
     '''
+    log.info(f"[API] Lanzando Ejecución Consolidada (Endesa + Enel). Periodo: {fecha_desde} - {fecha_hasta}")
     try:
         # A. Ejecución secuencial de portales
         # A.1. Extracción en Endesa
@@ -199,13 +210,16 @@ async def run_all(
         resultado_enel = await ejecutar_robot_enel(fecha_desde, fecha_hasta)
         
         # B. Consolidación de listas de resultados
+        log.info(f"[API] Ejecución consolidada finalizada. Total: {len(resultado_endesa) + len(resultado_enel)} facturas.")
         return resultado_endesa + resultado_enel
     except Exception as e:
+        log.error(f"[API] Error en ejecución consolidada: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Error en ejecución global: {str(e)}")
 
 
 # === 4. INICIO DEL SERVIDOR === 
 
 if __name__ == "__main__":
+    log.info("--- Iniciando servidor FastAPI para RPA GRUPO MAS ---")
     # A. Lanzamiento de Uvicorn con configuración de red local
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=False, loop="asyncio")

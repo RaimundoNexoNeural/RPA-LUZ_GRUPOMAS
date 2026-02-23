@@ -4,7 +4,8 @@ from fastapi import requests
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-from modelos_datos import FacturaEndesa, FacturaEnel
+from utils.modelos_datos import FacturaEndesa, FacturaEnel
+from logic.logs_logic import log, mail_handler
 from config import ID_SHEET_ENDESA, ID_FOLDER_ENDESA_PDF, ID_SHEET_ENEL, ID_FOLDER_ENEL_PDF, SERVICE_ACCOUNT_FILE, SCOPES
 
 # === 1. GESTIÓN DE SERVICIOS DE GOOGLE (DRIVE & SHEETS) === 
@@ -23,6 +24,7 @@ class GoogleServiceManager:
             - spreadsheet_id (str): ID de la hoja de cálculo de Google Sheets a gestionar.
         '''
         # A. Configuración de credenciales de cuenta de servicio
+        log.debug(f"Inicializando GoogleServiceManager para el Spreadsheet: {spreadsheet_id}")
         self.creds = service_account.Credentials.from_service_account_file(
             SERVICE_ACCOUNT_FILE, scopes=SCOPES)
         
@@ -118,6 +120,7 @@ class GoogleServiceManager:
             })
 
         # F. Ejecución de la actualización por lotes
+        log.debug(f"Aplicando formato visual masivo a la pestaña ID: {sheet_id}")
         self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body={"requests": requests}).execute()
 
     # GGL.3 Aplicación de formato a datos numéricos y fechas
@@ -167,6 +170,7 @@ class GoogleServiceManager:
 
         # E. Ejecución de la actualización
         if requests:
+            log.debug(f"Aplicando formato de datos a la fila {fila_index}")
             self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body={"requests": requests}).execute()
 
     # GGL.4 Resaltado de celdas con datos
@@ -202,11 +206,13 @@ class GoogleServiceManager:
             - int: ID de la pestaña (existente o nueva).
         '''
         # A. Obtención del listado de hojas actuales
+        log.debug(f"Asegurando pestaña para el CUP: {cup}")
         spreadsheet = self.sheets.spreadsheets().get(spreadsheetId=self.spreadsheet_id).execute()
         hojas = {s['properties']['title']: s['properties']['sheetId'] for s in spreadsheet.get('sheets', [])}
 
         # B. Creación e inicialización si el CUP es nuevo
         if cup not in hojas:
+            log.info(f"\t[SHEETS] Creando nueva pestaña para el CUP: {cup}")
             body = {'requests': [{'addSheet': {'properties': {'title': cup}}}]}
             res = self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body=body).execute()
             sheet_id = res['replies'][0]['addSheet']['properties']['sheetId']
@@ -246,10 +252,12 @@ class GoogleServiceManager:
         
         # C. Ejecución de actualización (Update) o adición (Append)
         if fila_index != -1:
+            log.info(f"\t\t[SHEETS] Actualizando datos de factura {numero_factura} en fila {fila_index}")
             self.sheets.spreadsheets().values().update(
                 spreadsheetId=self.spreadsheet_id, range=f"'{cup}'!A{fila_index}",
                 valueInputOption="USER_ENTERED", body={'values': [datos]}).execute()
         else:
+            log.info(f"\t\t[SHEETS] Factura {numero_factura} no encontrada. Insertando nueva fila.")
             res_append = self.sheets.spreadsheets().values().append(
                 spreadsheetId=self.spreadsheet_id, range=f"'{cup}'!A1",
                 valueInputOption="USER_ENTERED", body={'values': [datos]}).execute()
@@ -272,6 +280,7 @@ class GoogleServiceManager:
             - str: ID de la carpeta en Google Drive.
         '''
         # A. Búsqueda de carpeta existente
+        log.debug(f"Buscando carpeta '{folder_name}' en Drive (Parent: {parent_id})")
         query = (
             f"name = '{folder_name}' and '{parent_id}' in parents "
             "and mimeType = 'application/vnd.google-apps.folder' "
@@ -284,6 +293,7 @@ class GoogleServiceManager:
             return files[0]['id']
             
         # B. Creación si no se encontró coincidencia
+        log.info(f"\t[DRIVE] Creando nueva subcarpeta mensual: {folder_name}")
         meta = {'name': folder_name, 'mimeType': 'application/vnd.google-apps.folder', 'parents': [parent_id]}
         created = self.drive.files().create(body=meta, supportsAllDrives=True).execute()
         return created.get('id')
@@ -298,9 +308,11 @@ class GoogleServiceManager:
         '''
         # A. Validaciones iniciales
         if not ruta_local or not os.path.exists(ruta_local):
+            log.error(f"Ruta de archivo no válida para subida a Drive: {ruta_local}")
             return
 
         nombre = os.path.basename(ruta_local)
+        log.debug(f"Preparando subida de PDF a Drive: {nombre}")
 
         # B. Determinación de subcarpeta mensual basada en el prefijo del nombre (AAAAMM)
         mes_folder = None
@@ -311,7 +323,8 @@ class GoogleServiceManager:
         if mes_folder:
             try:
                 folder_id = self._get_or_create_folder(folder_id, mes_folder)
-            except Exception:
+            except Exception as e:
+                log.error(f"Fallo al gestionar subcarpeta {mes_folder} en Drive: {e}")
                 pass
 
         # C. Verificación de existencia del archivo para decidir entre subida nueva o actualización
@@ -320,8 +333,10 @@ class GoogleServiceManager:
         media = MediaFileUpload(ruta_local, mimetype='application/pdf', resumable=True)
         
         if res.get('files'):
+            log.info(f"\t\t[DRIVE] Actualizando archivo existente: {nombre}")
             self.drive.files().update(fileId=res['files'][0]['id'], media_body=media, supportsAllDrives=True).execute()
         else:
+            log.info(f"\t\t[DRIVE] Subiendo nuevo archivo: {nombre}")
             meta = {'name': nombre, 'parents': [folder_id]}
             self.drive.files().create(body=meta, media_body=media, supportsAllDrives=True).execute()
 
@@ -337,6 +352,7 @@ def registrar_factura_google_endesa(factura: FacturaEndesa, ruta_pdf: str = None
         - ruta_pdf (str): Ruta local del PDF asociado.
     '''
     # A. Inicialización del gestor y preparación de fila
+    log.info(f"\t[GOOGLE] Iniciando sincronización para factura Endesa: {factura.numero_factura}")
     mgr = GoogleServiceManager(ID_SHEET_ENDESA)
     f = [None] * len(mgr.cabecera_fija)
     
@@ -365,6 +381,7 @@ def registrar_factura_google_enel(factura: FacturaEnel, ruta_pdf: str = None):
         - ruta_pdf (str): Ruta local del PDF asociado.
     '''
     # A. Inicialización y preparación
+    log.info(f"\t[GOOGLE] Iniciando sincronización para factura Enel: {factura.numero_factura}")
     mgr = GoogleServiceManager(ID_SHEET_ENEL)
     f = [None] * len(mgr.cabecera_fija)
     

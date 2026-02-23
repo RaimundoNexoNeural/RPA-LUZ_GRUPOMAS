@@ -2,16 +2,14 @@ import os
 import re
 from datetime import datetime, timedelta
 from config import DOWNLOAD_FOLDERS
+from logic.logs_logic import log, mail_handler
 from parsers.exportar_datos import (
     borrar_registros_procesados,
     borrar_registros_enviadas,
 )
 
-# === MANTENIMIENTO Y LIMPIEZA DE RECURSOS === 
 
-# A. Ruta para almacenar los resultados JSON de las tareas asíncronas
-RESULTS_DIR = "results"
-os.makedirs(RESULTS_DIR, exist_ok=True)
+# === MANTENIMIENTO Y LIMPIEZA DE RECURSOS === 
 
 
 # CLR.1 Gestion de logs: truncado y retención
@@ -30,9 +28,11 @@ def truncar_log(nivel: str | None = None, retencion_dias: int = 15) -> dict:
     """
     log_dir = "logs"
     os.makedirs(log_dir, exist_ok=True)
+    log.debug(f"Iniciando truncado/limpieza de logs (Retención: {retencion_dias} días)")
 
     niveles_validos = {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}
     if nivel and nivel not in niveles_validos:
+        log.error(f"Se intentó truncar un nivel de log inválido: {nivel}")
         raise ValueError(f"Nivel de log inválido: {nivel}")
 
     # permitimos dos estilos de rotación:
@@ -73,23 +73,28 @@ def truncar_log(nivel: str | None = None, retencion_dias: int = 15) -> dict:
             if fecha_str is None:
                 # truncar
                 try:
+                    log.debug(f"Truncando archivo log activo: {fname}")
                     with open(fpath, 'w', encoding='utf-8') as f:
                         f.truncate(0)
                     truncados += 1
-                except Exception:
+                except Exception as e:
+                    log.error(f"Error al truncar {fname}: {e}")
                     pass
             else:
                 # histórico: comprobar antigüedad
                 try:
                     fecha = datetime.strptime(fecha_str, "%Y-%m-%d")
                     if fecha < umbral:
+                        log.debug(f"Eliminando log histórico antiguo: {fname}")
                         os.remove(fpath)
                         eliminados += 1
-                except Exception:
+                except Exception as e:
                     # si el parseo falla, ignorar
+                    log.error(f"Fallo al procesar fecha de log histórico {fname}: {e}")
                     pass
             break  # patrón encontrado, no probar con otros
 
+    log.info(f"\t[SISTEMA] Limpieza de logs completada: {truncados} truncados, {eliminados} eliminados.")
     return {"truncados": truncados, "eliminados_historicos": eliminados}
 
 
@@ -108,6 +113,7 @@ def limpiar_archivos_temporales(portal=None, tipo=None, fecha_filtro=None):
         - int: Número total de archivos eliminados durante el proceso.
     '''
     conteo_eliminados = 0
+    log.info(f"\t[LIMPIEZA] Iniciando purga de archivos temporales (Portal: {portal}, Tipo: {tipo})")
     
     # A. Iteración sobre el mapeo de carpetas configurado en config.py
     for clave, ruta in DOWNLOAD_FOLDERS.items():
@@ -122,6 +128,7 @@ def limpiar_archivos_temporales(portal=None, tipo=None, fecha_filtro=None):
             
         # B. Procesamiento de la ruta física si existe
         if os.path.exists(ruta):
+            log.debug(f"Escaneando directorio de limpieza: {ruta}")
             for archivo in os.listdir(ruta):
                 ruta_completa = os.path.join(ruta, archivo)
                 
@@ -147,31 +154,40 @@ def limpiar_archivos_temporales(portal=None, tipo=None, fecha_filtro=None):
                     
                     # C. Ejecución de la eliminación física
                     if borrar:
-                        os.remove(ruta_completa)
-                        conteo_eliminados += 1
+                        try:
+                            os.remove(ruta_completa)
+                            conteo_eliminados += 1
+                        except Exception as e:
+                            log.error(f"Fallo al eliminar archivo temporal {archivo}: {e}")
                         
+    log.info(f"\t[OK] Purga completada. Total archivos eliminados: {conteo_eliminados}")
     return conteo_eliminados
-# CLR.3 Eliminaci�n de registros de facturas procesadas
+
+# CLR.3 Eliminación de registros de facturas procesadas
 
 def limpiar_registros_procesados(portal: str | None = None) -> int:
     """
     Borra los ficheros CSV que contienen el registro de facturas ya procesadas.
-    - `portal` puede ser "ENDESA" o "ENEL" (no sensible a may�sculas); si se
+    - `portal` puede ser "ENDESA" o "ENEL" (no sensible a mayúsculas); si se
       omite se eliminan ambos.
-    Retorna el n�mero de ficheros eliminados.
+    Retorna el número de ficheros eliminados.
     """
+    log.info(f"\t[MANTENIMIENTO] Borrando registros de facturas procesadas ({portal or 'TODOS'})")
     clave = portal.lower() if portal else None
-    cont = borrar_registros_procesados(clave)  # funci�n importada del parser
+    cont = borrar_registros_procesados(clave)  # función importada del parser
+    log.debug(f"Registros procesados eliminados: {cont}")
     return cont
 
 
-# CLR.4 Eliminaci�n de registros de facturas enviadas por email
+# CLR.4 Eliminación de registros de facturas enviadas por email
 
 def limpiar_registros_enviadas(portal: str | None = None) -> int:
     """
-    Id�ntico a `limpiar_registros_procesados` pero act�a sobre los hist�ricos de
-    env�os.
+    Idéntico a `limpiar_registros_procesados` pero actúa sobre los históricos de
+    envíos.
     """
+    log.info(f"\t[MANTENIMIENTO] Borrando históricos de envíos email ({portal or 'TODOS'})")
     clave = portal.lower() if portal else None
     cont = borrar_registros_enviadas(clave)
+    log.debug(f"Registros de envío eliminados: {cont}")
     return cont
