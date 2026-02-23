@@ -1,5 +1,6 @@
 # === Python & Sistema ===
 __pycache__/
+**/__init__.py
 *.py[cod]
 *$py.class
 .DS_Store
@@ -19,8 +20,6 @@ env/
 # Ignoramos toda la raíz de descargas (PDF, XML, CSV)
 temp_downloads/
 
-# Ignoramos la carpeta de resultados de la API (JSONs de tareas)
-results/
 
 # Ignoramos los logs locales
 logs/*.txt
