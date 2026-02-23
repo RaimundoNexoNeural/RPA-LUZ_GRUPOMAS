@@ -2,7 +2,6 @@ import base64
 import os
 import mailchimp_transactional as MailchimpTransactional
 from mailchimp_transactional.api_client import ApiClientError
-from utils.logs import escribir_log
 from logic.logs_logic import log, mail_handler
 from config import MAILCHIMP_API_KEY, SENDER_EMAIL
 
@@ -23,13 +22,11 @@ async def enviar_factura_email(destinatarios: list, ruta_pdf: str, numero_factur
     # A. Validaciones de requisitos previos
     # A.1. Verificación de clave de API
     if not MAILCHIMP_API_KEY:
-        escribir_log("[ERROR][MAIL] No se encontró la API Key de Mailchimp Transactional.")
         log.error("[ERROR][MAIL] No se encontró la API Key de Mailchimp Transactional.")
         return False
 
     # A.2. Verificación de existencia del adjunto
     if not os.path.exists(ruta_pdf):
-        escribir_log(f"[ERROR][MAIL] Archivo no encontrado: {ruta_pdf}")
         log.error(f"[ERROR][MAIL] Archivo no encontrado: {ruta_pdf}")
         return False
 
@@ -66,25 +63,21 @@ async def enviar_factura_email(destinatarios: list, ruta_pdf: str, numero_factur
         # F. Evaluación del resultado de la operación
         # F.1. Comprobación de estados válidos (Enviado o En cola)
         if response[0]['status'] in ['sent', 'queued']:
-            escribir_log(f"    [OK] Correo enviado correctamente (Status: {response[0]['status']})")
             log.info(f"\t   -> [OK] Correo enviado correctamente (Status: {response[0]['status']})")
             return True
         
         # F.2. Gestión de rechazos por parte del proveedor de mail
         else:
-            escribir_log(f"    [ADVERTENCIA] El correo no se envió. Razón: {response[0].get('reject_reason')}")
             log.warning(f"\t   --> [ADVERTENCIA] El correo no se envió. Razón: {response[0].get('reject_reason')}")
             return False
 
     # G. Control de errores específicos y genéricos
     # G.1. Errores de comunicación con la API de Mailchimp
     except ApiClientError as error:
-        escribir_log(f"    [ERROR][MAIL] Fallo en la API de Mailchimp: {error.text}")
         log.error(f"\t   --> [ERROR][MAIL] Fallo en la API de Mailchimp: {error.text}")
         return False
     
     # G.2. Errores inesperados de ejecución
     except Exception as e:
-        escribir_log(f"    [ERROR][MAIL] Error inesperado en envío: {str(e)}")
         log.error(f"\t   --> [ERROR][MAIL] Error inesperado en envío: {str(e)}", exc_info=True)
         return False

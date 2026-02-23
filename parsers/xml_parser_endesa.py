@@ -1,7 +1,6 @@
 import re
 from datetime import datetime
 
-from utils.logs import escribir_log
 from logic.logs_logic import log, mail_handler
 from utils.modelos_datos import FacturaEndesa
 
@@ -44,7 +43,7 @@ def _extract_simple_value(file_content: str, tag_name: str, is_float: bool = Fal
             except ValueError:
                 return None
         return value
-    # escribir_log(f"    -> [!][XML] No se encontró el tag <{tag_name}> en el XML.")
+    
     return default if default is not None else (0.0 if is_float else None)
 
 
@@ -67,10 +66,8 @@ def _extract_cost_by_description(file_content: str, item_description: str) -> fl
         try:
             return float(cost_str)
         except ValueError:
-            escribir_log(f"    -> [!][XML] No se pudo convertir el coste a float para la descripción '{item_description}': '{cost_str}'")
             log.warning(f"    -> [!][XML] No se pudo convertir coste a float para: {item_description}")
             return 0.0
-    # escribir_log(f"    -> [!][XML] No se encontró el coste para la descripción '{item_description}'")
     return 0.0
 
 
@@ -96,11 +93,9 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
             raw_content = f.read()
             content = _clean_text(raw_content) # Eliminamos NS para facilitar el Regex 
     except FileNotFoundError:
-        escribir_log(f"    -> [ERROR XML] Archivo no encontrado en: {filepath}")
         log.error(f"    -> [ERROR XML] Archivo no encontrado en: {filepath}")
         return False
     except Exception as e:
-        escribir_log(f"     -> [ERROR XML] Error al leer el archivo (código): {e}")
         log.error(f"     -> [ERROR XML] Error al leer el archivo: {e}")
         return False
 
@@ -140,7 +135,6 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
             dt = datetime.strptime(transaction_date, '%Y-%m-%d')
             factura.mes_facturado = nombres_meses.get(dt.month, "DESCONOCIDO")
         except ValueError:
-            escribir_log(f"    -> [!][XML] No se pudo parsear la fecha: {transaction_date}")
             log.warning(f"    -> [!][XML] No se pudo parsear la fecha del mes: {transaction_date}")
             pass
 
@@ -150,7 +144,6 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
             dt = datetime.strptime(transaction_date, '%Y-%m-%d')
             factura.anno_facturado = str(dt.year)
         except ValueError:
-            escribir_log(f"    -> [!][XML] No se pudo parsear la fecha para obtener el año: {transaction_date}")
             log.warning(f"    -> [!][XML] No se pudo parsear el año de: {transaction_date}")
             pass
     
@@ -158,7 +151,6 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
     base_imponible = _extract_simple_value(content, 'TotalGrossAmountBeforeTaxes', is_float=True)
         # Validación de base imponible
     if base_imponible == 0.0:
-        escribir_log(f"    -> [!][XML] Base imponible con importe 0.0")
         log.warning(f"    -> [!][XML] Base imponible detectada como 0.0 en {filepath}")
         return False
     factura.importe_base_imponible = base_imponible
@@ -271,10 +263,8 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
             factura.num_dias = int(float(quantity_match.group(1).strip()))
             log.debug(f"Número de días de facturación extraído: {factura.num_dias}")
     except Exception:
-        escribir_log(f"    -> [!][XML] No se pudo extraer el número de días de facturación.")
         log.warning("    -> [!][XML] No se pudo extraer el número de días de facturación.")
         pass
 
-    escribir_log(f"    -> [OK] [XML PARSED] Datos extraídos del XML para factura {factura.numero_factura} ({factura.cup})")
     log.info(f"\t   -> [OK] [XML PARSED] Datos extraídos del XML para factura {factura.numero_factura}")
     return True

@@ -3,7 +3,6 @@ import os
 from datetime import datetime
 from playwright.async_api import Page, TimeoutError, Locator
 from utils.modelos_datos import FacturaEndesa
-from utils.logs import escribir_log
 from logic.logs_logic import log, mail_handler
 from config import DOWNLOAD_FOLDERS, URL_LOGIN_ENDESA, URL_FACTURAS_ENDESA, GRUPO_EMPRESARIAL, TABLE_LIMIT, REPROCESADO, DESTINATARIOS_FACTURAS
 from parsers.xml_parser_endesa import procesar_xml_local_endesa
@@ -90,13 +89,11 @@ async def _wait_for_data_load(page: Page, timeout: int = 90000) -> bool:
         await page.locator('span.pagination-flex-central').wait_for(state="visible", timeout=timeout)
 
     # C. Si han cargado, devolvemos True y confirmamos
-        escribir_log("    -> [OK] Tabla cargada correctamente")
         log.info("    -> [OK] Tabla cargada correctamente")
         return True
     
     # D. En caso de Timeout, devolvemos False e informamos
     except TimeoutError:
-        escribir_log("    -->[!] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.")
         log.error("    -->[!] Tiempo de espera agotado al cargar datos dinámicos de la tabla de facturas.")
         return False
 
@@ -151,7 +148,6 @@ async def _descargar_archivo(page: Page, row: Locator, factura: FacturaEndesa, d
         await download.save_as(save_path)
         
     # D. Si se ha descargado correctamente, informamos y devolvemos la ruta del archivo descargado
-        escribir_log(f"   -> [OK] [DESCARGA {doc_type}] Guardado en: {save_path}")
         log.info(f"\t   -> [OK] [DESCARGA {doc_type}] Guardado en: {save_path}")
         return save_path
     
@@ -212,7 +208,6 @@ async def _seleccionar_fecha_flatpickr(page: Page, input_selector: Locator, fech
         return True
     
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo al seleccionar fecha '{fecha_str}': {e}")
         log.error(f"    -->[ERROR] Fallo al seleccionar fecha '{fecha_str}': {e}")
         return False
 
@@ -254,17 +249,12 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             descarga_selector=await tds.nth(13).locator('button').get_attribute("value") or ""
         )
     
-        escribir_log(f"    [OK] Datos estraidos correctamente de la fila de la tabla: {factura.numero_factura}")
         log.info(f"\t\t[OK] Datos extraídos correctamente de la fila de la tabla: {factura.numero_factura}")
 
         # comprobar registro de procesadas antes de continuar
         if factura.cup and factura.numero_factura:
             fecha_procesado = es_factura_procesada("endesa", factura.cup, factura.numero_factura)
             if fecha_procesado:
-                escribir_log(
-                    f"    [SKIP] Factura {factura.numero_factura} ({factura.cup})" \
-                    f" procesada el {fecha_procesado}."
-                )
                 log.info(f"\t\t[SKIP] Factura {factura.numero_factura} ({factura.cup}) procesada el {fecha_procesado}.")
                 return None
 
@@ -277,33 +267,28 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
 
         # C.1. Si se ha podido descargar el archivo XML se procesa este archivocon prioridad
         if xml_path:
-            escribir_log(f"[XML PROCESSING]")
             log.info(f"\t\t[XML PROCESSING]")
             exito_xml = procesar_xml_local_endesa(factura, xml_path)
 
             # C.1.1 Si no se ha podido procesar el XML se registra el error
             if not exito_xml:
-                escribir_log(f"    -> [ERROR XML] Fallo al extraer datos del XML para factura {factura.numero_factura} ({factura.cup})")
                 log.error(f"\t\t   -> [ERROR XML] Fallo al extraer datos del XML para factura {factura.numero_factura} ({factura.cup})")
                 factura.error_RPA = True
                 factura.msg_error_RPA = "ERROR_PARSEO: El archivo XML no contenía datos válidos o estaba incompleto."
         
         # C.2. Si no se ha descargado el XML, se procesa el PDF
         else:
-            escribir_log(f"   -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura {factura.numero_factura} ({factura.cup})")
             log.warning(f"\t\t   -> [ADVERTENCIA XML] No se descargó el XML para factura {factura.numero_factura}")
             factura.error_RPA = False
             factura.msg_error_RPA += "ERROR_FILES: El archivo XML no se ha podido descargar."
             
             # C.2.1 Procesamos el PDF mediante OCR
         if not xml_path and pdf_path:
-            escribir_log(f"[PDF OCR]")
             log.info(f"\t\t[PDF OCR]")
             exito_pdf = procesar_pdf_local_endesa(factura, pdf_path)
         
             # C.2.2 Si no se ha podido procesar el PDF se registra el error
             if not exito_pdf:
-                escribir_log(f"    -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
                 log.error(f"\t\t   -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
                 factura.error_RPA = True
                 factura.msg_error_RPA += " ERROR_PARSEO: El archivo PDF no contenía datos válidos o estaba incompleto."
@@ -321,19 +306,16 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             insertar_factura_en_csv(factura, csv_path)
 
         # E. Registrar datos en Google Sheets y subir PDF a Google Drive
-        escribir_log(f"[GOOGLE SHEETS/DRIVE]")
         log.info(f"\t\t[GOOGLE SHEETS/DRIVE]")
         try:
             # pdf_path es la variable que ya tienes definida en tu código con la ruta local del archivo
             factura.procesada = True
             registrar_factura_google_endesa(factura, pdf_path)
-            escribir_log(f"    -> [OK] [GOOGLE] Registro y subida completados para factura {factura.numero_factura}")
             log.info(f"\t\t   -> [OK] [GOOGLE] Registro y subida completados para factura {factura.numero_factura}")
         except Exception as e_google:
             factura.procesada = False
             factura.error_RPA = True
             factura.msg_error_RPA += " ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive."
-            escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
             log.error(f"\t\t   --> [ERROR GOOGLE] Fallo en sincronización: {str(e_google)}")
 
         # F. Si todo ha ido bien sin errores RPA añadimos el registro de procesada
@@ -341,14 +323,12 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             try:
                 factura.procesada = True
                 registrar_factura_procesada("endesa", factura.cup, factura.numero_factura)
-                escribir_log(f"[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
                 log.info(f"\t\t[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
             except Exception:
                 factura.procesada = False
                 pass
 
         # G. Envio de Factura por correo.
-        escribir_log(f"[EMAIL SENDING]")
         log.info(f"\t\t[EMAIL SENDING]")
         if pdf_path and not factura.error_RPA:
             # Listado de correos ledo desde la configuracin (.env via config.py)
@@ -365,7 +345,6 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
             
             else:
                 exito_mail = True
-                escribir_log(f"    [SKIP] La factura {factura.numero_factura} ({factura.cup}) ya fue enviada previamente.")
                 log.info(f"\t\t   [SKIP] La factura {factura.numero_factura} ya fue enviada previamente.")
             
             if exito_mail:
@@ -380,7 +359,6 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
     
         # I. Si no se ha podido procesar nada de la fila se informa y se devuelve None
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo al extraer datos de la fila de la tabla: {str(e)}")
         log.error(f"\t\t   -->[ERROR] Fallo al extraer datos de fila: {str(e)}", exc_info=True)
         return None
     
@@ -406,7 +384,6 @@ async def _extraer_pagina_actual_endesa(page: Page, page_index: int) -> list[Fac
 
     # B. Bucle para recorer cada una de las filas
         for i in range(row_count):
-            escribir_log(f"\n\t[ROW {(i+1)+5*(page_index-1)}] {'='*40}",mostrar_tiempo=False)
             log.info(f"\n\t[ROW {(i+1)+5*(page_index-1)}] {'='*40}")
             row = rows.nth(i)
             
@@ -422,7 +399,6 @@ async def _extraer_pagina_actual_endesa(page: Page, page_index: int) -> list[Fac
     
     # D. Si hay algún fallo se devuelve la lista en su estado actual y se informa del error
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo al extraer datos de la Página {page_index}: {str(e)}")
         log.error(f"\t   -->[ERROR] Fallo al extraer datos de la Página {page_index}: {str(e)}")
         return facturas
 
@@ -451,16 +427,13 @@ async def _extraer_tabla_facturas_endesa(page: Page) -> list[FacturaEndesa]:
 
         try:
             total_paginas = int(pagination_text.split('/')[-1].strip())
-            escribir_log(f"    [INFO] Tabla detectada con {total_paginas} páginas.")
             log.info(f"    [INFO] Tabla detectada con {total_paginas} páginas.")
         except (ValueError, IndexError):
-            escribir_log("    [ADVERTENCIA] No se pudo determinar el total de páginas. Usando modo preventivo (1 página).")
             log.warning("    [ADVERTENCIA] No se pudo determinar el total de páginas en la tabla.")
             total_paginas = 1
 
     # C. Bucle consciente basado en el número total de páginas
         for current_page in range(1, total_paginas + 1):
-            escribir_log(f"\n\n[PAGE {current_page} / {total_paginas}] ",mostrar_tiempo=False)
             log.info(f"\n\n[PAGE {current_page} / {total_paginas}]")
             
             # C.1. Esperar a que los datos de la página actual estén cargados
@@ -476,7 +449,6 @@ async def _extraer_tabla_facturas_endesa(page: Page) -> list[FacturaEndesa]:
                 
                 # C.3.1 Verificación extra: si el botón está deshabilitado pero el contador dice que faltan páginas
                 if await next_button.is_disabled():
-                    escribir_log(f"    [AVISO] El botón 'SIGUIENTE' está bloqueado en la página {current_page}. Finalizando.")
                     log.warning(f"    [AVISO] El botón 'SIGUIENTE' está bloqueado en la página {current_page}.")
                     break
                 
@@ -487,16 +459,13 @@ async def _extraer_tabla_facturas_endesa(page: Page) -> list[FacturaEndesa]:
                     await next_button.click(timeout=10000)
                     await page.wait_for_timeout(1500) 
                 except TimeoutError:
-                    escribir_log(f"    -->[ERROR] Timeout al pulsar siguiente en página {current_page}.")
                     log.error(f"\t   -->[ERROR] Timeout al pulsar siguiente en página {current_page}")
                     break
     
     # D. Si existe algún error se informa
     except TimeoutError:
-        escribir_log("    -->[ERROR] Tiempo excedido esperando la tabla de resultados.")
         log.error("    -->[ERROR] Tiempo excedido esperando la tabla de resultados.")
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo inesperado en la navegación de tabla: {str(e)}")
         log.error(f"    -->[ERROR] Fallo inesperado en la navegación de tabla: {str(e)}", exc_info=True)
     
     # E. Se devuleve la lista de todas las facturas que se han procesado
@@ -538,18 +507,15 @@ async def _iniciar_sesion_endesa(page: Page, username: str, password: str) -> bo
 
     # E. Si hay algún error, lo registra
     except TimeoutError:
-        escribir_log("Fallo en el Login: El tiempo de espera para cargar el indicador de éxito (cookies o dashboard) ha expirado.")
         log.error("Fallo en el Login: Tiempo de espera para carga post-login expirado.")
         
         # E.1. Identifica si el error es por credenciales incorrectas
         final_url = page.url
         if final_url.startswith(URL_LOGIN_ENDESA) and await page.is_visible('div[class*="error"]'):
-             escribir_log("Razón: Credenciales incorrectas.")
              log.error("Fallo de autenticación: Credenciales incorrectas detectadas en pantalla.")
         return False
     
     except Exception as e:
-        escribir_log(f"Error inesperado durante la autenticación: {e}")
         log.error(f"Error crítico durante la autenticación: {e}", exc_info=True)
         return False
     
@@ -579,7 +545,6 @@ async def _aceptar_cookies_endesa(page: Page) -> bool:
                 if await boton_modal.is_visible(timeout=3000):
 
                 # B.2. Pulsamos el boton en caso de estar visible
-                    escribir_log(f"Detectada ventana modal. Pulsando cerrar ({selector}).")
                     log.info(f"\t\tDetectada ventana modal. Pulsando cerrar ({selector}).")
                     await boton_modal.click()
                     await page.wait_for_timeout(500) 
@@ -593,23 +558,19 @@ async def _aceptar_cookies_endesa(page: Page) -> bool:
         if await page.locator(cookie_button_selector).is_visible(timeout=5000):
             # C.2. Pulsamos el boton en caso de estar visible
             await page.click(cookie_button_selector)
-            escribir_log("Cookies aceptadas.")
             log.info("\t\tCookies aceptadas correctamente.")
             await page.wait_for_timeout(500) 
             # C.3. Si el boton no está visble, informamos y continuamos con el proceso
         else:
-            escribir_log("Banner de cookies no detectado tras cerrar modales.")
             log.warning("\t\tBanner de cookies no detectado tras cerrar modales.")
 
         return True
             
     # D. Si El proceso falla, informamos y devolvemos False
     except TimeoutError:
-        escribir_log("Tiempo de espera agotado al gestionar modales o cookies.")
         log.error("Tiempo de espera agotado al gestionar modales o cookies.")
         return False
     except Exception as e:
-        escribir_log(f"Error al intentar aceptar las cookies o cerrar modales: {e}")
         log.error(f"Error inesperado en gestión de cookies/modales: {e}")
         return False
 
@@ -644,13 +605,11 @@ async def _realizar_busqueda_facturas_endesa(page: Page, fecha_desde: str, fecha
 
             # B.2. Filtro CUPS
         if cup:
-            escribir_log(f"    -> [INFO] Aplicando filtro para CUP: {cup}")
             log.info(f"    -> [INFO] Aplicando filtro para CUP: {cup}")
             await page.click('button[name="periodo"]:has-text("CUPS20/CUPS22")')
             await page.fill('input[placeholder="Buscar"]', cup)
             await page.click(f'span[role="option"] >> text="{cup}"')
         else:
-            escribir_log("    -> [INFO] Sin CUP específico. Buscando todos los CUPS disponibles.")
             log.info("    -> [INFO] Sin CUP específico. Ejecutando búsqueda global.")
 
             # B.3. Filtros de Fecha (Interacción con Calendario Real - Fecha de emisión)
@@ -663,7 +622,6 @@ async def _realizar_busqueda_facturas_endesa(page: Page, fecha_desde: str, fecha
             await _seleccionar_fecha_flatpickr(page, inputs_fecha.nth(0), fecha_desde)
             await _seleccionar_fecha_flatpickr(page, inputs_fecha.nth(1), fecha_hasta)
         except Exception as e:
-            escribir_log(f"    --> [ERROR] Fallo al localizar los calendarios de Fecha de emisión: {e}")
             log.error(f"\t   --> [ERROR] Fallo al localizar calendarios de emisión: {e}")
 
     
@@ -685,13 +643,11 @@ async def _realizar_busqueda_facturas_endesa(page: Page, fecha_desde: str, fecha
         await page.wait_for_selector(tabla_selector, timeout=60000)
         
         
-        escribir_log(f"    [OK] Filtros Aplicados con éxito {'para ' + cup if cup is not None else ''}, desde {fecha_desde} hasta {fecha_hasta}.")
         log.info(f"    [OK] Filtros Aplicados con éxito (Desde {fecha_desde} hasta {fecha_hasta})")
 
         return True
     
 
     except Exception as e:
-        escribir_log(f"Error al intentar aplicar los filtros {'para'+ cup if cup is not None else ''}, desde {fecha_desde} hasta {fecha_hasta}.: {e}")
         log.error(f"Error crítico al aplicar filtros: {e}", exc_info=True)
         return False

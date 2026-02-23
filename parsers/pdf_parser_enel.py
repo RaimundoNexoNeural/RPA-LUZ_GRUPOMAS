@@ -3,7 +3,6 @@ import json
 from datetime import datetime
 from openai import OpenAI
 
-from utils.logs import escribir_log
 from logic.logs_logic import log, mail_handler
 from utils.modelos_datos import FacturaEnel
 from config import PROMPT_ENEL_PATH, MODEL
@@ -26,7 +25,6 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
     # === 0. Configuración de la API de OpenAI ===
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        escribir_log("    -> [ERROR] No se encontró la variable de entorno OPENAI_API_KEY")
         log.error("    -> [ERROR] No se encontró la variable de entorno OPENAI_API_KEY")
         factura.error_RPA = True
         factura.msg_error_RPA += "Error: No se encontró la variable de entorno OPENAI_API_KEY"
@@ -104,7 +102,6 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
                 factura.mes_facturado = nombres_meses.get(dt_fin.month, "DESCONOCIDO")
                 log.debug(f"Mes facturado identificado: {factura.mes_facturado}")
             except Exception as e_fecha:
-                escribir_log(f"    -->[!][OCR] No se pudo calcular el mes facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
                 log.warning(f"    -->[!][OCR] No se pudo calcular el mes facturado: {str(e_fecha)[:100]}")
         
             # B.2 Año facturado
@@ -115,7 +112,6 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
                 factura.anno_facturado = str(dt_fin.year)
                 log.debug(f"Año facturado identificado: {factura.anno_facturado}")
             except Exception as e_fecha:
-                escribir_log(f"    -->[!][OCR] No se pudo calcular el año facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
                 log.warning(f"    -->[!][OCR] No se pudo calcular el año facturado: {str(e_fecha)[:100]}")
 
             # B.3 Calculo de num_dias
@@ -128,7 +124,6 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
                 log.debug(f"Días de periodo calculados: {factura.num_dias}")
                 
             except Exception as e_dias:
-                escribir_log(f"    -->[!][OCR] No se pudo calcular el número de días: {str(e_dias)[:100]}")
                 log.warning(f"    -->[!][OCR] No se pudo calcular el número de días: {str(e_dias)[:100]}")
             
             
@@ -145,12 +140,10 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
 
 
 
-        escribir_log(f"    -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura {factura.numero_factura} ({factura.cup})")
         log.info(f"\t   -> [OK] [PDF OCR PARSER] Datos extraídos del PDF para factura {factura.numero_factura}")
         return True
 
     except Exception as e:
-        escribir_log(f"    -> [ERROR] Error al procesar la factura PDF {factura.numero_factura} ({factura.cup}): {str(e)}")
         log.error(f"    -> [ERROR] Error al procesar la factura PDF {factura.numero_factura}: {str(e)}", exc_info=True)
         factura.error_RPA = True
         factura.msg_error_RPA += f"Error al procesar PDF: {str(e)}"

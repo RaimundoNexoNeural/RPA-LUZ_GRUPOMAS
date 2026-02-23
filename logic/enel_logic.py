@@ -4,7 +4,6 @@ from datetime import datetime
 import asyncio
 from playwright.async_api import Page, TimeoutError, Locator
 from utils.modelos_datos import FacturaEnel
-from utils.logs import escribir_log
 from logic.logs_logic import log, mail_handler
 from config import DOWNLOAD_FOLDERS, URL_FACTURAS_ENEL, REPROCESADO, DESTINATARIOS_FACTURAS
 from parsers.pdf_parser_enel import procesar_pdf_local_enel
@@ -41,7 +40,6 @@ def _clean_and_convert_float(text: str) -> float:
         return float(val_str)
     
     except Exception as e:
-        escribir_log(f"Error al convertir importe '{text}': {e}")
         log.error(f"Error al convertir importe '{text}': {e}")
         return 0.0
     
@@ -87,7 +85,6 @@ async def _descargar_archivo_fila(page: Page, row_locator: Locator, factura: Fac
         await download.save_as(save_path)
         
     # D. Si se ha descargado correctamente, informamos y devolvemos la ruta del archivo descargado
-        escribir_log(f"    -> [OK] [DESCARGA PDF] Guardado en: {save_path}")
         log.info(f"\t   -> [OK] [DESCARGA PDF] Guardado en: {save_path}")
         return save_path
     
@@ -144,17 +141,12 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             descarga_selector = f_fiscal
             )
         
-        escribir_log(f"    [OK] Datos extraídos correctamente de la fila de la tabla: {factura.numero_factura}")
         log.info(f"\t\t[OK] Datos extraídos de la tabla para: {factura.numero_factura}")
 
         # comprobamos si ya existe en registro de procesadas
         if factura.cup and factura.numero_factura:
             fecha_procesado = es_factura_procesada("enel", factura.cup, factura.numero_factura)
             if fecha_procesado:
-                escribir_log(
-                    f"    [SKIP] Factura {factura.numero_factura} ({factura.cup})" \
-                    f" procesada el {fecha_procesado}."
-                )
                 log.info(f"\t\t[SKIP] Factura {factura.numero_factura} ({factura.cup}) ya procesada previamente.")
                 return None
 
@@ -163,7 +155,6 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
         if factura.importe_total < 0:
             factura.error_RPA = True
             factura.msg_error_RPA = "IMPORTE_NEGATIVO: El importe total de la factura es negativo, por lo que no se procesará su PDF."
-            escribir_log(f"    [!] Importe total negativo para la factura {factura.numero_factura} ({factura.importe_total} €). No se procesará el PDF de esta factura.")
             log.warning(f"\t\t[!] Importe total negativo ({factura.importe_total} €). Omitiendo PDF.")
             return factura
     
@@ -172,12 +163,10 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
            
     # D. Procesado del archivo PDF descargado, extracción de datos adicionales y actualizacion de objeto Factura
         if pdf_path:
-            escribir_log(f"[PDF OCR]")
             log.info(f"\t\t[PDF OCR]")
             exito_pdf = procesar_pdf_local_enel(factura, pdf_path)
 
             if not exito_pdf:
-                escribir_log(f"    -> [ERROR PDF] Fallo al extraer datos del PDF para factura {factura.numero_factura} ({factura.cup})")
                 log.error(f"\t\t   -> [ERROR PDF] Fallo al extraer datos del PDF: {factura.numero_factura}")
                 factura.error_RPA = True
                 factura.msg_error_RPA += " ERROR_PARSEO: El archivo PDF no contenía datos válidos o estaba incompleto."
@@ -189,18 +178,15 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             insertar_factura_en_csv(factura, csv_path)
         
     # F. Registrar datos en Google Sheets y subir PDF a Google Drive
-        escribir_log(f"[GOOGLE SHEETS/DRIVE]")
         log.info(f"\t\t[GOOGLE SHEETS/DRIVE]")
         try:
             factura.procesada = True
             registrar_factura_google_enel(factura, pdf_path)
-            escribir_log(f"    -> [OK] [GOOGLE] Registro y subida completados para factura {factura.numero_factura}")
             log.info(f"\t\t   -> [OK] [GOOGLE] Registro y subida completados.")
         except Exception as e_google:
             factura.procesada = False
             factura.error_RPA = True
             factura.msg_error_RPA += f" ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive. Detalles: {str(e_google)}"
-            escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
             log.error(f"\t\t   --> [ERROR GOOGLE] Fallo en sincronización: {str(e_google)}")
 
     # G. Tras un procesamiento sin errores, añadimos al registro de procesadas
@@ -208,14 +194,12 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             try:
                 factura
                 registrar_factura_procesada("enel", factura.cup, factura.numero_factura)
-                escribir_log(f"[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
                 log.info(f"\t\t[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
             except Exception:
                 factura.procesada = False
                 pass
 
     # H. Envio de Factura por correo.
-        escribir_log(f"[EMAIL SENDING]")
         log.info(f"\t\t[EMAIL SENDING]")
         if pdf_path and not factura.error_RPA:
             # Listado de correos definido en .env y leído por config.py
@@ -232,7 +216,6 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
             
             else:
                 exito_mail = True
-                escribir_log(f"    [SKIP] La factura {factura.numero_factura} ({factura.cup}) ya fue enviada previamente.")
                 log.info(f"\t\t   [SKIP] Factura ya enviada previamente.")
             
             if exito_mail:
@@ -247,7 +230,6 @@ async def _extraer_datos_fila_enel(page: Page, row: Locator) -> FacturaEnel | No
     
     # J. Si no se ha podido procesar nada de la fila se informa y se devuelve None
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo al extraer datos de la fila de la tabla: {str(e)}")
         log.error(f"\t\t   -->[ERROR] Fallo al extraer datos: {str(e)}", exc_info=True)
         return None
         
@@ -274,12 +256,10 @@ async def _extraer_pagina_actual_enel(page: Page, contador: int) -> list[Factura
             log.debug("No se encontraron filas en la tabla de la página actual.")
             return facturas
     
-        escribir_log(f"    [INFO] Tabla detectada con {row_count} filas")
         log.info(f"    [INFO] Tabla detectada con {row_count} filas")
 
     # B. Bucle para recorer cada una de las filas
         for i in range(row_count):
-            escribir_log(f"\n\t[ROW {(i+contador+1)}] {'='*40}",mostrar_tiempo=False)
             log.info(f"\n\t[ROW {(i+contador+1)}] {'='*40}")
             row = rows.nth(i)
             
@@ -295,7 +275,6 @@ async def _extraer_pagina_actual_enel(page: Page, contador: int) -> list[Factura
         
     # D. Si hay algún fallo se devuelve la lista en su estado actual y se informa del error
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo al extraer datos de la Tabla: {str(e)}")
         log.error(f"    -->[ERROR] Fallo al extraer datos de la Tabla: {str(e)}")
         return facturas
 
@@ -339,7 +318,6 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0) -
             await page.wait_for_load_state("networkidle")
             await page.wait_for_timeout(2000) 
         except TimeoutError:
-            escribir_log("    -->[ERROR] Tiempo excedido esperando la siguiente página de resultados.")
             log.error("    -->[ERROR] Tiempo excedido esperando la siguiente página de resultados.")
             return todas_facturas
             
@@ -351,11 +329,9 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0) -
         
     
     except TimeoutError:
-        escribir_log("    -->[ERROR] Tiempo excedido esperando la tabla de resultados.")
         log.error("    -->[ERROR] Tiempo excedido esperando la tabla de resultados.")
 
     except Exception as e:
-        escribir_log(f"    -->[ERROR] Fallo inesperado en la navegación de tabla: {str(e)}")
         log.error(f"    -->[ERROR] Fallo inesperado en la navegación de tabla: {str(e)}")
         return todas_facturas 
 
@@ -394,12 +370,10 @@ async def _iniciar_sesion_enel(page: Page, username: str, password: str) -> bool
     
      # E. Si hay algún error, lo registra
     except TimeoutError:
-        escribir_log("Fallo en el Login: El tiempo de espera para cargar el indicador de éxito (cookies o dashboard) ha expirado.")
         log.error("Fallo en el Login: Tiempo de espera expirado en portal Enel.")
         return False
     
     except Exception as e:
-        escribir_log(f"Error inesperado durante la autenticación: {e}")
         log.error(f"Error inesperado durante la autenticación: {e}")
         return False
 
@@ -436,24 +410,20 @@ async def _obtener_todos_los_roles(page: Page) -> list[str]:
             # C.2. Solo añadimos a la lista si el nombre existe y no es una cadena vacía o "None"
             if nombre and str(nombre).strip().lower() != "none" and str(nombre).strip() != "":
                 roles.append(nombre.strip())
-                escribir_log(f"   - ROL {i+1}: {nombre.strip()}", mostrar_tiempo=False)
                 log.info(f"\t   - ROL {i+1}: {nombre.strip()}")
         
     # D. Cerramos el menú volviendo a pulsar el botón para que no bloquee la pantalla
         await page.locator('button[title="Cambio de rol"]').click()
         
     # E. Devolvemos la lista de roles válidos obtenidos
-        escribir_log(f"    -> [OK] Total de roles válidos a procesar: {len(roles)}")
         log.info(f"    -> [OK] Total de roles válidos a procesar: {len(roles)}")
         return roles
     
 
     except TimeoutError:
-        escribir_log("Fallo al obtener roles: El tiempo de espera para cargar las opciones de rol ha expirado.")
         log.error("Fallo al obtener roles: Tiempo de espera expirado.")
         return roles
     except Exception as e:
-        escribir_log(f"Error inesperado al obtener roles: {e}")
         log.error(f"Error inesperado al obtener roles: {e}")
         return roles
 
@@ -493,11 +463,9 @@ async def _seleccionar_rol_especifico(page: Page, nombre_rol: str) -> bool:
     
     # D. Manejo de errores específicos para la selección de rol
     except TimeoutError:
-        escribir_log(f"Fallo al seleccionar el rol '{nombre_rol}': El tiempo de espera para cargar las opciones de rol ha expirado o el rol no existe.")
         log.error(f"Fallo al seleccionar el rol '{nombre_rol}': Tiempo de espera expirado.")
         return False
     except Exception as e:
-        escribir_log(f"Error inesperado al seleccionar el rol '{nombre_rol}': {e}")
         log.error(f"Error inesperado al seleccionar el rol '{nombre_rol}': {e}")
         return False
 
@@ -545,32 +513,26 @@ async def _aplicar_filtros_fechas(page: Page, f_desde, f_hasta) -> bool:
         try:
             await page.locator(f"{selector_exito}, {selector_vacio}").first.wait_for(state="visible", timeout=90000)
         except TimeoutError:
-            escribir_log("    --> [ERROR] La página no respondió tras aplicar filtros.")
             log.error("    --> [ERROR] La página no respondió tras aplicar filtros.")
             return False
 
         
         # E.2. Si se muestra la tabla de resultados, confirmamos que se ha cargado correctamente y devolvemos True. 
         if await page.locator(selector_exito).count() > 0:
-            escribir_log("    [OK] Tabla cargada con éxito.")
             log.info("    [OK] Tabla de resultados cargada con éxito.")
             return True
         
         # E.3. Si se muestra el mensaje de "No se encuentran resultados", lo confirmamos y devolvemos False (aunque la página haya respondido, no hay datos que extraer)
         if await page.locator(selector_vacio).count() > 0:
-            escribir_log("    [OK] Tabla cargada con éxito.")
             log.info("\t   -> [INFO] Sin resultados para este periodo.")
             return True
 
-        escribir_log("    [ERROR] La página respondió pero no se pudo confirmar la carga de la tabla de resultados ni el mensaje de 'No se encuentran resultados'.")
         log.error("No se pudo confirmar el estado de la carga de resultados.")
         return False
     
     except TimeoutError:
-        escribir_log("    [ERROR] Tiempo excedido esperando la tabla de resultados o el mensaje de 'No se encuentran resultados'.")
         log.error("Tiempo excedido esperando resultados tras aplicar filtros.")
         return False
     except Exception as e:
-        escribir_log(f"    [ERROR] Error inesperado al aplicar filtros o cargar resultados: {e}")
         log.error(f"Error inesperado en filtros Enel: {e}")
         return False
