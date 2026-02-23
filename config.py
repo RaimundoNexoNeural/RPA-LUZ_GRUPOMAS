@@ -14,6 +14,15 @@ PASSWORD_ENEL = os.getenv("ENEL_PASS")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+MAILCHIMP_API_KEY = os.getenv("MAILCHIMP_API_KEY")
+SENDER_EMAIL = os.getenv("SENDER_EMAIL") 
+DESTINATARIOS_FACTURAS = [
+    addr.strip()
+    for addr in os.getenv("DESTINATARIOS_FACTURAS").split(",")
+    if addr.strip()
+]
+
+
 # === 2. GOOGLE SERVICES (Desde .env) ===
 # IDs de Google Drive/Sheets. Los dos IDs de carpeta apuntan a las
 # carpetas raíz de PDFs de cada proveedor dentro de la carpeta principal
@@ -71,14 +80,22 @@ PROMPT_ENEL_PATH = "prompts/prompt_enel.txt"
 # === 6. RUTAS DE REGISTROS ===
 # dentro de temp_downloads crearemos registros/endesa y registros/enel
 REGISTRO_ROOT = os.path.join(TEMP_DOWNLOAD_ROOT, "registros")
-REGISTRO_FOLDERS = {
-    "endesa": os.path.join(REGISTRO_ROOT, "endesa"),
-    "enel": os.path.join(REGISTRO_ROOT, "enel"),
+REGISTRO_FOLDERS_PROCESADAS = {
+    "endesa": os.path.join(REGISTRO_ROOT, "endesa_procesadas"),
+    "enel": os.path.join(REGISTRO_ROOT, "enel_procesadas"),
 }
+REGISTRO_FOLDERS_ENVIADAS = {
+    "endesa": os.path.join(REGISTRO_ROOT, "endesa_enviadas"),
+    "enel": os.path.join(REGISTRO_ROOT, "enel_enviadas"),
+}
+
+
 
 # Asegurar que las carpetas existan al importar la configuración
 for folder in DOWNLOAD_FOLDERS.values():
     os.makedirs(folder, exist_ok=True)
 # también creamos las carpetas de registros
-for folder in REGISTRO_FOLDERS.values():
+for folder in REGISTRO_FOLDERS_PROCESADAS.values():
+    os.makedirs(folder, exist_ok=True)
+for folder in REGISTRO_FOLDERS_ENVIADAS.values():
     os.makedirs(folder, exist_ok=True)

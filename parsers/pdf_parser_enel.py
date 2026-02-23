@@ -117,8 +117,16 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
             except Exception as e_fecha:
                 escribir_log(f"    -->[!][OCR] No se pudo calcular el mes facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
         
+            # B.2 Año facturado
+        if factura.fecha_fin_periodo and factura.fecha_fin_periodo != "N/A":
+            try:
+                f_fin_str = factura.fecha_fin_periodo.replace("/", "-")
+                dt_fin = datetime.strptime(f_fin_str, '%d-%m-%Y')
+                factura.anno_facturado = str(dt_fin.year)
+            except Exception as e_fecha:
+                escribir_log(f"    -->[!][OCR] No se pudo calcular el año facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
 
-            # B.2 Calculo de num_dias
+            # B.3 Calculo de num_dias
         if (factura.fecha_inicio_periodo and factura.fecha_inicio_periodo != "N/A") and (factura.fecha_fin_periodo and factura.fecha_fin_periodo != "N/A"):
             try:
                 f_ini_str = factura.fecha_inicio_periodo.replace("/", "-")
@@ -130,12 +138,12 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
                 escribir_log(f"    -->[!][OCR] No se pudo calcular el número de días: {str(e_dias)[:100]}")
             
             
-            # B.3 Cálculo de Importe de Potencia (Peaje + Cargos)
+            # B.4 Cálculo de Importe de Potencia (Peaje + Cargos)
         p_peaje = factura.termino_de_potencia_peaje or 0.0
         p_cargos = factura.termino_de_potencia_cargos or 0.0
         factura.importe_de_potencia = round(p_peaje + p_cargos, 2)
 
-            # B.4 Cálculo de Importe ATR (Energía Peaje + Energía Cargos)
+            # B.5 Cálculo de Importe ATR (Energía Peaje + Energía Cargos)
         e_peaje = factura.termino_de_energia_peaje or 0.0
         e_cargos = factura.termino_de_energia_cargos or 0.0
         factura.importe_atr = round(e_peaje + e_cargos, 2)

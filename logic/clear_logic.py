@@ -56,19 +56,3 @@ def limpiar_archivos_temporales(portal=None, tipo=None, fecha_filtro=None):
                         
     return conteo_eliminados
 
-def guardar_resultado_tarea(task_id, datos):
-    """Guarda el listado de facturas en un archivo JSON físico."""
-    ruta_resultado = os.path.join(RESULTS_DIR, f"{task_id}.json")
-    with open(ruta_resultado, 'w', encoding='utf-8') as f:
-        # Convertimos objetos Pydantic a dict si es necesario
-        json_datos = [d.dict() if hasattr(d, 'dict') else d for d in datos]
-        json.dump(json_datos, f, ensure_ascii=False, indent=4)
-    return ruta_resultado
-
-def obtener_resultado_tarea(task_id):
-    """Lee el resultado JSON de una tarea terminada."""
-    ruta_resultado = os.path.join(RESULTS_DIR, f"{task_id}.json")
-    if os.path.exists(ruta_resultado):
-        with open(ruta_resultado, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return None

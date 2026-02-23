@@ -5,16 +5,16 @@ import os
 # funcionalidad adicional: registros de facturas ya procesadas
 # ------------------------------------------------------------------
 # el cache ahora almacena un diccionario map[(cup,numero)] -> fecha_hora
-_registros_cache: dict[str, dict[tuple[str,str], str]] = {}
+_registros_cache_procesadas: dict[str, dict[tuple[str,str], str]] = {}
 
 
 def _get_path_procesados(distribuidora: str) -> str:
     """Devuelve la ruta del CSV de procesados para la distribuidora."""
-    from config import REGISTRO_FOLDERS
+    from config import REGISTRO_FOLDERS_PROCESADAS
     key = distribuidora.lower()
-    if key not in REGISTRO_FOLDERS:
+    if key not in REGISTRO_FOLDERS_PROCESADAS:
         raise ValueError(f"Distribuidora desconocida: {distribuidora}")
-    return os.path.join(REGISTRO_FOLDERS[key], f"procesados_{key}.csv")
+    return os.path.join(REGISTRO_FOLDERS_PROCESADAS[key], f"procesados_{key}.csv")
 
 
 def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
@@ -24,8 +24,8 @@ def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
     Usa un caché para no leer el fichero varias veces en la misma ejecución.
     """
     key = distribuidora.lower()
-    if key in _registros_cache:
-        return _registros_cache[key]
+    if key in _registros_cache_procesadas:
+        return _registros_cache_procesadas[key]
 
     path = _get_path_procesados(key)
     registros: dict[tuple[str,str], str] = {}
@@ -43,7 +43,7 @@ def cargar_registro_procesados(distribuidora: str) -> dict[tuple[str,str], str]:
             # si hay fallo al leer, dejamos el diccionario vacío
             pass
 
-    _registros_cache[key] = registros
+    _registros_cache_procesadas[key] = registros
     return registros
 
 
@@ -137,10 +137,104 @@ def _actualizar_registro_procesados(distribuidora_key: str, cup: str, numero: st
                 writer.writerows(registros)
         
         # Invalidar caché para que se recargue en la próxima lectura
-        if distribuidora_key in _registros_cache:
-            del _registros_cache[distribuidora_key]
+        if distribuidora_key in _registros_cache_procesadas:
+            del _registros_cache_procesadas[distribuidora_key]
     except Exception:
         pass
+
+# ------------------------------------------------------------------
+# funcionalidad adicional: registros de facturas ya enviadas
+# ------------------------------------------------------------------
+# el cache ahora almacena un diccionario map[(cup,numero)] -> fecha_hora
+_registros_cache_enviadas: dict[str, dict[tuple[str,str], str]] = {}
+
+
+def _get_path_enviadas(distribuidora: str) -> str:
+    """Devuelve la ruta del CSV de enviadas para la distribuidora."""
+    from config import REGISTRO_FOLDERS_ENVIADAS
+    key = distribuidora.lower()
+    if key not in REGISTRO_FOLDERS_ENVIADAS:
+        raise ValueError(f"Distribuidora desconocida: {distribuidora}")
+    return os.path.join(REGISTRO_FOLDERS_ENVIADAS[key], f"enviadas_{key}.csv")
+
+
+def cargar_registro_enviadas(distribuidora: str) -> dict[tuple[str,str], str]:
+    """Carga en memoria el mapa de facturas procesadas a su fecha/hora.
+
+    El formato devuelto es {(cup, numero): fecha_hora}
+    Usa un caché para no leer el fichero varias veces en la misma ejecución.
+    """
+    key = distribuidora.lower()
+    if key in _registros_cache_enviadas:
+        return _registros_cache_enviadas[key]
+
+    path = _get_path_enviadas(key)
+    registros: dict[tuple[str,str], str] = {}
+    if os.path.isfile(path):
+        try:
+            with open(path, newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f, delimiter=';')
+                for row in reader:
+                    cup = row.get('CUP', '').strip()
+                    numero = row.get('numero_factura', '').strip()
+                    fecha = row.get('fecha_hora', '').strip()
+                    if cup and numero:
+                        registros[(cup, numero)] = fecha
+        except Exception:
+            # si hay fallo al leer, dejamos el diccionario vacío
+            pass
+
+    _registros_cache_enviadas[key] = registros
+    return registros
+
+
+def es_factura_enviada(distribuidora: str, cup: str, numero: str) -> str | None:
+    """Verifica si una factura ya ha sido enviada.
+
+    Devuelve:
+    - str (fecha/hora): Si la factura está registrada.
+    - None: Si la factura no existe en el registro.
+    
+    """
+    
+    registros = cargar_registro_enviadas(distribuidora)
+    return registros.get((cup, numero))
+
+
+def registrar_factura_enviada(distribuidora: str, cup: str, numero: str) -> None:
+    """Registra una factura enviada en el CSV.
+
+    CASOS DE USO:
+    1. Factura NUEVA:
+       - SIEMPRE crea una nueva línea en el registro con timestamp actual.
+    
+    2. Factura YA PROCESADA:
+       - NO hace nada (mantiene timestamp original).
+    """
+    key = distribuidora.lower()
+    registros = cargar_registro_enviadas(key)
+    fecha_hora = __import__('datetime').datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    
+    # CASO 2b: Factura ya procesada -> no hacer nada
+    if (cup, numero) in registros:
+        return
+
+    # CASO 1: Factura nueva (no existe) -> crear nueva línea en el registro
+    path = _get_path_enviadas(key)
+    file_exists = os.path.isfile(path)
+    try:
+        with open(path, 'a', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f, delimiter=';')
+            if not file_exists:
+                writer.writerow(['CUP', 'numero_factura', 'fecha_hora'])
+            writer.writerow([cup, numero, fecha_hora])
+    except Exception:
+        pass
+    registros[(cup, numero)] = fecha_hora
+
+
+
 
 
 # ------------------------------------------------------------------

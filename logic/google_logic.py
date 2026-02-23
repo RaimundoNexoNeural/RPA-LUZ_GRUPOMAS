@@ -16,6 +16,7 @@ class GoogleServiceManager:
         self.spreadsheet_id = spreadsheet_id
         
         self.cabecera_fija = [
+            "PROCESADA","ENVIADA", "AÑO",
             "MES FACTURADO", "TARIFA", "PG", "CUP", "NUMERO DE FACTURA", "DIRECCIÓN SUMINISTRO", 
             "TIPO DE TIENDA", "POTENCIA P1", "POTENCIA P2", "POTENCIA P3", "POTENCIA P4", 
             "POTENCIA P5", "POTENCIA P6", "Nº DÍAS", "IMPORTE POTENCIA", "CONSUMO KW P1", 
@@ -27,7 +28,7 @@ class GoogleServiceManager:
             "DIFERENCIA DE IE", "BASE IMPONIBLE", "IMPORTE TOTAL CALCULADO", 
             "DIFERENCIA ENTRE IMPORTE TOTAL Y BASE IMPONIBLE", "IMPORTE FACTURADO", "FECHA DE FACTURA", 
             "FECHA DE VENCIMIENTO", "FECHA DE PAGO EN BANCO", "FECHA DE DEVOLUCIÓN", "ACUERDO", 
-            "VENCIMIENTO DEL ACUERDO"
+            "VENCIMIENTO DEL ACUERDO","ERROR"
         ]
 
     def _aplicar_formato_hoja(self, sheet_id, tipo_robot):
@@ -35,13 +36,9 @@ class GoogleServiceManager:
         
         # Definición de índices de columnas parseadas (Listados proporcionados)
         if tipo_robot == "ENDESA":
-            # Columnas indicadas: A,B,D,E, F, H-M, N, O, P-U, V, Y, AA, AB, AC, AD, AG, AH, AN, AQ, AR, AS
-            # Índices (letra - 1): 4, 5, 7-12, 13, 14, 15-20, 21, 24, 26, 27, 28, 29, 32, 33, 39, 42, 43, 44
-            cols_parseadas = {0, 1, 3 ,4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24, 26, 27, 28, 29, 32, 33, 39, 42, 43, 44}
+            cols_parseadas = {0, 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 27, 29, 30, 31, 32, 35, 36, 42, 54, 46, 47, 52} 
         else: # ENEL
-            # Columnas indicadas: A, D, E, F, H-M, N, O, Z, AB, AC, AD, AG, AH
-            # Índices: 0, 3, 4, 5, 7-12, 13, 14, 25, 27, 28, 29, 32, 33
-            cols_parseadas = {0, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 25, 27, 28, 29, 32, 33}
+            cols_parseadas = {0, 1 ,2, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 28, 30, 31, 32, 35, 36, 52}
 
         requests = []
         
@@ -62,10 +59,10 @@ class GoogleServiceManager:
             })
 
         # 2. Configuración de Anchos de Columna
-        anchos_200 = [0, 3, 4, 6, 14, 15, 16, 17, 18, 19, 20, 39, 40, 42, 43, 44, 45] # G, O, P, Q, R, A, T, U, AN, AO, AQ, AR, AS, AT
+        anchos_200 = [3, 6, 7, 9, 17, 18, 19, 20, 21, 22, 23, 42, 43, 45, 46, 47, 48, 49, 50] # G, O, P, Q, R, A, T, U, AN, AO, AQ, AR, AS, AT
         anchos_250 = [24, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 46] # Y, AB..AM, AP, AU
-        anchos_300 = [31]
-        anchos_400 = [5, 41]
+        anchos_300 = [34]
+        anchos_400 = [8, 44, 52]
         
         for col_idx in anchos_200:
             requests.append({"updateDimensionProperties": {"range": {"sheetId": sheet_id, "dimension": "COLUMNS", "startIndex": col_idx, "endIndex": col_idx + 1}, "properties": {"pixelSize": 200}, "fields": "pixelSize"}})
@@ -89,19 +86,31 @@ class GoogleServiceManager:
             }
         })
 
+        # 4. Formato: convertir columnas 0 y 1 en casillas (checkbox) desde la fila 2 en adelante
+        for col in (0, 1):
+            requests.append({
+                "repeatCell": {
+                    "range": {"sheetId": sheet_id, "startRowIndex": 1, "endRowIndex": 1000, "startColumnIndex": col, "endColumnIndex": col + 1},
+                    "cell": {
+                        "dataValidation": {
+                            "condition": {"type": "BOOLEAN"},
+                            "showCustomUi": True
+                        }
+                    },
+                    "fields": "dataValidation"
+                }
+            })
+
         self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body={"requests": requests}).execute()
 
     def _aplicar_formato_datos(self, sheet_id, fila_index):
         """Aplica formato de moneda, fecha y unidades a las celdas de la fila recién insertada."""
         
+        cols_moneda = [10, 11, 12, 13, 13, 15, 17, 27, 29, 30, 31, 32, 35, 36, 42, 45]
         
-        cols_moneda = [7, 8, 9, 10, 11, 12, 14, 24,26,27,28,29,32,33,39,42]
+        cols_fecha = [46, 47]
         
-        
-        cols_fecha = [43,44]
-        
-        
-        cols_kwh = [15,16,17,18,19,20,21]
+        cols_kwh = [18, 19, 20, 21, 22, 23, 24]
 
         requests = []
 
@@ -200,7 +209,7 @@ class GoogleServiceManager:
 
     def upsert_factura(self, cup, numero_factura, datos, tipo_robot):
         sheet_id = self.asegurar_hoja_cups(cup, tipo_robot)
-        res = self.sheets.spreadsheets().values().get(spreadsheetId=self.spreadsheet_id, range=f"'{cup}'!E:E").execute()
+        res = self.sheets.spreadsheets().values().get(spreadsheetId=self.spreadsheet_id, range=f"'{cup}'!H:H").execute()
         valores_e = res.get('values', [])
         
         fila_index = -1
@@ -285,13 +294,15 @@ def registrar_factura_google_endesa(factura: FacturaEndesa, ruta_pdf: str = None
     mgr = GoogleServiceManager(ID_SHEET_ENDESA)
     f = [None] * len(mgr.cabecera_fija)
     # Mapeo idéntico al anterior...
-    f[0], f[1], f[3], f[4], f[5] = factura.mes_facturado, factura.tarifa, factura.cup, factura.numero_factura, factura.direccion_suministro
-    f[7:13] = [factura.potencia_p1, factura.potencia_p2, factura.potencia_p3, factura.potencia_p4, factura.potencia_p5, factura.potencia_p6]
-    f[13], f[14] = factura.num_dias, factura.importe_de_potencia
-    f[15:21] = [factura.consumo_kw_p1, factura.consumo_kw_p2, factura.consumo_kw_p3, factura.consumo_kw_p4, factura.consumo_kw_p5, factura.consumo_kw_p6]
-    f[21], f[24], f[26], f[27], f[28], f[29] = factura.kw_totales, factura.importe_consumo, factura.importe_bono_social, factura.importe_impuesto_electrico, factura.importe_alquiler_equipos, factura.importe_otros_conceptos
-    f[32], f[33], f[39], f[42], f[43], f[44] = factura.importe_exceso_potencia, factura.importe_reactiva, factura.importe_base_imponible, factura.importe_facturado, factura.fecha_de_factura, factura.fecha_de_vencimiento
-    
+    f[0], f[1], f[2] = factura.procesada, factura.enviada, factura.anno_facturado
+    f[3], f[4], f[6], f[7], f[8] = factura.mes_facturado, factura.tarifa, factura.cup, factura.numero_factura, factura.direccion_suministro
+    f[10:16] = [factura.potencia_p1, factura.potencia_p2, factura.potencia_p3, factura.potencia_p4, factura.potencia_p5, factura.potencia_p6]
+    f[16], f[17] = factura.num_dias, factura.importe_de_potencia
+    f[18:24] = [factura.consumo_kw_p1, factura.consumo_kw_p2, factura.consumo_kw_p3, factura.consumo_kw_p4, factura.consumo_kw_p5, factura.consumo_kw_p6]
+    f[24], f[27], f[29], f[30], f[31], f[32] = factura.kw_totales, factura.importe_consumo, factura.importe_bono_social, factura.importe_impuesto_electrico, factura.importe_alquiler_equipos, factura.importe_otros_conceptos
+    f[35], f[36], f[41], f[45], f[46], f[47] = factura.importe_exceso_potencia, factura.importe_reactiva, factura.importe_base_imponible, factura.importe_facturado, factura.fecha_de_factura, factura.fecha_de_vencimiento
+    f[52] = factura.msg_error_RPA
+
     mgr.upsert_factura(factura.cup, factura.numero_factura, f, "ENDESA")
     if ruta_pdf: mgr.subir_pdf(ID_FOLDER_ENDESA_PDF, ruta_pdf)
 
@@ -299,9 +310,11 @@ def registrar_factura_google_enel(factura: FacturaEnel, ruta_pdf: str = None):
     mgr = GoogleServiceManager(ID_SHEET_ENEL)
     f = [None] * len(mgr.cabecera_fija)
     # Mapeo idéntico al anterior...
-    f[0], f[3], f[4], f[5] = factura.mes_facturado, factura.cup, factura.numero_factura, factura.direccion_suministro
-    f[7:13] = [factura.potencia_p1, factura.potencia_p2, factura.potencia_p3, factura.potencia_p4, factura.potencia_p5, factura.potencia_p6]
-    f[13], f[14], f[25], f[27], f[28], f[29], f[32], f[33] = factura.num_dias, factura.importe_de_potencia, factura.importe_atr, factura.importe_impuesto_electrico, factura.importe_alquiler_equipos, factura.importe_otros_conceptos, factura.importe_exceso_potencia, factura.importe_reactiva
-    
+    f[0], f[1], f[2] = factura.procesada, factura.enviada, factura.anno_facturado
+    f[3], f[6], f[7], f[8] = factura.mes_facturado, factura.cup, factura.numero_factura, factura.direccion_suministro
+    f[10:16] = [factura.potencia_p1, factura.potencia_p2, factura.potencia_p3, factura.potencia_p4, factura.potencia_p5, factura.potencia_p6]
+    f[16], f[17], f[28], f[30], f[31], f[32], f[35], f[36] = factura.num_dias, factura.importe_de_potencia, factura.importe_atr, factura.importe_impuesto_electrico, factura.importe_alquiler_equipos, factura.importe_otros_conceptos, factura.importe_exceso_potencia, factura.importe_reactiva
+    f[52] = factura.msg_error_RPA
+
     mgr.upsert_factura(factura.cup, factura.numero_factura, f, "ENEL")
     if ruta_pdf: mgr.subir_pdf(ID_FOLDER_ENEL_PDF, ruta_pdf)

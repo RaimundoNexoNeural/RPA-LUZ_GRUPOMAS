@@ -11,6 +11,8 @@ class FacturaEndesa(BaseModel):
     # === 0. ERRORES ===
     error_RPA: Optional[bool] = False
     msg_error_RPA: Optional[str] = ""
+    procesada: Optional[bool] = False
+    enviada: Optional[bool] = False
     
     # === 1. Metadata extraída directamente de la TABLA de Endesa ===
        
@@ -37,6 +39,7 @@ class FacturaEndesa(BaseModel):
     # === 3. Datos DETALLADOS extraídos del XML/PDF ===
     
     # Campos generales
+    anno_facturado: Optional[str] = None
     mes_facturado: Optional[str] = None
     tarifa: Optional[str] = None
     direccion_suministro: Optional[str] = None
@@ -128,6 +131,8 @@ class FacturaEnel(BaseModel):
     # === 0. ERRORES ===
     error_RPA: Optional[bool] = False
     msg_error_RPA: Optional[str] = ""
+    procesada: Optional[bool] = False
+    enviada: Optional[bool] = False
 
     # === 1. Metadata extraída directamente de la TABLA de Endesa ===
 
@@ -153,6 +158,7 @@ class FacturaEnel(BaseModel):
     # === 3. Datos DETALLADOS extraídos del PDF ===
     
     # Campos generales
+    anno_facturado: Optional[str] = None
     mes_facturado: Optional[str] = None
     tarifa: Optional[str] = None
     num_dias: Optional[int] = None

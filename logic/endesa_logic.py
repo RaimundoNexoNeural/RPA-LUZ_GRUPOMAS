@@ -4,11 +4,12 @@ from datetime import datetime
 from playwright.async_api import Page, TimeoutError, Locator
 from modelos_datos import FacturaEndesa
 from logs import escribir_log
-from config import DOWNLOAD_FOLDERS, URL_LOGIN_ENDESA, URL_FACTURAS_ENDESA, GRUPO_EMPRESARIAL, TABLE_LIMIT, REPROCESADO
+from config import DOWNLOAD_FOLDERS, URL_LOGIN_ENDESA, URL_FACTURAS_ENDESA, GRUPO_EMPRESARIAL, TABLE_LIMIT, REPROCESADO, DESTINATARIOS_FACTURAS
 from parsers.xml_parser_endesa import procesar_xml_local_endesa
 from parsers.pdf_parser_endesa import procesar_pdf_local_endesa
-from parsers.exportar_datos import insertar_factura_en_csv, es_factura_procesada, registrar_factura_procesada
-from google_services import registrar_factura_google_endesa
+from parsers.exportar_datos import insertar_factura_en_csv, es_factura_procesada, registrar_factura_procesada, es_factura_enviada, registrar_factura_enviada
+from logic.google_logic import registrar_factura_google_endesa
+from logic.mail_logic import enviar_factura_email
 
 
 # === FUNCIONES AUXILIARES PARA CARGA Y PROCESADO DE DATOS DE ENDESA  === #
@@ -276,8 +277,8 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
         # C.2. Si no se ha descargado el XML, se procesa el PDF
         else:
             escribir_log(f"   -> [ADVERTENCIA XML] No se descargó el XML, omitiendo parseo para factura {factura.numero_factura} ({factura.cup})")
-            factura.error_RPA = True
-            factura.msg_error_RPA = "ERROR_FILES: El archivo XML no se ha podido descargar."
+            factura.error_RPA = False
+            factura.msg_error_RPA += "ERROR_FILES: El archivo XML no se ha podido descargar."
             
             # C.2.1 Procesamos el PDF mediante OCR
         if not xml_path and pdf_path:
@@ -304,26 +305,53 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
         escribir_log(f"[GOOGLE SHEETS/DRIVE]")
         try:
             # pdf_path es la variable que ya tienes definida en tu código con la ruta local del archivo
+            factura.procesada = True
             registrar_factura_google_endesa(factura, pdf_path)
             escribir_log(f"    -> [OK] [GOOGLE] Registro y subida completados para factura {factura.numero_factura}")
         except Exception as e_google:
+            factura.procesada = False
             factura.error_RPA = True
             factura.msg_error_RPA += " ERROR_GOOGLE: Fallo al registrar en Google Sheets o subir a Google Drive."
             escribir_log(f"    --> [ERROR GOOGLE] Fallo al registrar en Sheets/Drive: {str(e_google)}")
 
-        # F. si todo ha ido bien sin errores RPA añadimos el registro de procesada
+        # F. Si todo ha ido bien sin errores RPA añadimos el registro de procesada
         if not factura.error_RPA and factura.cup and factura.numero_factura:
             try:
+                factura.procesada = True
                 registrar_factura_procesada("endesa", factura.cup, factura.numero_factura)
                 escribir_log(f"[REGISTRO] Factura {factura.numero_factura} marcada como procesada.")
             except Exception:
-                # no crítico si falla el registro
+                factura.procesada = False
                 pass
 
-        # G. Devolvemos la factura con los datos extraidos y procesados.
+        # G. Envio de Factura por correo.
+        escribir_log(f"[EMAIL SENDING]")
+        if pdf_path and not factura.error_RPA:
+            # Listado de correos le�do desde la configuraci�n (.env via config.py)
+            lista_distribucion = DESTINATARIOS_FACTURAS
+
+            if not es_factura_enviada("endesa", factura.cup, factura.numero_factura):
+                # Llamada asíncrona al envío
+                exito_mail = await enviar_factura_email(
+                    destinatarios=lista_distribucion,
+                    ruta_pdf=pdf_path,
+                    numero_factura=factura.numero_factura,
+                    cup=factura.cup
+                )
+            
+            else:
+                exito_mail = True
+                escribir_log(f"    [SKIP] La factura {factura.numero_factura} ({factura.cup}) ya fue enviada previamente.")
+            
+            if exito_mail:
+                registrar_factura_enviada("endesa", factura.cup, factura.numero_factura)
+            else:
+                factura.msg_error_RPA += " | Error en envío de email."
+
+        # H. Devolvemos la factura con los datos extraidos y procesados.
         return factura
     
-        # G. Si no se ha podido procesar nada de la fila se informa y se devuelve None
+        # I. Si no se ha podido procesar nada de la fila se informa y se devuelve None
     except Exception as e:
         escribir_log(f"    -->[ERROR] Fallo al extraer datos de la fila de la tabla: {str(e)}")
         return None

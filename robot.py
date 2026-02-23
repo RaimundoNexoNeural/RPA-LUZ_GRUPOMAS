@@ -1,10 +1,6 @@
 ### IMPORTACIÓN DE DEPENDENCIAS
 import asyncio
-import re
-import csv 
-import base64 
-import os 
-from playwright.async_api import Page, TimeoutError, Locator
+
     # Navegador Asíncrono
 from navegador import NavegadorAsync
     # Clases Facturas

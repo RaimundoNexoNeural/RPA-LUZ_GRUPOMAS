@@ -115,6 +115,14 @@ def procesar_pdf_local_endesa(factura: FacturaEndesa, ruta_pdf: str) -> bool:
             except Exception as e_fecha:
                 escribir_log(f"    -->[!][OCR] No se pudo calcular el mes facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
         
+            # B.2 Año facturado
+        if factura.fecha_fin_periodo and factura.fecha_fin_periodo != "N/A":
+            try:
+                f_fin_str = factura.fecha_fin_periodo.replace("/", "-")
+                dt_fin = datetime.strptime(f_fin_str, '%d-%m-%Y')
+                factura.anno_facturado = str(dt_fin.year)
+            except Exception as e_fecha:
+                escribir_log(f"    -->[!][OCR] No se pudo calcular el año facturado a partir de la fecha_fin_periodo '{factura.fecha_fin_periodo}': {str(e_fecha)[:100]}")
 
 
 

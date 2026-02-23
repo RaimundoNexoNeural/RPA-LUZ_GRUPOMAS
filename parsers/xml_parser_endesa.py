@@ -136,6 +136,15 @@ def procesar_xml_local_endesa(factura: FacturaEndesa, filepath: str):
         except ValueError:
             escribir_log(f"    -> [!][XML] No se pudo parsear la fecha: {transaction_date}")
             pass
+
+        # Año Facturado
+    if transaction_date:
+        try:
+            dt = datetime.strptime(transaction_date, '%Y-%m-%d')
+            factura.anno_facturado = str(dt.year)
+        except ValueError:
+            escribir_log(f"    -> [!][XML] No se pudo parsear la fecha para obtener el año: {transaction_date}")
+            pass
     
     # Base Imponible
     base_imponible = _extract_simple_value(content, 'TotalGrossAmountBeforeTaxes', is_float=True)
