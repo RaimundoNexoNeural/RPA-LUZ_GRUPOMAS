@@ -74,7 +74,6 @@ class NavegadorAsync:
         """
         Devuelve el objeto Page actual.
         """
-
         if not self.page:
             raise RuntimeError("El navegador no ha sido inicializado.")
         return self.page

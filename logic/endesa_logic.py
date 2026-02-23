@@ -14,7 +14,7 @@ from logic.mail_logic import enviar_factura_email
 
 # === FUNCIONES AUXILIARES PARA CARGA Y PROCESADO DE DATOS DE ENDESA  === #
 
-# AUX.1.Conversión de importes (str) a float
+# AUX.1 Conversión de importes (str) a float
 def _clean_and_convert_float(text: str) -> float:
     '''
     Limpia una cadena de texto de importe (ej. '4697.73 €') y la convierte a float.
@@ -30,7 +30,7 @@ def _clean_and_convert_float(text: str) -> float:
         return 0.0
     
 
-# AUX.2.Extracción de texto de una celda
+# AUX.2 Extracción de texto de una celda
 async def _extraer_texto_de_td(td: Locator) -> str:
     '''
     Extrae texto de una celda de tabla.

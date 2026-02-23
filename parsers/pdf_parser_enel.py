@@ -7,6 +7,9 @@ from logs import escribir_log
 from modelos_datos import FacturaEnel
 from config import PROMPT_ENEL_PATH, MODEL
 
+# --------------------------------------------------------------------------------
+# --- FUNCIÓN PRINCIPAL DE PROCESAMIENTO (OCR) ---
+# --------------------------------------------------------------------------------
 
 def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
     '''
@@ -69,38 +72,15 @@ def procesar_pdf_local_enel(factura: FacturaEnel, ruta_pdf: str) -> bool:
             }
         )
 
-        # === 2. Revision, Guardado y Procesado de datos extraídos ===
+    # === 2. Revision, Guardado y Procesado de datos extraídos ===
         datos_extraidos = json.loads(response.output_text)
 
 
+        # A. Actualización dinámica de campos en el objeto factura usando setattr
         for campo, valor_ocr in datos_extraidos.items():
+            setattr(factura, campo, valor_ocr)
 
-
-        # A. Decidir si se actualiza el valor del campo en el objeto factura (Omitible) --> Revisar política
-
-            valor_actual = getattr(factura, campo)
-            valor_por_defecto = FacturaEnel.model_fields[campo].default
-
-            # Saltamos si el OCR no devolvió nada útil
-            if valor_ocr is None or str(valor_ocr).lower() == "null" or valor_ocr == "":
-                #escribir_log(f"\t    -->[!][OCR] Valor no extraido para el atributo '{campo}' | Valor OCR: '{valor_ocr}'")
-                continue
-
-            # Si el valor actual es el valor por defecto, lo actualizamos con el valor OCR
-            if valor_actual == valor_por_defecto:
-                setattr(factura, campo, valor_ocr)
-                
-            # Si el valor actual es diferente del valor por defecto
-            else:
-                # Comparamos si el valor extraído coincide con el que ya teníamos
-                if valor_actual != valor_ocr:
-                    # escribir_log(
-                    #     f"    -->[!][OCR] Conflicto de valores para el atributo '{campo}' | "
-                    #     f"Valor actual: '{valor_actual}' | Valor OCR: '{valor_ocr}'"
-                    # )
-                    pass
         
-
         # B. Procesamiento adicional de campos específicos
         
             # B.1 Mes facturado

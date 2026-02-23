@@ -114,12 +114,6 @@ class FacturaEndesa(BaseModel):
     fecha_de_vencimiento: Optional[str] = None
 
 
-    def to_serializable_dict(self):
-        """
-        Convierte el objeto FacturaEndesaCliente en un diccionario serializable en JSON.
-        """
-        return self.dict()
-
 
 ### FACTURA ENEL ###  
 class FacturaEnel(BaseModel):
