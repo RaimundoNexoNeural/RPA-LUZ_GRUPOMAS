@@ -33,8 +33,7 @@ mkdir -p temp_downloads/enel/csv
 mkdir -p temp_downloads/enel/pdf
 
 # carpetas para registro de facturas procesadas y enviadas
-mkdir -p temp_downloads/registros/endesa
-mkdir -p temp_downloads/registros/enel
+mkdir -p temp_downloads/registros
 
 # asegurar que temp_downloads raíz existe (por si lo borró alguien)
 mkdir -p temp_downloads

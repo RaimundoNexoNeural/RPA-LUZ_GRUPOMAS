@@ -112,16 +112,16 @@ def clear_files(
 ):
     '''
     Coordina la eliminación de archivos descargados y la purga de registros internos de trazabilidad.
-    Parametros:
-        - portal (str): Distribuidora objetivo.
-        - tipo (str): Formato de archivo a eliminar.
-        - fecha (str): Filtro temporal de creación.
-        - limpiar_logs (bool): Flag de reseteo de logs.
-        - nivel_log (str): Categoría de log específica.
-        - limpiar_procesados (bool): Flag para borrar historial de procesos.
-        - limpiar_enviadas (bool): Flag para borrar historial de correos.
-    Retorna
-        - dict: Resumen de elementos eliminados por categoría.
+    \nParametros:
+        \n- portal (str): Distribuidora objetivo.
+        \n- tipo (str): Formato de archivo a eliminar.
+        \n- fecha (str): Filtro temporal de creación.
+        \n- limpiar_logs (bool): Flag de reseteo de logs.
+        \n- nivel_log (str): Categoría de log específica.
+        \n- limpiar_procesados (bool): Flag para borrar historial de procesos.
+        \n- limpiar_enviadas (bool): Flag para borrar historial de correos.
+    \nRetorna
+        \n- dict: Resumen de elementos eliminados por categoría.
     '''
     log.info(f"[API] Solicitud de limpieza recibida. Parámetros: portal={portal}, tipo={tipo}, fecha={fecha}")
     # A. Limpieza de archivos temporales de descarga
@@ -156,12 +156,12 @@ async def run_endesa(
 ):
     '''
     Lanza el proceso de extracción para el portal de clientes de Endesa.
-    Parametros:
-        - fecha_desde (str): Inicio del rango.
-        - fecha_hasta (str): Fin del rango.
-        - cups (list): Filtro de suministros.
-    Retorna
-        - list[FacturaEndesa]: Datos extraídos y procesados.
+    \nParametros:
+        \n- fecha_desde (str): Inicio del rango.
+        \n- fecha_hasta (str): Fin del rango.
+        \n- cups (list): Filtro de suministros.
+    \nRetorna
+        \n- list[FacturaEndesa]: Datos extraídos y procesados.
     '''
     log.info(f"[API] Lanzando Robot Endesa Clientes. Periodo: {fecha_desde} - {fecha_hasta}. CUPS: {len(cups) if cups else 'Global'}")
     try:
@@ -181,6 +181,11 @@ async def run_enel(
 ):
     '''
     Lanza el proceso de extracción para el portal de distribución de Enel.
+    \nParametros:
+        \n- fecha_desde (str): Inicio del rango.
+        \n- fecha_hasta (str): Fin del rango.
+    \nRetorna
+        \n- list[FacturaEnel]: Datos extraídos y procesados.
     '''
     log.info(f"[API] Lanzando Robot Enel Distribución. Periodo: {fecha_desde} - {fecha_hasta}")
     try:
@@ -200,6 +205,12 @@ async def run_all(
 ):
     '''
     Ejecuta ambos robots secuencialmente y unifica los resultados.
+    \nParametros:
+        \n- fecha_desde (str): Inicio del rango.
+        \n- fecha_hasta (str): Fin del rango.
+        \n- cups_endesa (list): Filtro de suministros para Endesa (opcional).
+    \nRetorna
+        \n- list[Union[FacturaEndesa, FacturaEnel]]: Lista combinada de facturas extraídas.
     '''
     log.info(f"[API] Lanzando Ejecución Consolidada (Endesa + Enel). Periodo: {fecha_desde} - {fecha_hasta}")
     try:
