@@ -295,6 +295,7 @@ async def _extraer_datos_fila_endesa(page: Page, row: Locator) -> FacturaEndesa 
                 
         # C.3. Si no se ha descargado ni el XML ni el PDF, se registra el error y se devuelve la factura solo con los datos básico de la tabla.
         if not xml_path and not pdf_path:
+            factura.procesada = False
             factura.error_RPA = True
             factura.msg_error_RPA = "ERROR_DESCARGA: No se pudo descargar ningún archivo (XML/PDF) para esta factura."
             log.error(f"\t\t[!] Fallo crítico: No hay archivos descargables para factura {factura.numero_factura}")
@@ -490,7 +491,7 @@ async def _iniciar_sesion_endesa(page: Page, username: str, password: str) -> bo
     try:
     # A. Espera que se cargue el formulario de inicio de sesion
         log.debug("Localizando formulario de inicio de sesión slds-form")
-        await page.wait_for_selector('form.slds-form', timeout=10000)
+        await page.wait_for_selector('form.slds-form', state="visible", timeout=20000)
 
     # B. Rellena los campos de Usuario y Contraseña
         await page.fill('input[name="Username"]', username)
@@ -501,8 +502,7 @@ async def _iniciar_sesion_endesa(page: Page, username: str, password: str) -> bo
         
     # D. Esperar el indicador de éxito (el botón de cookies) en la nueva página
         log.debug("Login enviado, esperando selector de éxito (#truste-consent-button)")
-        await page.wait_for_selector("#truste-consent-button", timeout=60000)
-        
+        await page.wait_for_selector("#truste-consent-button", state="visible", timeout=60000)
         return True
 
     # E. Si hay algún error, lo registra
@@ -593,7 +593,7 @@ async def _realizar_busqueda_facturas_endesa(page: Page, fecha_desde: str, fecha
         log.debug(f"Navegando a la URL de facturas: {URL_FACTURAS_ENDESA}")
         await page.goto(URL_FACTURAS_ENDESA, wait_until="domcontentloaded")
         main_filter_container_selector = 'div.filter-padd-container'
-        await page.wait_for_selector(main_filter_container_selector, timeout=20000)
+        await page.wait_for_selector(main_filter_container_selector,state="visible", timeout=20000)
 
         # B. Rellenar filtros
             

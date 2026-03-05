@@ -173,7 +173,46 @@ class GoogleServiceManager:
             log.debug(f"Aplicando formato de datos a la fila {fila_index}")
             self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body={"requests": requests}).execute()
 
-    # GGL.4 Resaltado de celdas con datos
+    # GGL.4 Protección de columnas de estado
+    def _proteger_columnas_estado(self, sheet_id):
+        '''
+        Protege las columnas 0 y 1 (PROCESADA y ENVIADA) para que solo la 
+        cuenta de servicio del robot pueda modificarlas.
+        Parametros:
+            - sheet_id (int): ID de la pestaña a proteger.
+        '''
+        log.debug(f"Configurando protección de columnas A y B en la pestaña ID: {sheet_id}")
+        
+        request = {
+            "addProtectedRange": {
+                "protectedRange": {
+                    "range": {
+                        "sheetId": sheet_id,
+                        "startRowIndex": 0,
+                        "startColumnIndex": 0,
+                        "endColumnIndex": 2  # Protege columna 0 y 1
+                    },
+                    "description": "Protección automática RPA: Estado de Proceso",
+                    "warningOnly": False,
+                    "editors": {
+                        "users": [self.creds.service_account_email],  # Solo el robot puede editar
+                        "groups": [],
+                        "domainUsersCanEdit": False
+                    }
+                }
+            }
+        }
+
+        try:
+            self.sheets.spreadsheets().batchUpdate(
+                spreadsheetId=self.spreadsheet_id, 
+                body={"requests": [request]}
+            ).execute()
+        except Exception as e:
+            # Si ya existe una protección similar, la API podría lanzar error, lo capturamos
+            log.warning(f"No se pudo aplicar la protección (posiblemente ya existe): {e}")
+
+    # GGL.5 Resaltado de celdas con datos
     def _colorear_fila_datos(self, sheet_id, fila_index, datos_fila):
         '''
         Resalta con un color de fondo tenue las celdas que contienen información real (no vacía o por defecto).
@@ -195,7 +234,7 @@ class GoogleServiceManager:
         if requests:
             self.sheets.spreadsheets().batchUpdate(spreadsheetId=self.spreadsheet_id, body={"requests": requests}).execute()
 
-    # GGL.5 Gestión de pestañas por CUP
+    # GGL.6 Gestión de pestañas por CUP
     def asegurar_hoja_cups(self, cup: str, tipo_robot):
         '''
         Garantiza que existe una pestaña con el nombre del CUP; si no, la crea e inicializa.
@@ -224,11 +263,15 @@ class GoogleServiceManager:
             
             # B.2. Aplicación de formato global a la nueva pestaña
             self._aplicar_formato_hoja(sheet_id, tipo_robot)
+            
+            # B.3. Protección de columnas de estado del RPA
+            self._proteger_columnas_estado(sheet_id)
+            
             return sheet_id
             
         return hojas[cup]
 
-    # GGL.6 Inserción o actualización de facturas (Upsert)
+    # GGL.7 Inserción o actualización de facturas (Upsert)
     def upsert_factura(self, cup, numero_factura, datos, tipo_robot):
         '''
         Busca si una factura ya existe en la hoja del CUP para actualizarla o añadirla al final.
@@ -269,7 +312,7 @@ class GoogleServiceManager:
         self._colorear_fila_datos(sheet_id, fila_index, datos)
         self._aplicar_formato_datos(sheet_id, fila_index)
 
-    # GGL.7 Navegación y creación de carpetas en Drive
+    # GGL.8 Navegación y creación de carpetas en Drive
     def _get_or_create_folder(self, parent_id: str, folder_name: str) -> str:
         '''
         Verifica la existencia de una subcarpeta y la crea en caso negativo.
@@ -298,7 +341,7 @@ class GoogleServiceManager:
         created = self.drive.files().create(body=meta, supportsAllDrives=True).execute()
         return created.get('id')
 
-    # GGL.8 Subida de archivos PDF a Drive
+    # GGL.9 Subida de archivos PDF a Drive
     def subir_pdf(self, folder_id, ruta_local):
         '''
         Sube un archivo PDF local a Drive, organizándolo en subcarpetas por mes (AAAAMM).

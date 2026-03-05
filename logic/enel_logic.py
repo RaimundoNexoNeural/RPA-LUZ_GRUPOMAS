@@ -315,7 +315,7 @@ async def _extraer_tabla_facturas_enel(page: Page, contador_facturas: int = 0) -
         try:
             log.debug("Pulsando botón 'Siguiente' para cargar más facturas...")
             await next_button.click(timeout=10000)
-            await page.wait_for_load_state("networkidle")
+            await page.wait_for_load_state("domcontentloaded")
             await page.wait_for_timeout(2000) 
         except TimeoutError:
             log.error("    -->[ERROR] Tiempo excedido esperando la siguiente página de resultados.")
@@ -363,8 +363,8 @@ async def _iniciar_sesion_enel(page: Page, username: str, password: str) -> bool
         await page.click('button:has-text("ENTRAR")')
 
     # D. Esperar el indicador de éxito
-        log.debug("Enviando credenciales, esperando 'networkidle'...")
-        await page.wait_for_load_state("networkidle")
+        log.debug("Enviando credenciales, esperando 'domcontentloaded'...")
+        await page.wait_for_load_state("domcontentloaded")
 
         return True
     
@@ -456,7 +456,7 @@ async def _seleccionar_rol_especifico(page: Page, nombre_rol: str) -> bool:
         else:
             await opcion.click()
             log.debug(f"Click en rol '{nombre_rol}', esperando carga...")
-            await page.wait_for_load_state("networkidle")
+            await page.wait_for_load_state("domcontentloaded")
 
     
         return True
@@ -485,7 +485,7 @@ async def _aplicar_filtros_fechas(page: Page, f_desde, f_hasta) -> bool:
     
     # A. Navega a la página de facturas
         log.debug(f"Navegando a facturas Enel: {URL_FACTURAS_ENEL}")
-        await page.goto(URL_FACTURAS_ENEL, wait_until="networkidle")
+        await page.goto(URL_FACTURAS_ENEL, wait_until="domcontentloaded")
         
     # B. Activa la opcion de filtro por rango de fechas
         log.debug("Activando filtro por rango de fechas...")

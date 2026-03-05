@@ -17,7 +17,7 @@ ENTORNO = os.getenv("ENTORNO", "DESARROLLO").upper()
 
 # CFG.2 Parámetros del navegador (Playwright)
 # Modo sin cabeza: True para ejecución en servidor (sin interfaz), False para visualizar el navegador
-HEADLESS_MODE = os.getenv("HEADLESS_MODE", "True").lower() == "true"
+HEADLESS_MODE = os.getenv("HEADLESS_MODE", "True").lower() == "false"
 
 # Número máximo de reintentos de inicio de sesión antes de lanzar un error crítico
 MAX_LOGIN_ATTEMPTS = 5
@@ -26,8 +26,8 @@ MAX_LOGIN_ATTEMPTS = 5
 # === 2. CREDENCIALES Y SECRETOS (Desde .env) ===
 
 # ACC.1 Portales de Energía
-USER_ENDESA = os.getenv("ENDESA_USER")
-PASSWORD_ENDESA = os.getenv("ENDESA_PASS")
+USER_ENDESA = os.getenv("ENDESA_USER","pfombellav@somosgrupomas.com")
+PASSWORD_ENDESA = os.getenv("ENDESA_PASS","Guillena2024*")
 
 USER_ENEL = os.getenv("ENEL_USER")
 PASSWORD_ENEL = os.getenv("ENEL_PASS")

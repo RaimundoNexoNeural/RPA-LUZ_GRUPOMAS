@@ -23,6 +23,9 @@ temp_downloads/
 # Ignoramos los logs locales
 logs/*.txt
 
+# Ignoramos los archivos de rutas locales (si se generan)
+rutas.txt
+
 # === IDEs y Editores ===
 .vscode/
 .idea/
